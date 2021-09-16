@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { WorkPlaceModule } from './work-place/work-place.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { WorkPlaceModule } from './work-place/work-place.module';
     AppRoutingModule,
     UserModule,
     WorkPlaceModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

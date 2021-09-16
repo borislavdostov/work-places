@@ -1,3 +1,16 @@
-.mat-icon{
+mat-toolbar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+    height: 56px;
+}
+
+mat-icon{
     margin-right: 5px;
+}
+
+a:hover {
+    background: rgba(0,0,0,.4);
+    color: #f48fb1;
 }
