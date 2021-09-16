@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
+import { UserModule } from './user/user.module';
+import { WorkPlaceModule } from './work-place/work-place.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { CoreModule } from './core/core.module';
     CoreModule,
     BrowserModule,
     AppRoutingModule,
+    UserModule,
+    WorkPlaceModule,
     BrowserAnimationsModule
   ],
   providers: [],
