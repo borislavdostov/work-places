@@ -5,22 +5,27 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
-    NotFoundComponent
+    NotFoundComponent,
+    LoaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    LoaderComponent
   ]
 })
 export class SharedModule { }
