@@ -38,7 +38,8 @@ export class UserListComponent implements OnInit {
   openNewDialog() {
     let dialofRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
       data: {
-        title: 'Add User'
+        title: 'Add User',
+        confirmButtonTitle: 'Create'
       }
     });
 
@@ -53,7 +54,22 @@ export class UserListComponent implements OnInit {
 
   }
 
-  onEditClick(id: number) {
+  openEditDialog(user: IUser) {
+    let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
+      data: {
+        title: `Edit User ${user.name}`,
+        confirmButtonTitle: 'Save'
+      }
+    });
+
+    dialogRef.beforeClosed().subscribe(confirmed => {
+      if (confirmed) {
+        this.editUser(user);
+      }
+    });
+  }
+
+  editUser(user: IUser) {
 
   }
 

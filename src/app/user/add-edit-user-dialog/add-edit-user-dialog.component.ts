@@ -9,11 +9,13 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AddEditUserDialogComponent {
 
   title: string;
+  confirmButtonTitle: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
     private dialogRef: MatDialogRef<AddEditUserDialogComponent>) {
     this.title = data.title;
+    this.confirmButtonTitle = data.confirmButtonTitle;
   }
 
   onCreateClick() {
