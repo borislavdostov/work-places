@@ -18,12 +18,19 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers().subscribe(users => this.users = users);
   }
 
-  onEditClick(id: number){
+  onEditClick(id: number) {
     alert(id);
   }
 
-  onDeleteClick(id: number){
-    alert(id);
+  onDeleteClick(id: number) {
+    this.userService.deleteUser(id).subscribe({
+      next: (data) => {
+
+      },
+      error: (err) => {
+
+      }
+    });
   }
 
 }
