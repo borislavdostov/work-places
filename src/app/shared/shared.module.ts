@@ -9,11 +9,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input'
 
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './loader/loader.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +43,9 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     LoaderComponent,
     ToolbarComponent,
     MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
     ConfirmationDialogComponent
   ]
 })
