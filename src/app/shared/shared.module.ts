@@ -12,12 +12,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './loader/loader.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
     NotFoundComponent,
     LoaderComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
