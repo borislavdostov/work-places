@@ -30,6 +30,10 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  onNewClicked(){
+    alert("USER");
+  }
+
   onEditClick(id: number) {
 
   }
@@ -44,10 +48,5 @@ export class UserListComponent implements OnInit {
         snackBarRef.onAction().subscribe(() => this.onDeleteClick(id));
       }
     });
-  }
-
-  onNewClicked(){
-    console.log("USER");
-    
   }
 }

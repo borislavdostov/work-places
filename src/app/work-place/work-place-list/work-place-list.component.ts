@@ -29,6 +29,10 @@ export class WorkPlaceListComponent implements OnInit {
     });
   }
 
+  onNewClicked(){
+    alert("Work Place");
+  }
+
   onEditClick(id: number) {
     alert(id);
   }
@@ -45,8 +49,5 @@ export class WorkPlaceListComponent implements OnInit {
     });
   }
 
-  onNewClicked(){
-    console.log("Work Place");
-  }
 
 }
