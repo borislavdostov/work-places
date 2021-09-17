@@ -12,12 +12,11 @@ import { WorkPlaceService } from '../work-place.service';
 export class WorkPlaceListComponent implements OnInit {
 
   workPlaces!: IUserWorkPlace[];
-  count: number = 0;
+  workPlacesTitle: string = '';
   displayedColumns: string[] = ['user', 'workPlace', 'fromDate', 'toDate', 'options'];
 
   constructor(
     private workPlaceService: WorkPlaceService,
-    private router: Router,
     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -27,7 +26,7 @@ export class WorkPlaceListComponent implements OnInit {
   getWorkPlaces() {
     this.workPlaceService.getWorkPlaces().subscribe(workPlaces => {
       this.workPlaces = workPlaces;
-      this.count = this.workPlaces.length;
+      this.workPlacesTitle = `${this.workPlaces.length} Work Places`;
     });
   }
 

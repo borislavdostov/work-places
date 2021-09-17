@@ -12,7 +12,7 @@ import { UserService } from '../user.service';
 export class UserListComponent implements OnInit {
 
   users!: IUser[];
-  count: number = 0;
+  usersTitle: string = '';
   displayedColumns: string[] = ['name', 'email', 'options'];
 
   constructor(
@@ -26,7 +26,7 @@ export class UserListComponent implements OnInit {
   getUsers() {
     this.userService.getUsers().subscribe(users => {
       this.users = users;
-      this.count = this.users.length;
+      this.usersTitle = `${this.users.length} Users`;
     });
   }
 

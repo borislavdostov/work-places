@@ -1,0 +1,15 @@
+mat-toolbar{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 56px;
+    z-index: 999;
+    height: 80px;
+}
+
+h1{
+    font-weight: 300;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
