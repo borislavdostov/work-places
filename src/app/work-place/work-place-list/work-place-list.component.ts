@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
+import { AddEditWorkPlaceDialogComponent } from '../add-edit-work-place-dialog/add-edit-work-place-dialog.component';
 import { WorkPlaceService } from '../work-place.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class WorkPlaceListComponent implements OnInit {
   constructor(
     private workPlaceService: WorkPlaceService,
     private snackBar: MatSnackBar,
-    private confirmationDialog: MatDialog) { }
+    private confirmationDialog: MatDialog,
+    private addEditWorkPlaceDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getWorkPlaces();
@@ -33,7 +35,21 @@ export class WorkPlaceListComponent implements OnInit {
   }
 
   openNewDialog() {
-    alert("Work Place");
+    let dialogRef = this.addEditWorkPlaceDialog.open(AddEditWorkPlaceDialogComponent, {
+      data: {
+        title: 'Create Work Place'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(confirmed => {
+      if (confirmed) {
+        this.createWorkPlace();
+      }
+    });
+  }
+
+  createWorkPlace() {
+
   }
 
   onEditClick(id: number) {

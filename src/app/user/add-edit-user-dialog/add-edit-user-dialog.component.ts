@@ -16,7 +16,7 @@ export class AddEditUserDialogComponent {
     this.title = data.title;
   }
 
-  onYesClick() {
+  onCreateClick() {
     this.dialogRef.close(true);
   }
 }
