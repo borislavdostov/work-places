@@ -22,6 +22,10 @@ mat-icon{
     flex: 1 1 auto;
 }
 
+.rm{
+    margin-right: 10px;
+}
+
 .row:hover{
     background: rgba(0,0,0,.05);
 }
