@@ -57,7 +57,7 @@ export class WorkPlaceListComponent implements OnInit {
       data: {
         title: `Edit Work Place ${workPlace.workPlace} for user ${workPlace.user}`,
         confirmButtonTitle: 'Save',
-        confirmButtonColor: 'accent'
+        confirmButtonColor: 'primary'
       }
     });
 

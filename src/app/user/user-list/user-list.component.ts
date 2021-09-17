@@ -38,7 +38,7 @@ export class UserListComponent implements OnInit {
   openNewDialog() {
     let dialofRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
       data: {
-        title: 'Add User'
+        title: 'Create User'
       }
     });
 
