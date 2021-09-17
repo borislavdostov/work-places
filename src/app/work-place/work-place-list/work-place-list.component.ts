@@ -40,7 +40,7 @@ export class WorkPlaceListComponent implements OnInit {
     alert(id);
   }
 
-  onDeleteClick(workPlace: IUserWorkPlace) {
+  openDialog(workPlace: IUserWorkPlace) {
     let dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {
       data: {
         message: `Are you sure you want to delete work place ${workPlace.workPlace} ?`
