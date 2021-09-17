@@ -10,11 +10,13 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './loader/loader.component';
 import { RouterModule } from '@angular/router';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
     NotFoundComponent,
-    LoaderComponent
+    LoaderComponent,
+    DeleteDialogComponent
   ],
   imports: [
     CommonModule,

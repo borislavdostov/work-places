@@ -4,7 +4,6 @@ mat-toolbar{
 
 h1{
     font-weight: 300;
-     margin-right: 20px;
 }
 
 table{
@@ -17,6 +16,10 @@ mat-icon{
 
 .column-right{
     text-align: right;
+}
+
+.spacer{
+    flex: 1 1 auto;
 }
 
 .row:hover{

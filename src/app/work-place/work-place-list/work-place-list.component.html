@@ -1,8 +1,9 @@
 <mat-toolbar class="mat-elevation-z10" color="primary">
-  <h1>{{count}} Work Places</h1>
   <button mat-raised-button color="accent">
     <mat-icon class="mat-icon">add</mat-icon>New Work Place
   </button>
+  <span class="spacer"></span>
+  <h1>{{count}} Work Places</h1>
 </mat-toolbar>
 
 <table *ngIf="workPlaces" mat-table [dataSource]="workPlaces" class="mat-elevation-z8">

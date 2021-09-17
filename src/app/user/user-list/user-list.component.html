@@ -1,8 +1,9 @@
 <mat-toolbar class="mat-elevation-z10" color="primary">
-  <h1>{{count}} Users</h1>
   <button mat-raised-button color="accent">
     <mat-icon class="mat-icon">add</mat-icon>New User
   </button>
+  <span class="spacer"></span>
+  <h1>{{count}} Users</h1>
 </mat-toolbar>
 
 <table *ngIf="users" mat-table [dataSource]="users" class="mat-elevation-z8">
