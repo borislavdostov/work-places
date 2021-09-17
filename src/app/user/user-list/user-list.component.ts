@@ -41,7 +41,7 @@ export class UserListComponent implements OnInit {
 
   }
 
-  openDialog(user: IUser) {
+  openDeleteDialog(user: IUser) {
     const dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {
       data: {
         message: `Are you sure you want to delete user ${user.name}?`
