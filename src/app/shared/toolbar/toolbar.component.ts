@@ -8,7 +8,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ToolbarComponent{
 
   @Input() title = '';
-  @Input() buttonTitle = '';
   @Output() newClicked = new EventEmitter();
 
   constructor() { }
