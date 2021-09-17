@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
 import { WorkPlaceService } from '../work-place.service';
 
@@ -12,18 +13,34 @@ export class WorkPlaceListComponent implements OnInit {
   workPlaces!: IUserWorkPlace[];
   displayedColumns: string[] = ['user', 'workPlace', 'fromDate', 'toDate', 'options'];
 
-  constructor(private workPlaceService: WorkPlaceService) { }
+  constructor(private workPlaceService: WorkPlaceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getWorkPlaces();
+  }
+
+  getWorkPlaces() {
     this.workPlaceService.getWorkPlaces().subscribe(workPlaces => this.workPlaces = workPlaces);
   }
 
-  onEditClick(id: number){
+  onEditClick(id: number) {
     alert(id);
   }
 
-  onDeleteClick(id: number){
-    alert(id);
+  onDeleteClick(id: number) {
+    // this.isLoading = true;
+    // this.errorMessage = '';
+    this.workPlaceService.deleteWorkPlace(id).subscribe({
+      next: (data) => {
+        // this.isLoading = false;
+        // this.router.navigate(['/']);
+        this.getWorkPlaces();
+      },
+      error: (err) => {
+        // this.errorMessage = 'ERROR!';
+        // this.isLoading = false;
+      }
+    });
   }
 
 }

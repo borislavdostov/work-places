@@ -12,7 +12,11 @@ export class WorkPlaceService {
 
   constructor(private http: HttpClient) { }
 
-  getWorkPlaces(): Observable<IUserWorkPlace[]>{
+  getWorkPlaces(): Observable<IUserWorkPlace[]> {
     return this.http.get<IUserWorkPlace[]>(`${apiUrl}/userworkplaces`);
+  }
+
+  deleteWorkPlace(id: number) {
+    return this.http.delete(`${apiUrl}/userworkplaces/${id}`);
   }
 }
