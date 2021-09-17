@@ -4,11 +4,13 @@ import { UserListComponent } from './user-list/user-list.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
+import { AddEditUserDialogComponent } from './add-edit-user-dialog/add-edit-user-dialog.component';
 
 @NgModule({
   declarations: [
     UserListComponent,
-    AddEditUserComponent
+    AddEditUserComponent,
+    AddEditUserDialogComponent
   ],
   imports: [
     CommonModule,
