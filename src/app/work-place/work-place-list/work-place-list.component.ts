@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
 import { WorkPlaceService } from '../work-place.service';
 
@@ -44,6 +43,10 @@ export class WorkPlaceListComponent implements OnInit {
         snackBarRef.onAction().subscribe(() => this.onDeleteClick(id));
       }
     });
+  }
+
+  onNewClicked(){
+    console.log("Work Place");
   }
 
 }

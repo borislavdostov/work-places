@@ -45,4 +45,9 @@ export class UserListComponent implements OnInit {
       }
     });
   }
+
+  onNewClicked(){
+    console.log("USER");
+    
+  }
 }

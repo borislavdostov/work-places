@@ -1,18 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.css']
 })
-export class ToolbarComponent implements OnInit {
+export class ToolbarComponent{
 
-  @Input() title: string = '';
-  @Input() buttonTitle: string = '';
+  @Input() title = '';
+  @Input() buttonTitle = '';
+  @Output() newClicked = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit(): void {
+  buttonHandler(){
+    this.newClicked.emit();
   }
-
 }

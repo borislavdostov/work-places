@@ -1,4 +1,4 @@
-<app-toolbar [title]="workPlacesTitle" buttonTitle="Work Place"></app-toolbar>
+<app-toolbar [title]="workPlacesTitle" buttonTitle="Work Place" (newClicked)="onNewClicked()"></app-toolbar>
 <table *ngIf="workPlaces" mat-table [dataSource]="workPlaces" class="mat-elevation-z8">
 
   <ng-container matColumnDef="user">
