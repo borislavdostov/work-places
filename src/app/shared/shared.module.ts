@@ -11,11 +11,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     NotFoundComponent,
-    LoaderComponent
+    LoaderComponent,
+    ToolbarComponent
   ],
   imports: [
     CommonModule,
