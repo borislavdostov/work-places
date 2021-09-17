@@ -18,4 +18,12 @@ export class WorkPlaceListComponent implements OnInit {
     this.workPlaceService.getWorkPlaces().subscribe(workPlaces => this.workPlaces = workPlaces);
   }
 
+  onEditClick(id: number){
+    alert(id);
+  }
+
+  onDeleteClick(id: number){
+    alert(id);
+  }
+
 }

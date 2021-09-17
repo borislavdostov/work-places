@@ -20,8 +20,8 @@
   <ng-container matColumnDef="options">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let user" class="column-right">
-      <button mat-raised-button color="accent" style="margin-right: 10px;">Edit</button>
-      <button mat-raised-button color="warn">Delete</button>
+      <button (click)="onEditClick(user.id)" mat-raised-button color="accent" style="margin-right: 10px;">Edit</button>
+      <button (click)="onDeleteClick(user.id)" mat-raised-button color="warn">Delete</button>
     </td>
   </ng-container>
 
