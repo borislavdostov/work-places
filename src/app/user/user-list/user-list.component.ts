@@ -1,5 +1,6 @@
 import { getMultipleValuesInSingleSelectionError } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { IUser } from 'src/app/shared/interfaces/user';
 import { UserService } from '../user.service';
 
@@ -13,8 +14,11 @@ export class UserListComponent implements OnInit {
   users!: IUser[];
   count: number = 0;
   displayedColumns: string[] = ['name', 'email', 'options'];
+  snackBarDuration: number = 1000 * 5;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -28,7 +32,7 @@ export class UserListComponent implements OnInit {
   }
 
   onEditClick(id: number) {
-    alert(id);
+
   }
 
   onDeleteClick(id: number) {
@@ -37,9 +41,9 @@ export class UserListComponent implements OnInit {
         this.getUsers();
       },
       error: (err) => {
-
+        let snackBarRef = this.snackBar.open('Error deleting user!', 'Retry', { duration: this.snackBarDuration });
+        snackBarRef.onAction().subscribe(() => this.onDeleteClick(id));
       }
     });
   }
-
 }
