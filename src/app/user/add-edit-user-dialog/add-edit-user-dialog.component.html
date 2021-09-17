@@ -3,6 +3,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions align="center">
-    <button (click)="onCreateClick()" mat-raised-button color="accent" tabindex="1">{{confirmButtonTitle}}</button>
+    <button (click)="onCreateClick()" mat-raised-button [color]="confirmButtonColor" tabindex="1">{{confirmButtonTitle}}</button>
     <button mat-raised-button mat-dialog-close tabindex="-1">Cancel</button>
 </mat-dialog-actions>
