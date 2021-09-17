@@ -9,6 +9,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './loader/loader.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LoaderComponent } from './loader/loader.component';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatProgressSpinnerModule
   ],
   exports: [
