@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
 import { WorkPlaceService } from '../work-place.service';
 
@@ -16,7 +18,8 @@ export class WorkPlaceListComponent implements OnInit {
 
   constructor(
     private workPlaceService: WorkPlaceService,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar,
+    private confirmationDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getWorkPlaces();
@@ -29,7 +32,7 @@ export class WorkPlaceListComponent implements OnInit {
     });
   }
 
-  onNewClicked(){
+  onNewClicked() {
     alert("Work Place");
   }
 
@@ -37,17 +40,30 @@ export class WorkPlaceListComponent implements OnInit {
     alert(id);
   }
 
-  onDeleteClick(id: number) {
+  onDeleteClick(workPlace: IUserWorkPlace) {
+    let dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: `Are you sure you want to delete work place ${workPlace.workPlace} ?`
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        this.deleteWorkPlace(workPlace.id);
+      }
+    })
+  }
+
+  deleteWorkPlace(id: number) {
     this.workPlaceService.deleteWorkPlace(id).subscribe({
       next: (data) => {
         this.getWorkPlaces();
       },
       error: (err) => {
         let snackBarRef = this.snackBar.open("Error deleting work place!", "RETRY");
-        snackBarRef.onAction().subscribe(() => this.onDeleteClick(id));
+        snackBarRef.onAction().subscribe(() => this.deleteWorkPlace(id));
       }
     });
   }
-
 
 }

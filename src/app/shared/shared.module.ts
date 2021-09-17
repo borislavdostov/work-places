@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog'
 
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './loader/loader.component';
@@ -27,7 +28,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     MatToolbarModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   exports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     MatSnackBarModule,
     LoaderComponent,
     ToolbarComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    MatDialogModule
   ]
 })
 export class SharedModule { }

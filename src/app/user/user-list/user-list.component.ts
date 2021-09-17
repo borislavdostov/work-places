@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { snackBarDuration } from 'src/app/shared/constants';
 import { IUser } from 'src/app/shared/interfaces/user';
 import { UserService } from '../user.service';
@@ -17,7 +19,8 @@ export class UserListComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar,
+    private confirmationDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -30,23 +33,38 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  onNewClicked(){
-    alert("USER");
+  onNewClicked() {
+    alert("User");
   }
 
   onEditClick(id: number) {
 
   }
 
-  onDeleteClick(id: number) {
+  onDeleteClick(user: IUser) {
+    const dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: `Are you sure you want to delete user ${user.name}?`
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        this.deleteUser(user.id);
+      }
+    });
+  }
+
+  deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe({
       next: (data) => {
         this.getUsers();
       },
       error: (err) => {
         let snackBarRef = this.snackBar.open('Error deleting user!', 'RETRY', { duration: snackBarDuration });
-        snackBarRef.onAction().subscribe(() => this.onDeleteClick(id));
+        snackBarRef.onAction().subscribe(() => this.deleteUser(id));
       }
     });
   }
+
 }
