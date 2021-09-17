@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
 import { WorkPlaceService } from '../work-place.service';
@@ -14,7 +15,10 @@ export class WorkPlaceListComponent implements OnInit {
   count: number = 0;
   displayedColumns: string[] = ['user', 'workPlace', 'fromDate', 'toDate', 'options'];
 
-  constructor(private workPlaceService: WorkPlaceService, private router: Router) { }
+  constructor(
+    private workPlaceService: WorkPlaceService,
+    private router: Router,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getWorkPlaces();
@@ -32,17 +36,13 @@ export class WorkPlaceListComponent implements OnInit {
   }
 
   onDeleteClick(id: number) {
-    // this.isLoading = true;
-    // this.errorMessage = '';
     this.workPlaceService.deleteWorkPlace(id).subscribe({
       next: (data) => {
-        // this.isLoading = false;
-        // this.router.navigate(['/']);
         this.getWorkPlaces();
       },
       error: (err) => {
-        // this.errorMessage = 'ERROR!';
-        // this.isLoading = false;
+        let snackBarRef = this.snackBar.open("Error deleting work place!", "RETRY");
+        snackBarRef.onAction().subscribe(() => this.onDeleteClick(id));
       }
     });
   }

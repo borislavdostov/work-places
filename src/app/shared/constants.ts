@@ -1,0 +1,1 @@
+export const snackBarDuration = 1000 * 5;
