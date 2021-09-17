@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { snackBarDuration } from 'src/app/shared/constants';
 import { IUser } from 'src/app/shared/interfaces/user';
+import { AddEditUserDialogComponent } from '../add-edit-user-dialog/add-edit-user-dialog.component';
 import { UserService } from '../user.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class UserListComponent implements OnInit {
   constructor(
     private userService: UserService,
     private snackBar: MatSnackBar,
-    private confirmationDialog: MatDialog) { }
+    private confirmationDialog: MatDialog,
+    private addEditUserDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -33,8 +35,22 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  onNewClicked() {
-    alert("User");
+  openNewDialog() {
+    let dialofRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
+      data: {
+        title: 'Add User'
+      }
+    });
+
+    dialofRef.afterClosed().subscribe(confirmed => {
+      if (confirmed) {
+        this.createUser();
+      }
+    })
+  }
+
+  createUser() {
+
   }
 
   onEditClick(id: number) {
@@ -48,7 +64,7 @@ export class UserListComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+    dialogRef.afterClosed().subscribe(confirmed => {
       if (confirmed) {
         this.deleteUser(user.id);
       }

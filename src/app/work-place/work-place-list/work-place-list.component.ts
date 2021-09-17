@@ -32,7 +32,7 @@ export class WorkPlaceListComponent implements OnInit {
     });
   }
 
-  onNewClicked() {
+  openNewDialog() {
     alert("Work Place");
   }
 
@@ -47,7 +47,7 @@ export class WorkPlaceListComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+    dialogRef.afterClosed().subscribe(confirmed => {
       if (confirmed) {
         this.deleteWorkPlace(workPlace.id);
       }
