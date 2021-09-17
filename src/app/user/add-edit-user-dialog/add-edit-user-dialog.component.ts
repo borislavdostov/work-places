@@ -15,9 +15,9 @@ export class AddEditUserDialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
     private dialogRef: MatDialogRef<AddEditUserDialogComponent>) {
-    this.title = data.title;
-    this.confirmButtonTitle = data.confirmButtonTitle || 'Create';
-    this.confirmButtonColor = data.confirmButtonColor || 'accent';
+    this.title = data.title || 'Create User';
+    this.confirmButtonTitle = data.isCreate ? 'Create' : 'Save';
+    this.confirmButtonColor = data.isCreate ? 'accent' : 'primary';
   }
 
   onCreateClick() {
