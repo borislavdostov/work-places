@@ -9,11 +9,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AddEditWorkPlaceDialogComponent {
 
   title: string;
+  confirmButtonTitle: string;
+  confirmButtonColor: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
     private dialogRef: MatDialogRef<AddEditWorkPlaceDialogComponent>) {
     this.title = data.title;
+    this.confirmButtonTitle = data.confirmButtonTitle || 'Create';
+    this.confirmButtonColor = data.confirmButtonColor || 'accent';
   }
 
   onCreateClick() {
