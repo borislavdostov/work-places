@@ -35,7 +35,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     MatTableModule,
     MatSnackBarModule,
     LoaderComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ConfirmationDialogComponent
   ]
 })
 export class SharedModule { }
