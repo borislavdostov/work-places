@@ -52,8 +52,24 @@ export class WorkPlaceListComponent implements OnInit {
 
   }
 
-  onEditClick(id: number) {
-    alert(id);
+  openEditDialog(workPlace: IUserWorkPlace) {
+    let dialogRef = this.addEditWorkPlaceDialog.open(AddEditWorkPlaceDialogComponent, {
+      data: {
+        title: `Edit Work Place ${workPlace.workPlace} for user ${workPlace.user}`,
+        confirmButtonTitle: 'Save',
+        confirmButtonColor: 'accent'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(confirmed => {
+      if (confirmed) {
+        this.editWorkPlace(workPlace);
+      }
+    });
+  }
+
+  editWorkPlace(workPlace: IUserWorkPlace) {
+
   }
 
   openDeleteDialog(workPlace: IUserWorkPlace) {
