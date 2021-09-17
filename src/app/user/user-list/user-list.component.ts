@@ -46,7 +46,7 @@ export class UserListComponent implements OnInit {
       if (confirmed) {
         this.createUser();
       }
-    })
+    });
   }
 
   createUser() {
