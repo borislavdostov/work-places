@@ -11,7 +11,7 @@ export class ConfirmationDialogComponent implements OnInit {
   message: string;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) private data: any,
+    @Inject(MAT_DIALOG_DATA) data: any,
     private dialogRef: MatDialogRef<ConfirmationDialogComponent>) {
     this.message = data.message;
   }
