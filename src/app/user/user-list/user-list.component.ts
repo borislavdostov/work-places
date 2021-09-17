@@ -1,3 +1,4 @@
+import { getMultipleValuesInSingleSelectionError } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/shared/interfaces/user';
 import { UserService } from '../user.service';
@@ -16,6 +17,10 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.getUsers();
+  }
+
+  getUsers() {
     this.userService.getUsers().subscribe(users => {
       this.users = users;
       this.count = this.users.length;
@@ -29,7 +34,7 @@ export class UserListComponent implements OnInit {
   onDeleteClick(id: number) {
     this.userService.deleteUser(id).subscribe({
       next: (data) => {
-
+        this.getUsers();
       },
       error: (err) => {
 
