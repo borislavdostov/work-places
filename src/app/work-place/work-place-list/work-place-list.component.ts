@@ -37,7 +37,7 @@ export class WorkPlaceListComponent implements OnInit {
   openNewDialog() {
     let dialogRef = this.addEditWorkPlaceDialog.open(AddEditWorkPlaceDialogComponent, {
       data: {
-        title: 'Create Work Place'
+        isCreate: true
       }
     });
 
@@ -56,8 +56,6 @@ export class WorkPlaceListComponent implements OnInit {
     let dialogRef = this.addEditWorkPlaceDialog.open(AddEditWorkPlaceDialogComponent, {
       data: {
         title: `Edit Work Place ${workPlace.workPlace} for user ${workPlace.user}`,
-        confirmButtonTitle: 'Save',
-        confirmButtonColor: 'primary'
       }
     });
 

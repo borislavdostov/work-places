@@ -57,8 +57,6 @@ export class UserListComponent implements OnInit {
     let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
       data: {
         title: `Edit User ${user.name}`,
-        confirmButtonTitle: 'Save',
-        confirmButtonColor: 'primary'
       }
     });
 

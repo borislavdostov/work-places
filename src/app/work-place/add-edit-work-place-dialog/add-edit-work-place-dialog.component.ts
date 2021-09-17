@@ -15,9 +15,9 @@ export class AddEditWorkPlaceDialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
     private dialogRef: MatDialogRef<AddEditWorkPlaceDialogComponent>) {
-    this.title = data.title;
-    this.confirmButtonTitle = data.confirmButtonTitle || 'Create';
-    this.confirmButtonColor = data.confirmButtonColor || 'accent';
+    this.title = data.title || 'Create Work Place';
+    this.confirmButtonTitle = data.isCreate ? 'Create' : 'Save';
+    this.confirmButtonColor = data.isCreate ? 'accent' : 'primary';
   }
 
   onCreateClick() {
