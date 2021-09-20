@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IUserDropdown } from 'src/app/shared/interfaces/user-dropdown';
+import { IWorkPlaceDropdown } from 'src/app/shared/interfaces/work-place-dropdown';
 
 @Component({
   selector: 'app-add-edit-work-place-dialog',
@@ -11,6 +13,8 @@ export class AddEditUserWorkPlaceDialogComponent {
   title: string;
   submitButtonTitle: string;
   submitButtonColor: string;
+  userOptions: IUserDropdown[] = [];
+  workPlaceOptions: IWorkPlaceDropdown[] = [];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
@@ -18,6 +22,10 @@ export class AddEditUserWorkPlaceDialogComponent {
     this.title = data.title || 'Create Work Place';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
+    if (data.options) {
+      this.userOptions = data.options.users;
+      this.workPlaceOptions = data.options.workPlaces;
+    }
   }
 
   onSubmitClick() {

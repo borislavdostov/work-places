@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
 import { AddEditUserWorkPlaceDialogComponent } from '../add-edit-user-work-place-dialog/add-edit-user-work-place-dialog.component';
-import { WorkPlaceService } from '../user-work-place.service';
+import { UserWorkPlaceService } from '../user-work-place.service';
 
 @Component({
   selector: 'app-work-place-list',
@@ -18,7 +18,7 @@ export class UserWorkPlaceListComponent implements OnInit {
   displayedColumns: string[] = ['user', 'workPlace', 'fromDate', 'toDate', 'options'];
 
   constructor(
-    private workPlaceService: WorkPlaceService,
+    private userWorkPlaceService: UserWorkPlaceService,
     private snackBar: MatSnackBar,
     private confirmationDialog: MatDialog,
     private addEditWorkPlaceDialog: MatDialog) { }
@@ -28,23 +28,27 @@ export class UserWorkPlaceListComponent implements OnInit {
   }
 
   getWorkPlaces() {
-    this.workPlaceService.getWorkPlaces().subscribe(workPlaces => {
+    this.userWorkPlaceService.getUserWorkPlaces().subscribe(workPlaces => {
       this.workPlaces = workPlaces;
       this.workPlacesTitle = `${this.workPlaces.length} Work Places`;
     });
   }
 
   openNewDialog() {
-    let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
-      data: {
-        isCreate: true
-      }
-    });
 
-    dialogRef.afterClosed().subscribe(confirmed => {
-      if (confirmed) {
-        this.createWorkPlace();
-      }
+    this.userWorkPlaceService.getUserWorkPlaceOptions().subscribe(options => {
+      let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
+        data: {
+          isCreate: true,
+          options: options
+        }
+      });
+
+      dialogRef.afterClosed().subscribe(confirmed => {
+        if (confirmed) {
+          this.createWorkPlace();
+        }
+      });
     });
   }
 
@@ -85,7 +89,7 @@ export class UserWorkPlaceListComponent implements OnInit {
   }
 
   deleteWorkPlace(id: number) {
-    this.workPlaceService.deleteWorkPlace(id).subscribe({
+    this.userWorkPlaceService.deleteUserWorkPlace(id).subscribe({
       next: (data) => {
         this.getWorkPlaces();
       },

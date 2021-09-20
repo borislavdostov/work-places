@@ -9,19 +9,19 @@ const apiUrl = environment.apiUrl;
 @Injectable({
   providedIn: 'root'
 })
-export class WorkPlaceService {
+export class UserWorkPlaceService {
 
   constructor(private http: HttpClient) { }
 
-  getWorkPlaces(): Observable<IUserWorkPlace[]> {
+  getUserWorkPlaces(): Observable<IUserWorkPlace[]> {
     return this.http.get<IUserWorkPlace[]>(`${apiUrl}/userworkplaces`);
   }
 
-  getWorkPlaceOptions(): Observable<IUserWorkPlaceOptions[]> {
-    return this.http.get<IUserWorkPlaceOptions[]>(`${apiUrl}/userworkplaces/options`);
+  getUserWorkPlaceOptions(): Observable<IUserWorkPlaceOptions> {
+    return this.http.get<IUserWorkPlaceOptions>(`${apiUrl}/userworkplaces/options`);
   }
 
-  deleteWorkPlace(id: number) {
+  deleteUserWorkPlace(id: number) {
     return this.http.delete(`${apiUrl}/userworkplaces/${id}`);
   }
 }

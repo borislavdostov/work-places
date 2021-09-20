@@ -22,14 +22,14 @@ export class AddEditUserDialogComponent {
     @Inject(MAT_DIALOG_DATA) data: any,
     private dialogRef: MatDialogRef<AddEditUserDialogComponent>) {
     this.title = data.title || 'Create User';
+    this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
+    this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
     if (data.user) {
       this.firstName = data.user.firstName;
       this.lastName = data.user.lastName;
       this.dateOfBirth = data.user.dateOfBirth;
       this.email = data.user.email;
     }
-    this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
-    this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
   }
 
   onSubmit(user: IUserAddEdit) {
