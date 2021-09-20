@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { snackBarDuration } from 'src/app/shared/constants';
 import { IUser } from 'src/app/shared/interfaces/user';
@@ -59,9 +58,7 @@ export class UserListComponent implements OnInit {
         this.getUsers();
       },
       error: (response) => {
-        this.errors = response.error.errors;
-        console.log(this.errors);
-
+        console.log(response.error.errors);
       }
     });
   }
