@@ -4,7 +4,7 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Select User</mat-label>
-                <mat-select #userInput="ngModel" name="user" ngModel required>
+                <mat-select #userInput="ngModel" name="userId" ngModel required>
                     <mat-option *ngFor="let user of userOptions" [value]="user.id">{{user.name}}</mat-option>
                 </mat-select>
                 <mat-error *ngIf="userInput.errors?.required">User is required</mat-error>
@@ -13,7 +13,7 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Select Work Place</mat-label>
-                <mat-select #workPlace="ngModel" name="workPlace" ngModel required>
+                <mat-select #workPlace="ngModel" name="workPlaceId" ngModel required>
                     <mat-option *ngFor="let workPlace of workPlaceOptions" [value]="workPlace.id">{{workPlace.name}}
                     </mat-option>
                 </mat-select>
