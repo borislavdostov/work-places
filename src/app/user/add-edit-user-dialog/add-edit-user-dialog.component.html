@@ -4,7 +4,7 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>First name</mat-label>
-                <input #firstNameInput="ngModel"  name="firstName" type="text" matInput [ngModel]="firstName" required>
+                <input #firstNameInput="ngModel" name="firstName" type="text" matInput [ngModel]="firstName" required>
                 <mat-error *ngIf="firstNameInput.errors?.required">First name is required</mat-error>
             </mat-form-field>
         </div>
@@ -18,7 +18,8 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Date of birth</mat-label>
-                <input #dateOfBirthInput="ngModel" name="dateOfBirth" matInput [matDatepicker]="picker" [ngModel]="dateOfBirth" required>
+                <input #dateOfBirthInput="ngModel" name="dateOfBirth" matInput [matDatepicker]="picker"
+                    [ngModel]="dateOfBirth" required>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
                 <mat-error *ngIf="dateOfBirthInput.errors?.required">Date of birth is required</mat-error>
