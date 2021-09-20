@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
-import { MatDatepickerModule } from '@angular/material/datepicker'
-import { MatNativeDateModule } from '@angular/material/core';
-
 import { WorkPlaceListComponent } from './work-place-list/work-place-list.component';
 import { AddEditWorkPlaceDialogComponent } from './add-edit-work-place-dialog/add-edit-work-place-dialog.component';
 
@@ -15,9 +12,7 @@ import { AddEditWorkPlaceDialogComponent } from './add-edit-work-place-dialog/ad
   ],
   imports: [
     CommonModule,
-    SharedModule,
-    MatDatepickerModule,
-    MatNativeDateModule
+    SharedModule
   ]
 })
 export class WorkPlaceModule { }

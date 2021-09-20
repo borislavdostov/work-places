@@ -12,6 +12,8 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core'
 
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './loader/loader.component';
@@ -47,6 +49,8 @@ import { FormsModule } from '@angular/forms';
     MatSnackBarModule,
     MatSelectModule,
     MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ToolbarComponent,
     ConfirmationDialogComponent
   ]

@@ -17,6 +17,14 @@
         </div>
         <div>
             <mat-form-field appearance="outline">
+                <mat-label>Date of birth</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
                 <input #emailInput="ngModel" name="email" type="email" matInput ngModel required email>
                 <mat-error *ngIf="emailInput.errors?.required">Email is required</mat-error>
