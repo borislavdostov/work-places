@@ -35,20 +35,16 @@ export class UserWorkPlaceListComponent implements OnInit {
   }
 
   openNewDialog() {
+    let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
+      data: {
+        isCreate: true
+      }
+    });
 
-    this.userWorkPlaceService.getUserWorkPlaceOptions().subscribe(options => {
-      let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
-        data: {
-          isCreate: true,
-          options: options
-        }
-      });
-
-      dialogRef.afterClosed().subscribe(confirmed => {
-        if (confirmed) {
-          this.createWorkPlace();
-        }
-      });
+    dialogRef.afterClosed().subscribe(confirmed => {
+      if (confirmed) {
+        this.createWorkPlace();
+      }
     });
   }
 
