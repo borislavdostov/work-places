@@ -54,7 +54,8 @@ import { NameValidatorDirective } from './name-validator.directive';
     MatDatepickerModule,
     MatNativeDateModule,
     ToolbarComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    NameValidatorDirective
   ]
 })
 export class SharedModule { }
