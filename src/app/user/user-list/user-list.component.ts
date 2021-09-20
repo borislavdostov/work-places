@@ -63,10 +63,10 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  openEditDialog(user: IUser) {
+  openEditDialog(user: IUserAddEdit) {
     let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
       data: {
-        title: `Edit User ${user.name}`,
+        title: `Edit User ${user.firstName} ${user.lastName}`,
       }
     });
 
@@ -77,7 +77,7 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  editUser(user: IUser) {
+  editUser(user: IUserAddEdit) {
 
   }
 
