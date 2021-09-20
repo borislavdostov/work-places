@@ -71,7 +71,7 @@ export class UserListComponent implements OnInit {
           user: user
         }
       });
-  
+
       dialogRef.beforeClosed().subscribe(dialogResult => {
         if (dialogResult?.confirmed) {
           this.editUser(user);
