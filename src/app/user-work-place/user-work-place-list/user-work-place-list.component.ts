@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
+import { IUserWorkPlaceAddEdit } from 'src/app/shared/interfaces/user-work-place-add-edit';
 import { AddEditUserWorkPlaceDialogComponent } from '../add-edit-user-work-place-dialog/add-edit-user-work-place-dialog.component';
 import { UserWorkPlaceService } from '../user-work-place.service';
 
@@ -24,10 +25,10 @@ export class UserWorkPlaceListComponent implements OnInit {
     private addEditWorkPlaceDialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getWorkPlaces();
+    this.getUserWorkPlaces();
   }
 
-  getWorkPlaces() {
+  getUserWorkPlaces() {
     this.userWorkPlaceService.getUserWorkPlaces().subscribe(workPlaces => {
       this.workPlaces = workPlaces;
       this.workPlacesTitle = `${this.workPlaces.length} Work Places`;
@@ -41,15 +42,22 @@ export class UserWorkPlaceListComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(confirmed => {
-      if (confirmed) {
-        this.createWorkPlace();
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult?.confirmed) {
+        this.createWorkPlace(dialogResult.userWorkPlace);
       }
     });
   }
 
-  createWorkPlace() {
-
+  createWorkPlace(userWorkPlace: IUserWorkPlaceAddEdit) {
+    this.userWorkPlaceService.createUserWorkPlace(userWorkPlace).subscribe({
+      next: (data) => {
+        this.getUserWorkPlaces();
+      },
+      error: (response) => {
+        alert("Implement backend errors:" + response.error.errors);
+      }
+    });
   }
 
   openEditDialog(workPlace: IUserWorkPlace) {
@@ -59,8 +67,8 @@ export class UserWorkPlaceListComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(confirmed => {
-      if (confirmed) {
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult?.confirmed) {
         this.editWorkPlace(workPlace);
       }
     });
@@ -87,7 +95,7 @@ export class UserWorkPlaceListComponent implements OnInit {
   deleteWorkPlace(id: number) {
     this.userWorkPlaceService.deleteUserWorkPlace(id).subscribe({
       next: (data) => {
-        this.getWorkPlaces();
+        this.getUserWorkPlaces();
       },
       error: (err) => {
         let snackBarRef = this.snackBar.open("Error deleting work place!", "RETRY");

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { IUserWorkPlace } from '../shared/interfaces/user-work-place';
 import { environment } from 'src/environments/environment';
 import { IUserWorkPlaceOptions } from '../shared/interfaces/user-work-place-options';
+import { IUserWorkPlaceAddEdit } from '../shared/interfaces/user-work-place-add-edit';
+import { requestHeaders } from '../shared/constants';
 const apiUrl = environment.apiUrl;
 
 @Injectable({
@@ -15,6 +17,10 @@ export class UserWorkPlaceService {
 
   getUserWorkPlaces(): Observable<IUserWorkPlace[]> {
     return this.http.get<IUserWorkPlace[]>(`${apiUrl}/userworkplaces`);
+  }
+
+  createUserWorkPlace(userWorkPlace: IUserWorkPlaceAddEdit) {
+    return this.http.post(`${apiUrl}/userworkplaces`, JSON.stringify(userWorkPlace), { headers: requestHeaders });
   }
 
   getUserWorkPlaceOptions(): Observable<IUserWorkPlaceOptions> {

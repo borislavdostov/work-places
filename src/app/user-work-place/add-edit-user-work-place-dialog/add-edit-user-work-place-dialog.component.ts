@@ -25,7 +25,7 @@ export class AddEditUserWorkPlaceDialogComponent {
     this.title = data.title || 'Create Work Place';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
-
+    
     userWorkPlaceService.getUserWorkPlaceOptions().subscribe(options => {
       this.userOptions = options.users;
       this.workPlaceOptions = options.workPlaces;

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { requestHeaders } from '../shared/constants';
 import { IUser } from '../shared/interfaces/user';
 import { IUserAddEdit } from '../shared/interfaces/user-add-edit';
 const apiUrl = environment.apiUrl;
@@ -10,8 +11,6 @@ const apiUrl = environment.apiUrl;
   providedIn: 'root'
 })
 export class UserService {
-
-  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) { }
 
@@ -24,11 +23,11 @@ export class UserService {
   }
 
   createUser(user: IUserAddEdit) {
-    return this.http.post(`${apiUrl}/users`, JSON.stringify(user), { headers: this.headers });
+    return this.http.post(`${apiUrl}/users`, JSON.stringify(user), { headers: requestHeaders });
   }
 
   editUser(id: number, user: IUserAddEdit) {
-    return this.http.put(`${apiUrl}/users/${id}`, JSON.stringify(user), { headers: this.headers })
+    return this.http.put(`${apiUrl}/users/${id}`, JSON.stringify(user), { headers: requestHeaders })
   }
 
   deleteUser(id: number) {
