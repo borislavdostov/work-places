@@ -58,7 +58,7 @@ export class UserListComponent implements OnInit {
         this.getUsers();
       },
       error: (response) => {
-        console.log(response.error.errors);
+        alert("Implement backend errors:" + response.error.errors);
       }
     });
   }
@@ -74,14 +74,21 @@ export class UserListComponent implements OnInit {
 
       dialogRef.beforeClosed().subscribe(dialogResult => {
         if (dialogResult?.confirmed) {
-          this.editUser(user);
+          this.editUser(userId, dialogResult.user);
         }
       });
     });
   }
 
-  editUser(user: IUserAddEdit) {
-
+  editUser(id: number, user: IUserAddEdit) {
+    this.userService.editUser(id, user).subscribe({
+      next: (data) => {
+        this.getUsers();
+      },
+      error: (error) => {
+        alert(error)
+      }
+    });
   }
 
   openDeleteDialog(user: IUser) {
