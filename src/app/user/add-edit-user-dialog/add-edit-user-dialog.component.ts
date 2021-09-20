@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IUserAddEdit } from 'src/app/shared/interfaces/user-add-edit';
 
 @Component({
   selector: 'app-add-edit-user-dialog',
@@ -20,7 +21,7 @@ export class AddEditUserDialogComponent {
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
   }
 
-  onSubmit(formData: FormData) {
-    this.dialogRef.close({ confirmed: true, formData: formData });
+  onSubmit(user: IUserAddEdit) {
+    this.dialogRef.close({ confirmed: true, user: user });    
   }
 }

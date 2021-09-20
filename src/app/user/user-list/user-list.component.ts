@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { snackBarDuration } from 'src/app/shared/constants';
 import { IUser } from 'src/app/shared/interfaces/user';
+import { IUserAddEdit } from 'src/app/shared/interfaces/user-add-edit';
 import { AddEditUserDialogComponent } from '../add-edit-user-dialog/add-edit-user-dialog.component';
 import { UserService } from '../user.service';
 
@@ -17,6 +19,8 @@ export class UserListComponent implements OnInit {
   users!: IUser[];
   usersTitle: string = '';
   displayedColumns: string[] = ['name', 'age', 'email', 'options'];
+
+  errors = [];
 
   constructor(
     private userService: UserService,
@@ -44,12 +48,22 @@ export class UserListComponent implements OnInit {
 
     dialofRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult.confirmed) {
-        this.createUser(dialogResult.formData);
+        this.createUser(dialogResult.user);
       }
     });
   }
 
-  createUser(formData: FormData) {
+  createUser(user: IUserAddEdit) {
+    this.userService.createUser(user).subscribe({
+      next: () => {
+        this.getUsers();
+      },
+      error: (response) => {
+        this.errors = response.error.errors;
+        console.log(this.errors);
+
+      }
+    });
   }
 
   openEditDialog(user: IUser) {
