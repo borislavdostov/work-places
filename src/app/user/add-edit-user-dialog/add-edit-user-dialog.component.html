@@ -18,9 +18,10 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Date of birth</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input #dateOfBirthInput="ngModel" name="birthDate" matInput [matDatepicker]="picker" ngModel required>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="dateOfBirthInput.errors?.required">Date of birth is required</mat-error>
               </mat-form-field>
         </div>
         <div>
