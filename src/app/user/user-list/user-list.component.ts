@@ -46,7 +46,7 @@ export class UserListComponent implements OnInit {
     });
 
     dialofRef.afterClosed().subscribe(dialogResult => {
-      if (dialogResult.confirmed) {
+      if (dialogResult?.confirmed) {
         this.createUser(dialogResult.user);
       }
     });
@@ -73,7 +73,7 @@ export class UserListComponent implements OnInit {
       });
   
       dialogRef.beforeClosed().subscribe(dialogResult => {
-        if (dialogResult.confirmed) {
+        if (dialogResult?.confirmed) {
           this.editUser(user);
         }
       });
