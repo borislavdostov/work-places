@@ -18,6 +18,11 @@ export class AddEditUserWorkPlaceDialogComponent {
   userOptions: IUserDropdown[] = [];
   workPlaceOptions: IWorkPlace[] = [];
 
+  user!: number;
+  workPlace!: number;
+  fromDate!: string;
+  toDate!: string;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
     private dialogRef: MatDialogRef<AddEditUserWorkPlaceDialogComponent>,
@@ -30,6 +35,13 @@ export class AddEditUserWorkPlaceDialogComponent {
       this.userOptions = options.users;
       this.workPlaceOptions = options.workPlaces;
     });
+
+    if (data.userWorkPlace) {
+      this.user = data.userWorkPlace.user;
+      this.workPlace = data.userWorkPlace.workPlace;
+      this.fromDate = data.userWorkPlace.fromDate;
+      this.toDate = data.userWorkPlace.toDate;
+    }
   }
 
   onSubmit(userWorkPlace: IUserWorkPlaceAddEdit) {

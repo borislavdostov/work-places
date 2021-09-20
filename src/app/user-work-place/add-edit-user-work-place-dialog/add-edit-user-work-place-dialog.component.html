@@ -4,7 +4,7 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Select User</mat-label>
-                <mat-select #userInput="ngModel" name="userId" ngModel required>
+                <mat-select #userInput="ngModel" name="userId" [ngModel]="user" required>
                     <mat-option *ngFor="let user of userOptions" [value]="user.id">{{user.name}}</mat-option>
                 </mat-select>
                 <mat-error *ngIf="userInput.errors?.required">User is required</mat-error>
@@ -13,7 +13,7 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Select Work Place</mat-label>
-                <mat-select #workPlace="ngModel" name="workPlaceId" ngModel required>
+                <mat-select #workPlace="ngModel" name="workPlaceId" [ngModel]="workPlace" required>
                     <mat-option *ngFor="let workPlace of workPlaceOptions" [value]="workPlace.id">{{workPlace.name}}
                     </mat-option>
                 </mat-select>
@@ -24,9 +24,9 @@
             <mat-form-field appearance="outline">
                 <mat-label>Working period</mat-label>
                 <mat-date-range-input [rangePicker]="picker">
-                    <input #fromDateInput="ngModel" name="fromDate" matStartDate placeholder="Start date" ngModel
+                    <input #fromDateInput="ngModel" name="fromDate" matStartDate placeholder="Start date" [ngModel]="fromDate"
                         required>
-                    <input #toDateInput="ngModel" name="toDate" matEndDate placeholder="End date" ngModel required>
+                    <input #toDateInput="ngModel" name="toDate" matEndDate placeholder="End date" [ngModel]="toDate" required>
                 </mat-date-range-input>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
