@@ -64,7 +64,8 @@ export class UserWorkPlaceListComponent implements OnInit {
     this.userWorkPlaceService.getUserWorkPlace(userWorkPlaceId).subscribe(userWorkPlace => {
       let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
         data: {
-          title: `Edit Work Place ${userWorkPlace.fromDate} - ${userWorkPlace.toDate}`,
+          title: `Edit Work Place`,
+          userWorkPlace: userWorkPlace
         }
       });
 
