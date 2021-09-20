@@ -16,6 +16,10 @@ export class UserService {
     return this.http.get<IUser[]>(`${apiUrl}/users`);
   }
 
+  createUser(user: IUser) {
+    return this.http.put(`${apiUrl}/users`, JSON.stringify(user));
+  }
+
   deleteUser(id: number) {
     return this.http.delete(`${apiUrl}/users/${id}`);
   }
