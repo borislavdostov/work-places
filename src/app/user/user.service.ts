@@ -19,8 +19,16 @@ export class UserService {
     return this.http.get<IUser[]>(`${apiUrl}/users`);
   }
 
+  getUser(id: number): Observable<IUserAddEdit> {
+    return this.http.get<IUserAddEdit>(`${apiUrl}/users/${id}`);
+  }
+
   createUser(user: IUserAddEdit) {
     return this.http.post(`${apiUrl}/users`, JSON.stringify(user), { headers: this.headers });
+  }
+
+  editUser(id: number, user: IUserAddEdit) {
+    return this.http.put(`${apiUrl}/users/${id}`, JSON.stringify(user), { headers: this.headers })
   }
 
   deleteUser(id: number) {

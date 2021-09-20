@@ -63,17 +63,20 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  openEditDialog(user: IUserAddEdit) {
-    let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
-      data: {
-        title: `Edit User ${user.firstName} ${user.lastName}`,
-      }
-    });
-
-    dialogRef.beforeClosed().subscribe(confirmed => {
-      if (confirmed) {
-        this.editUser(user);
-      }
+  openEditDialog(userId: number) {
+    this.userService.getUser(userId).subscribe(user => {
+      let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
+        data: {
+          title: `Edit User ${user.firstName} ${user.lastName}`,
+          user: user
+        }
+      });
+  
+      dialogRef.beforeClosed().subscribe(dialogResult => {
+        if (dialogResult.confirmed) {
+          this.editUser(user);
+        }
+      });
     });
   }
 
