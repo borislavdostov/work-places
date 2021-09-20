@@ -80,8 +80,8 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  editUser(id: number, user: IUserAddEdit) {
-    this.userService.editUser(id, user).subscribe({
+  editUser(userId: number, user: IUserAddEdit) {
+    this.userService.editUser(userId, user).subscribe({
       next: (data) => {
         this.getUsers();
       },

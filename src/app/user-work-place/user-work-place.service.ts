@@ -19,12 +19,20 @@ export class UserWorkPlaceService {
     return this.http.get<IUserWorkPlace[]>(`${apiUrl}/userworkplaces`);
   }
 
+  getUserWorkPlaceOptions(): Observable<IUserWorkPlaceOptions> {
+    return this.http.get<IUserWorkPlaceOptions>(`${apiUrl}/userworkplaces/options`);
+  }
+
+  getUserWorkPlace(id: number): Observable<IUserWorkPlaceAddEdit> {
+    return this.http.get<IUserWorkPlaceAddEdit>(`${apiUrl}/userworkplaces/${id}`);
+  }
+
   createUserWorkPlace(userWorkPlace: IUserWorkPlaceAddEdit) {
     return this.http.post(`${apiUrl}/userworkplaces`, JSON.stringify(userWorkPlace), { headers: requestHeaders });
   }
 
-  getUserWorkPlaceOptions(): Observable<IUserWorkPlaceOptions> {
-    return this.http.get<IUserWorkPlaceOptions>(`${apiUrl}/userworkplaces/options`);
+  editUserWorkPlace(id: number, userWorkPlace: IUserWorkPlaceAddEdit) {
+    return this.http.put(`${apiUrl}/userworkplaces/${id}`, JSON.stringify(userWorkPlace), { headers: requestHeaders });
   }
 
   deleteUserWorkPlace(id: number) {
