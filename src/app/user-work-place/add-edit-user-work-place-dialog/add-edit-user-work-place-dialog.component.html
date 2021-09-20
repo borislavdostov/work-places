@@ -13,25 +13,29 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Select Work Place</mat-label>
-                <mat-select>
+                <mat-select #workPlace="ngModel" name="workPlace" ngModel required>
                     <mat-option *ngFor="let workPlace of workPlaceOptions" [value]="workPlace.id">{{workPlace.name}}
                     </mat-option>
                 </mat-select>
+                <mat-error *ngIf="workPlace.errors?.required">Work place is required</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="outline">
-                <mat-label>Period of working</mat-label>
+                <mat-label>Working period</mat-label>
                 <mat-date-range-input [rangePicker]="picker">
-                    <input matStartDate placeholder="Start date">
-                    <input matEndDate placeholder="End date">
+                    <input #fromDateInput="ngModel" name="fromDate" matStartDate placeholder="Start date" ngModel
+                        required>
+                    <input #toDateInput="ngModel" name="toDate" matEndDate placeholder="End date" ngModel required>
                 </mat-date-range-input>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-error *ngIf="fromDateInput.errors?.required || toDateInput.errors?.required">Working period is
+                    required</mat-error>
             </mat-form-field>
         </div>
     </mat-dialog-content>
-    <mat-dialog-actions align="center">
+    <mat-dialog-actions align=" center">
         <button [disabled]="f.invalid" mat-raised-button [color]="submitButtonColor"
             tabindex="1">{{submitButtonTitle}}</button>
         <button mat-raised-button mat-dialog-close tabindex="-1">Cancel</button>

@@ -33,6 +33,6 @@ export class AddEditUserWorkPlaceDialogComponent {
   }
 
   onSubmit(userWorkPlace: IUserWorkPlaceAddEdit) {
-    this.dialogRef.close(true);
+    this.dialogRef.close({ confirmed: true, userWorkPlace: userWorkPlace });
   }
 }
