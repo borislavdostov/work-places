@@ -17,6 +17,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './loader/loader.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -37,15 +38,16 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
   ],
   exports: [
     CommonModule,
-    MatButtonModule,
-    MatTableModule,
-    MatSnackBarModule,
+    FormsModule,
     LoaderComponent,
-    ToolbarComponent,
+    MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatSelectModule,
     MatInputModule,
+    MatSnackBarModule,
+    MatSelectModule,
+    MatTableModule,
+    ToolbarComponent,
     ConfirmationDialogComponent
   ]
 })

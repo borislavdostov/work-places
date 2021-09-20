@@ -1,4 +1,5 @@
 import { Component, Inject } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -20,7 +21,7 @@ export class AddEditUserDialogComponent {
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
   }
 
-  onSubmitClick() {
+  onSubmit() {
     this.dialogRef.close(true);
   }
 }
