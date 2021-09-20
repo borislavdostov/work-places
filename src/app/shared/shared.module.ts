@@ -20,7 +20,6 @@ import { LoaderComponent } from './loader/loader.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { FormsModule } from '@angular/forms';
-import { NameValidatorDirectiveDirective } from './name-validator-directive.directive';
 import { NameValidatorDirective } from './name-validator.directive';
 
 
@@ -30,7 +29,6 @@ import { NameValidatorDirective } from './name-validator.directive';
     LoaderComponent,
     ToolbarComponent,
     ConfirmationDialogComponent,
-    NameValidatorDirectiveDirective,
     NameValidatorDirective
   ],
   imports: [
