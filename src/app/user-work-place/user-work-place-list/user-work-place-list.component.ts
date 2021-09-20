@@ -71,7 +71,7 @@ export class UserWorkPlaceListComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(dialogResult => {
         if (dialogResult?.confirmed) {
-          this.editUserWorkPlace(userWorkPlaceId, userWorkPlace);
+          this.editUserWorkPlace(userWorkPlaceId, dialogResult.userWorkPlace);
         }
       });
     });

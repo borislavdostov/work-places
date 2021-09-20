@@ -18,8 +18,8 @@ export class AddEditUserWorkPlaceDialogComponent {
   userOptions: IUserDropdown[] = [];
   workPlaceOptions: IWorkPlace[] = [];
 
-  user!: number;
-  workPlace!: number;
+  userId!: number;
+  workPlaceId!: number;
   fromDate!: string;
   toDate!: string;
 
@@ -37,8 +37,8 @@ export class AddEditUserWorkPlaceDialogComponent {
     });
 
     if (data.userWorkPlace) {
-      this.user = data.userWorkPlace.user;
-      this.workPlace = data.userWorkPlace.workPlace;
+      this.userId = data.userWorkPlace.userId;
+      this.workPlaceId = data.userWorkPlace.workPlaceId;
       this.fromDate = data.userWorkPlace.fromDate;
       this.toDate = data.userWorkPlace.toDate;
     }
