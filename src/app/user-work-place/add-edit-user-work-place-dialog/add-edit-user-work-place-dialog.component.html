@@ -12,8 +12,8 @@
         <mat-form-field appearance="outline">
             <mat-label>Select Work Place</mat-label>
             <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+                <mat-option *ngFor="let workPlace of workPlaceOptions" [value]="workPlace.id">{{workPlace.name}}
+                </mat-option>
             </mat-select>
         </mat-form-field>
     </div>
