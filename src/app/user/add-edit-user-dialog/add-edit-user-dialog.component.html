@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>{{title}}</h1>
-<form #f="ngForm" (ngSubmit)="onSubmit()">
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
     <mat-dialog-content>
         <div>
             <mat-form-field appearance="outline">

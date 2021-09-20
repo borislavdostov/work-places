@@ -42,14 +42,14 @@ export class UserListComponent implements OnInit {
       }
     });
 
-    dialofRef.afterClosed().subscribe(confirmed => {
-      if (confirmed) {
-        this.createUser();
+    dialofRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult.confirmed) {
+        this.createUser(dialogResult.formData);
       }
     });
   }
 
-  createUser() {
+  createUser(formData: FormData) {
 
   }
 
