@@ -86,7 +86,7 @@ export class UserListComponent implements OnInit {
         this.getUsers();
       },
       error: (error) => {
-        alert(error)
+        alert("Implement backend errors:" + error)
       }
     });
   }
