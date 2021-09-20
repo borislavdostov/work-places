@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { UserListComponent } from './user/user-list/user-list.component';
-import { WorkPlaceListComponent } from './work-place/work-place-list/work-place-list.component';
+import { UserWorkPlaceListComponent } from './user-work-place/user-work-place-list/user-work-place-list.component';
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'workplaces',
-    component: WorkPlaceListComponent
+    component: UserWorkPlaceListComponent
   },
   {
     path: 'users',

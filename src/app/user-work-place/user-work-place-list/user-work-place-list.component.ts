@@ -3,15 +3,15 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
-import { AddEditWorkPlaceDialogComponent } from '../add-edit-work-place-dialog/add-edit-work-place-dialog.component';
-import { WorkPlaceService } from '../work-place.service';
+import { AddEditUserWorkPlaceDialogComponent } from '../add-edit-user-work-place-dialog/add-edit-user-work-place-dialog.component';
+import { WorkPlaceService } from '../user-work-place.service';
 
 @Component({
   selector: 'app-work-place-list',
-  templateUrl: './work-place-list.component.html',
-  styleUrls: ['./work-place-list.component.css']
+  templateUrl: './user-work-place-list.component.html',
+  styleUrls: ['./user-work-place-list.component.css']
 })
-export class WorkPlaceListComponent implements OnInit {
+export class UserWorkPlaceListComponent implements OnInit {
 
   workPlaces!: IUserWorkPlace[];
   workPlacesTitle: string = '';
@@ -35,7 +35,7 @@ export class WorkPlaceListComponent implements OnInit {
   }
 
   openNewDialog() {
-    let dialogRef = this.addEditWorkPlaceDialog.open(AddEditWorkPlaceDialogComponent, {
+    let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
       data: {
         isCreate: true
       }
@@ -53,7 +53,7 @@ export class WorkPlaceListComponent implements OnInit {
   }
 
   openEditDialog(workPlace: IUserWorkPlace) {
-    let dialogRef = this.addEditWorkPlaceDialog.open(AddEditWorkPlaceDialogComponent, {
+    let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
       data: {
         title: `Edit Work Place ${workPlace.workPlace} for user ${workPlace.user}`,
       }
