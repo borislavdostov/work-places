@@ -26,7 +26,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { FilterComponent } from './filter/filter.component';
 
-
 @NgModule({
   declarations: [
     NotFoundComponent,
