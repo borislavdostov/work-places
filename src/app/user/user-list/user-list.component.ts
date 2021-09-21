@@ -44,11 +44,15 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   getUsers() {
-    this.userService.getUsers().subscribe(users => {
-      this.users = users;
-      this.dataSource.data = this.users;
-      this.usersTitle = `${this.users.length} Users`;
-    });
+    this.userService.getUsers().subscribe(
+      users => {
+        this.users = users;
+        this.dataSource.data = this.users;
+        this.usersTitle = `${this.users.length} Users`;
+      },
+      error => {
+
+      });
   }
 
   openNewDialog() {
@@ -66,14 +70,16 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   createUser(user: IUserAddEdit) {
-    this.userService.createUser(user).subscribe({
-      next: () => {
+    this.userService.createUser(user).subscribe(
+      () => {
         this.getUsers();
       },
-      error: (response) => {
-        alert("Implement backend errors:" + response.error.errors);
+      error => {
+        // alert("Implement backend errors:" + response.error.errors);
+        console.log(error);
+
       }
-    });
+    );
   }
 
   openEditDialog(userId: number) {
@@ -94,14 +100,14 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   editUser(userId: number, user: IUserAddEdit) {
-    this.userService.editUser(userId, user).subscribe({
-      next: (data) => {
+    this.userService.editUser(userId, user).subscribe(
+      () => {
         this.getUsers();
       },
-      error: (error) => {
+      error => {
         alert("Implement backend errors:" + error);
       }
-    });
+    );
   }
 
   openDeleteDialog(user: IUser) {
@@ -119,15 +125,14 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   deleteUser(id: number) {
-    this.userService.deleteUser(id).subscribe({
-      next: (data) => {
+    this.userService.deleteUser(id).subscribe(
+      () => {
         this.getUsers();
       },
-      error: (err) => {
+      () => {
         let snackBarRef = this.snackBar.open('Error deleting user!', 'RETRY', { duration: snackBarDuration });
         snackBarRef.onAction().subscribe(() => this.deleteUser(id));
       }
-    });
+    );
   }
-
 }

@@ -42,11 +42,15 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   }
 
   getUserWorkPlaces() {
-    this.userWorkPlaceService.getUserWorkPlaces().subscribe(workPlaces => {
-      this.workPlaces = workPlaces;
-      this.dataSource.data = this.workPlaces;
-      this.workPlacesTitle = `${this.workPlaces.length} Work Places`;
-    });
+    this.userWorkPlaceService.getUserWorkPlaces().subscribe(
+      workPlaces => {
+        this.workPlaces = workPlaces;
+        this.dataSource.data = this.workPlaces;
+        this.workPlacesTitle = `${this.workPlaces.length} Work Places`;
+      },
+      erorr => {
+
+      });
   }
 
   openNewDialog() {
@@ -64,14 +68,14 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   }
 
   createUserWorkPlace(userWorkPlace: IUserWorkPlaceAddEdit) {
-    this.userWorkPlaceService.createUserWorkPlace(userWorkPlace).subscribe({
-      next: (data) => {
+    this.userWorkPlaceService.createUserWorkPlace(userWorkPlace).subscribe(
+      () => {
         this.getUserWorkPlaces();
       },
-      error: (response) => {
-        alert("Implement backend errors:" + response.error.errors);
+      error => {
+        alert("Implement backend errors:" + error.error.errors);
       }
-    });
+    );
   }
 
   openEditDialog(userWorkPlaceId: number) {
@@ -92,14 +96,14 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   }
 
   editUserWorkPlace(iuserWorkPlaceId: number, userWorkPlace: IUserWorkPlaceAddEdit) {
-    this.userWorkPlaceService.editUserWorkPlace(iuserWorkPlaceId, userWorkPlace).subscribe({
-      next: (data) => {
+    this.userWorkPlaceService.editUserWorkPlace(iuserWorkPlaceId, userWorkPlace).subscribe(
+      () => {
         this.getUserWorkPlaces();
       },
-      error: (error) => {
+      error => {
         alert("Implement backend errors:" + error);
       }
-    });
+    );
   }
 
   openDeleteDialog(workPlace: IUserWorkPlace) {
@@ -117,14 +121,14 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   }
 
   deleteUserWorkPlace(id: number) {
-    this.userWorkPlaceService.deleteUserWorkPlace(id).subscribe({
-      next: (data) => {
+    this.userWorkPlaceService.deleteUserWorkPlace(id).subscribe(
+      () => {
         this.getUserWorkPlaces();
       },
-      error: (err) => {
+      error => {
         let snackBarRef = this.snackBar.open("Error deleting work place!", "RETRY");
         snackBarRef.onAction().subscribe(() => this.deleteUserWorkPlace(id));
       }
-    });
+    );
   }
 }
