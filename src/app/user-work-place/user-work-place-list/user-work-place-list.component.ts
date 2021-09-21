@@ -113,5 +113,4 @@ export class UserWorkPlaceListComponent implements OnInit {
       }
     });
   }
-
 }
