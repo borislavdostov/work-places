@@ -23,7 +23,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   usersTitle!: string;
   displayedColumns: string[] = ['name', 'age', 'email', 'options'];
-  errors = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -75,9 +74,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
         this.getUsers();
       },
       error => {
-        // alert("Implement backend errors:" + response.error.errors);
-        console.log(error);
-
+        console.log(error.error.errors);
       }
     );
   }
