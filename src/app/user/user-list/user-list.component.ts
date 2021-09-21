@@ -16,7 +16,7 @@ import { UserService } from '../user.service';
 export class UserListComponent implements OnInit {
 
   users!: IUser[];
-  usersTitle: string = '';
+  usersTitle!: string;
   displayedColumns: string[] = ['name', 'age', 'email', 'options'];
 
   errors = [];
