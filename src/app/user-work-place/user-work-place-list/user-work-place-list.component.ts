@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableDataSource } from '@angular/material/table';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
 import { IUserWorkPlaceAddEdit } from 'src/app/shared/interfaces/user-work-place-add-edit';
@@ -12,11 +14,15 @@ import { UserWorkPlaceService } from '../user-work-place.service';
   templateUrl: './user-work-place-list.component.html',
   styleUrls: ['./user-work-place-list.component.css']
 })
-export class UserWorkPlaceListComponent implements OnInit {
+export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
 
   workPlaces!: IUserWorkPlace[];
+  dataSource = new MatTableDataSource();
+
   workPlacesTitle: string = '';
   displayedColumns: string[] = ['user', 'workPlace', 'fromDate', 'toDate', 'options'];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private userWorkPlaceService: UserWorkPlaceService,
@@ -28,9 +34,14 @@ export class UserWorkPlaceListComponent implements OnInit {
     this.getUserWorkPlaces();
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
   getUserWorkPlaces() {
     this.userWorkPlaceService.getUserWorkPlaces().subscribe(workPlaces => {
       this.workPlaces = workPlaces;
+      this.dataSource.data = this.workPlaces;
       this.workPlacesTitle = `${this.workPlaces.length} Work Places`;
     });
   }

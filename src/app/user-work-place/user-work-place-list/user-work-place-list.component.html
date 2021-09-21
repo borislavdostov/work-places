@@ -1,5 +1,5 @@
 <app-toolbar [title]="workPlacesTitle" (newClicked)="openNewDialog()"></app-toolbar>
-<table *ngIf="workPlaces" mat-table [dataSource]="workPlaces" class="mat-elevation-z8">
+<table [hidden]="!workPlaces" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="user">
     <th mat-header-cell *matHeaderCellDef>User</th>
@@ -32,5 +32,8 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row"></tr>
 </table>
+
+<mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons aria-label="Select page of work places">
+</mat-paginator>
 
 <app-loader [isLoading]="!workPlaces"></app-loader>

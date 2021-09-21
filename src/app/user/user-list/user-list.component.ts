@@ -25,28 +25,28 @@ export class UserListComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['name', 'age', 'email', 'options'];
   errors = [];
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   constructor(
     private userService: UserService,
     private snackBar: MatSnackBar,
     private confirmationDialog: MatDialog,
     private addEditUserDialog: MatDialog) { }
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  ngOnInit(): void {
+    this.getUsers();
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
-  ngOnInit(): void {
-    this.getUsers();
-  }
-
   getUsers() {
     this.userService.getUsers().subscribe(users => {
       this.users = users;
-      this.dataSource.data = users;
+      this.dataSource.data = this.users;
       this.usersTitle = `${this.users.length} Users`;
     });
   }
