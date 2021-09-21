@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,6 +22,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { NameValidatorDirective } from './name-validator.directive';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -41,9 +43,9 @@ import { NameValidatorDirective } from './name-validator.directive';
     MatDialogModule
   ],
   exports: [
+    BrowserAnimationsModule,
     CommonModule,
     FormsModule,
-    LoaderComponent,
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
@@ -53,8 +55,10 @@ import { NameValidatorDirective } from './name-validator.directive';
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ToolbarComponent,
+    MatPaginatorModule,
     ConfirmationDialogComponent,
+    LoaderComponent,
+    ToolbarComponent,
     NameValidatorDirective
   ]
 })

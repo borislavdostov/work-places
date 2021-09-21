@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableDataSource } from '@angular/material/table';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { snackBarDuration } from 'src/app/shared/constants';
 import { IUser } from 'src/app/shared/interfaces/user';
@@ -13,12 +15,13 @@ import { UserService } from '../user.service';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, AfterViewInit {
 
   users!: IUser[];
+  dataSource = new MatTableDataSource();
+
   usersTitle!: string;
   displayedColumns: string[] = ['name', 'age', 'email', 'options'];
-
   errors = [];
 
   constructor(
@@ -27,6 +30,12 @@ export class UserListComponent implements OnInit {
     private confirmationDialog: MatDialog,
     private addEditUserDialog: MatDialog) { }
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
   ngOnInit(): void {
     this.getUsers();
   }
@@ -34,6 +43,7 @@ export class UserListComponent implements OnInit {
   getUsers() {
     this.userService.getUsers().subscribe(users => {
       this.users = users;
+      this.dataSource.data = users;
       this.usersTitle = `${this.users.length} Users`;
     });
   }
