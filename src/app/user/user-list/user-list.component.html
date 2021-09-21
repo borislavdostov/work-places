@@ -1,5 +1,6 @@
-<app-toolbar [title]="usersTitle" (newClicked)="openNewDialog()"></app-toolbar>
-<app-filter [dataSource]="dataSource" placeholder="Search user"></app-filter>
+<app-toolbar [title]="usersTitle" (newClicked)="openNewDialog()">
+  <app-filter [dataSource]="dataSource" placeholder="Search user"></app-filter>
+</app-toolbar>
 <table [hidden]="!users" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="name">
@@ -29,7 +30,8 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row"></tr>
 </table>
 
-<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" pageSize="10" showFirstLastButtons aria-label="Select page of users">
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" pageSize="10" showFirstLastButtons
+  aria-label="Select page of users">
 </mat-paginator>
 
 <app-loader [isLoading]="!users"></app-loader>
