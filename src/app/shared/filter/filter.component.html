@@ -1,4 +1,4 @@
-    <mat-form-field appearance="standard" style="width: 400px; font-size: 16px;">
+    <mat-form-field appearance="standard">
         <mat-label>{{title}}</mat-label>
         <input matInput (keyup)="applyFilter(input)" #input>
         <button *ngIf="input.value" matSuffix mat-icon-button aria-label="Clear" (click)="onClearClick(input)">
