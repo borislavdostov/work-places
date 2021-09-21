@@ -1,5 +1,5 @@
 <app-toolbar [title]="workPlacesTitle" (newClicked)="openNewDialog()">
-  <app-filter [dataSource]="dataSource" placeholder="Search user work place"></app-filter>
+  <app-filter [dataSource]="dataSource" title="Search user work place"></app-filter>
 </app-toolbar>
 <table [hidden]="!workPlaces" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 

@@ -1,6 +1,6 @@
-<mat-form-field appearance="outline">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" [placeholder]="placeholder" #input>
+<mat-form-field appearance="standard" style="width: 400px;">
+    <mat-label>{{title}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
     <button *ngIf="input.value" matSuffix mat-icon-button aria-label="Clear" (click)="input.value=''">
         <mat-icon>close</mat-icon>
     </button>
