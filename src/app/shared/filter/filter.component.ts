@@ -13,12 +13,12 @@ export class FilterComponent {
 
   constructor() { }
 
-  applyFilter(input: HTMLInputElement) {
-    this.dataSource.filter = input.value.trim().toLowerCase();
-  }
-
-  onClearClick(input: HTMLInputElement){
+  onClearClick(input: HTMLInputElement) {
     input.value = '';
     this.applyFilter(input);
+  }
+
+  applyFilter(input: HTMLInputElement) {
+    this.dataSource.filter = input.value.trim().toLowerCase();
   }
 }
