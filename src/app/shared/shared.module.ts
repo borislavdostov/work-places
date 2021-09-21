@@ -23,6 +23,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { FormsModule } from '@angular/forms';
 import { NameValidatorDirective } from './name-validator.directive';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatDatepickerModule,
     MatNativeDateModule,
     MatPaginatorModule,
+    MatSortModule,
     ConfirmationDialogComponent,
     LoaderComponent,
     ToolbarComponent,
