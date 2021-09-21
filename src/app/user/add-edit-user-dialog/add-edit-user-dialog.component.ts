@@ -10,10 +10,10 @@ import { IUserAddEdit } from 'src/app/shared/interfaces/user-add-edit';
 export class AddEditUserDialogComponent {
 
   title: string;
-  firstName = '';
-  lastName = '';
-  dateOfBirth = '';
-  email = '';
+  firstName!: string;
+  lastName!: string;
+  dateOfBirth!: string;
+  email!: string;
 
   submitButtonTitle: string;
   submitButtonColor: string;
