@@ -1,23 +1,23 @@
 <app-toolbar [title]="workPlacesTitle" (newClicked)="openNewDialog()"></app-toolbar>
-<table [hidden]="!workPlaces" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table [hidden]="!workPlaces" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="user">
-    <th mat-header-cell *matHeaderCellDef>User</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>User</th>
     <td mat-cell *matCellDef="let workPlace"> {{workPlace.user}} </td>
   </ng-container>
 
   <ng-container matColumnDef="workPlace">
-    <th mat-header-cell *matHeaderCellDef>Work Place</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Work Place</th>
     <td mat-cell *matCellDef="let workPlace"> {{workPlace.workPlace}} </td>
   </ng-container>
 
   <ng-container matColumnDef="fromDate">
-    <th mat-header-cell *matHeaderCellDef>From Date</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>From Date</th>
     <td mat-cell *matCellDef="let workPlace"> {{workPlace.fromDate | date}} </td>
   </ng-container>
 
   <ng-container matColumnDef="toDate">
-    <th mat-header-cell *matHeaderCellDef>To Date</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>To Date</th>
     <td mat-cell *matCellDef="let workPlace"> {{workPlace.toDate | date}} </td>
   </ng-container>
 
