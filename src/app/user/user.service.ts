@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { requestHeaders } from '../shared/constants';
 import { IUser } from '../shared/interfaces/user';
 import { IUserAddEdit } from '../shared/interfaces/user-add-edit';
+
 const apiUrl = environment.apiUrl;
 
 @Injectable({
