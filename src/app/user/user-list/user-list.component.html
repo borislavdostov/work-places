@@ -1,7 +1,7 @@
 <app-toolbar [title]="usersTitle" (newClicked)="openNewDialog()">
   <app-filter [dataSource]="dataSource" title="Search user"></app-filter>
 </app-toolbar>
-<table [hidden]="!users" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+<table [hidden]="!users" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z4">
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
@@ -29,9 +29,11 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row"></tr>
 </table>
-
-<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" pageSize="10" showFirstLastButtons
-  aria-label="Select page of users">
-</mat-paginator>
+<div class="footer">
+<mat-divider></mat-divider>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" pageSize="10" showFirstLastButtons
+    aria-label="Select page of users">
+  </mat-paginator>
+</div>
 
 <app-loader [isLoading]="!users"></app-loader>

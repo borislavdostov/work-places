@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
 import { MatSortModule } from '@angular/material/sort';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { FilterComponent } from './filter/filter.component';
@@ -61,6 +62,7 @@ import { NameValidatorDirective } from './name-validator.directive';
     MatNativeDateModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDividerModule,
     ConfirmationDialogComponent,
     FilterComponent,
     LoaderComponent,

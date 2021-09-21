@@ -17,3 +17,9 @@ mat-icon{
 .row:hover{
     background: rgba(0,0,0,.05);
 }
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
