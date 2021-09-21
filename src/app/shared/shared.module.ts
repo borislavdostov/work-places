@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,16 +16,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
-
-import { NotFoundComponent } from './not-found/not-found.component';
-import { LoaderComponent } from './loader/loader.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import { FormsModule } from '@angular/forms';
-import { NameValidatorDirective } from './name-validator.directive';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { FilterComponent } from './filter/filter.component';
+import { LoaderComponent } from './loader/loader.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NameValidatorDirective } from './name-validator.directive';
 
 @NgModule({
   declarations: [
