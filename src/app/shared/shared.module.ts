@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { NameValidatorDirective } from './name-validator.directive';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { FilterComponent } from './filter/filter.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MatSortModule } from '@angular/material/sort';
     LoaderComponent,
     ToolbarComponent,
     ConfirmationDialogComponent,
-    NameValidatorDirective
+    NameValidatorDirective,
+    FilterComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatProgressSpinnerModule,
     MatIconModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -59,6 +63,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatPaginatorModule,
     MatSortModule,
     ConfirmationDialogComponent,
+    FilterComponent,
     LoaderComponent,
     ToolbarComponent,
     NameValidatorDirective

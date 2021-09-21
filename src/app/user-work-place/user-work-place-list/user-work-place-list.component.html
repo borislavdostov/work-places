@@ -1,4 +1,5 @@
 <app-toolbar [title]="workPlacesTitle" (newClicked)="openNewDialog()"></app-toolbar>
+<app-filter [dataSource]="dataSource" placeholder="Search user work place"></app-filter>
 <table [hidden]="!workPlaces" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="user">

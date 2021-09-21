@@ -1,4 +1,5 @@
 <app-toolbar [title]="usersTitle" (newClicked)="openNewDialog()"></app-toolbar>
+<app-filter [dataSource]="dataSource" placeholder="Search user"></app-filter>
 <table [hidden]="!users" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="name">
