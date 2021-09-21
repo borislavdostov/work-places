@@ -33,7 +33,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row"></tr>
 </table>
 
-<mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons aria-label="Select page of user work places">
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" pageSize="10" showFirstLastButtons aria-label="Select page of user work places">
 </mat-paginator>
 
 <app-loader [isLoading]="!workPlaces"></app-loader>
