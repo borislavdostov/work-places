@@ -48,9 +48,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
         this.users = users;
         this.dataSource.data = this.users;
         this.usersTitle = `${this.users.length} Users`;
-      },
-      error => {
-
       });
   }
 
