@@ -74,8 +74,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
       },
       error => {
         alert("Implement backend errors:" + error.error.errors);
-      }
-    );
+      });
   }
 
   openEditUserWorkPlaceDialog(userWorkPlaceId: number) {
@@ -117,7 +116,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
       if (confirmed) {
         this.deleteUserWorkPlace(workPlace.id);
       }
-    })
+    });
   }
 
   deleteUserWorkPlace(id: number) {
