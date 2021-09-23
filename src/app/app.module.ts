@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserWorkPlaceModule } from './user-work-place/user-work-place.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,10 +15,10 @@ import { UserWorkPlaceModule } from './user-work-place/user-work-place.module';
   imports: [
     CoreModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    UserModule,
-    UserWorkPlaceModule,
-    HttpClientModule
+    HttpClientModule,
+    UserWorkPlaceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

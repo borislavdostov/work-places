@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -48,7 +47,6 @@ import { NameValidatorDirective } from './name-validator.directive';
     MatInputModule
   ],
   exports: [
-    BrowserAnimationsModule,
     CommonModule,
     FormsModule,
     MatButtonModule,
