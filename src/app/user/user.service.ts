@@ -28,7 +28,7 @@ export class UserService {
   }
 
   editUser(id: number, user: IUserAddEdit) {
-    return this.http.put(`${apiUrl}/users/${id}`, JSON.stringify(user), { headers: requestHeaders })
+    return this.http.put(`${apiUrl}/users/${id}`, JSON.stringify(user), { headers: requestHeaders });
   }
 
   deleteUser(id: number) {
