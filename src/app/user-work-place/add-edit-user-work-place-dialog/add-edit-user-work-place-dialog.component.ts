@@ -13,12 +13,11 @@ import { UserWorkPlaceService } from '../user-work-place.service';
 export class AddEditUserWorkPlaceDialogComponent {
 
   title: string;
-  userWorkPlace!: IUserWorkPlaceAddEdit;
-
   userOptions: IUserDropdown[] = [];
   workPlaceOptions: IWorkPlace[] = [];
   submitButtonTitle: string;
   submitButtonColor: string;
+  userWorkPlace: IUserWorkPlaceAddEdit;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
@@ -33,9 +32,7 @@ export class AddEditUserWorkPlaceDialogComponent {
       this.workPlaceOptions = options.workPlaces;
     });
 
-    if (data.userWorkPlace) {
-      this.userWorkPlace = data.userWorkPlace
-    }
+    this.userWorkPlace = data.userWorkPlace
   }
 
   onSubmit(userWorkPlace: IUserWorkPlaceAddEdit) {
