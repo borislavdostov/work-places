@@ -10,10 +10,7 @@ import { IUserAddEdit } from 'src/app/shared/interfaces/user-add-edit';
 export class AddEditUserDialogComponent {
 
   title: string;
-  firstName!: string;
-  lastName!: string;
-  dateOfBirth!: string;
-  email!: string;
+  user!: IUserAddEdit;
 
   submitButtonTitle: string;
   submitButtonColor: string;
@@ -25,10 +22,7 @@ export class AddEditUserDialogComponent {
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
     if (data.user) {
-      this.firstName = data.user.firstName;
-      this.lastName = data.user.lastName;
-      this.dateOfBirth = data.user.dateOfBirth;
-      this.email = data.user.email;
+      this.user = data.user;
     }
   }
 
