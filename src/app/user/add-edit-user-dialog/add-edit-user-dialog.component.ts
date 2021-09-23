@@ -10,10 +10,9 @@ import { IUserAddEdit } from 'src/app/shared/interfaces/user-add-edit';
 export class AddEditUserDialogComponent {
 
   title: string;
-  user!: IUserAddEdit;
-
   submitButtonTitle: string;
   submitButtonColor: string;
+  user: IUserAddEdit;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
@@ -21,9 +20,7 @@ export class AddEditUserDialogComponent {
     this.title = data.title || 'Create User';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
-    if (data.user) {
-      this.user = data.user;
-    }
+    this.user = data.user;
   }
 
   onSubmit(user: IUserAddEdit) {
