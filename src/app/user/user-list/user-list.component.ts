@@ -52,7 +52,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
       });
   }
 
-  openNewDialog() {
+  openNewUserDialog() {
     let dialofRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
       data: {
         isCreate: true
@@ -77,7 +77,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
     );
   }
 
-  openEditDialog(userId: number) {
+  openEditUserDialog(userId: number) {
     this.userService.getUser(userId).subscribe(user => {
       let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
         data: {
@@ -105,7 +105,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
     );
   }
 
-  openDeleteDialog(user: IUser) {
+  openDeleteUserDialog(user: IUser) {
     const dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {
       data: {
         message: `Are you sure you want to delete user ${user.name}?`
