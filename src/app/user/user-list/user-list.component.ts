@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -70,8 +71,9 @@ export class UserListComponent implements OnInit, AfterViewInit {
       () => {
         this.getUsers();
       },
-      error => {
-        console.log(error.error.errors);
+      (error: HttpErrorResponse) => {
+        console.log(error.error);
+        
       }
     );
   }
