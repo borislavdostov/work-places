@@ -73,7 +73,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
       },
       (error: HttpErrorResponse) => {
         console.log(error.error);
-        
       }
     );
   }
