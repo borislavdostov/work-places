@@ -53,7 +53,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
       });
   }
 
-  openNewDialog() {
+  openNewUserWorkPlaceDialog() {
     let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
       data: {
         isCreate: true
@@ -78,7 +78,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
     );
   }
 
-  openEditDialog(userWorkPlaceId: number) {
+  openEditUserWorkPlaceDialog(userWorkPlaceId: number) {
     this.userWorkPlaceService.getUserWorkPlace(userWorkPlaceId).subscribe(userWorkPlace => {
       let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
         data: {
@@ -106,7 +106,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
     );
   }
 
-  openDeleteDialog(workPlace: IUserWorkPlace) {
+  openDeleteUserWorkPlaceDialog(workPlace: IUserWorkPlace) {
     let dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {
       data: {
         message: `Are you sure you want to delete work place ${workPlace.workPlace} for user ${workPlace.user}?`
@@ -128,7 +128,6 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
       error => {
         let snackBarRef = this.snackBar.open("Error deleting work place!", "RETRY");
         snackBarRef.onAction().subscribe(() => this.deleteUserWorkPlace(id));
-      }
-    );
+      });
   }
 }
