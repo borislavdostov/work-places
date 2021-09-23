@@ -53,13 +53,13 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   openNewUserDialog() {
-    let dialofRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
+    let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
       data: {
         isCreate: true
       }
     });
 
-    dialofRef.afterClosed().subscribe(dialogResult => {
+    dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult?.confirmed) {
         this.createUser(dialogResult.user);
       }
