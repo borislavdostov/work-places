@@ -55,6 +55,7 @@ export class AddEditUserWorkPlaceDialogComponent {
         },
         (error: HttpErrorResponse) => {
           this.errors = error.error;
+          this.disabled = false;
         });
     } else {
       this.userWorkPlaceService.editUserWorkPlace(this.userWorkPlaceId, userWorkPlace).subscribe(
@@ -63,6 +64,7 @@ export class AddEditUserWorkPlaceDialogComponent {
         },
         (error: HttpErrorResponse) => {
           this.errors = error.error;
+          this.disabled = false;
         });
     }
   }
