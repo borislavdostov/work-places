@@ -40,7 +40,11 @@ export class AddEditUserDialogComponent {
           this.dialogRef.close({ confirmed: true });
         },
         (error: HttpErrorResponse) => {
-          this.errors = error.error;
+          if (error.status == 0) {
+            this.errors = ["Unable to create user."];
+          } else {
+            this.errors = error.error;
+          }
           this.disabled = false;
         });
     } else {
@@ -50,7 +54,7 @@ export class AddEditUserDialogComponent {
         },
         (error: HttpErrorResponse) => {
           if (error.status == 0) {
-            this.errors = ["Unable to edit user"];
+            this.errors = ["Unable to edit user."];
           } else {
             this.errors = error.error;
           }
