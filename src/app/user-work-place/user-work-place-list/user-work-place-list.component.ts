@@ -81,11 +81,12 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
           }
         });
 
-        dialogRef.afterClosed().subscribe(dialogResult => {
-          if (dialogResult?.confirmed) {
-            this.getUserWorkPlaces();
-          }
-        });
+        dialogRef.afterClosed().subscribe(
+          dialogResult => {
+            if (dialogResult?.confirmed) {
+              this.getUserWorkPlaces();
+            }
+          });
       },
       () => {
         let snackBarRef = this.snackBar.open("Error deleting work place!", "RETRY");
