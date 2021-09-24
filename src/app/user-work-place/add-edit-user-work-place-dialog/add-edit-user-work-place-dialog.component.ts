@@ -29,7 +29,7 @@ export class AddEditUserWorkPlaceDialogComponent {
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<AddEditUserWorkPlaceDialogComponent>,
     private userWorkPlaceService: UserWorkPlaceService) {
-    this.title = data.title || 'Create Work Place';
+    this.title = data.title || 'Create Workplace';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
 
@@ -40,7 +40,7 @@ export class AddEditUserWorkPlaceDialogComponent {
       },
       (error: HttpErrorResponse) => {
         if (error.status == 0) {
-          this.errors = ["Unable to get users and work places."];
+          this.errors = ["Unable to get users and workplaces."];
         } else {
           this.errors = error.error;
         }
@@ -59,7 +59,7 @@ export class AddEditUserWorkPlaceDialogComponent {
         },
         (error: HttpErrorResponse) => {
           if (error.status == 0) {
-            this.errors = ["Unable to create work place."];
+            this.errors = ["Unable to create workplace."];
           } else {
             this.errors = error.error;
           }
@@ -72,7 +72,7 @@ export class AddEditUserWorkPlaceDialogComponent {
         },
         (error: HttpErrorResponse) => {
           if (error.status == 0) {
-            this.errors = ["Unable to edit work place."];
+            this.errors = ["Unable to edit workplace."];
           } else {
             this.errors = error.error;
           }

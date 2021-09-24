@@ -14,11 +14,11 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Select Work Place</mat-label>
-                <mat-select #workPlace="ngModel" name="workPlaceId" [ngModel]="userWorkplace?.workplaceId" required>
-                    <mat-option *ngFor="let workPlace of workplaceOptions" [value]="workPlace.id">{{workPlace.name}}
+                <mat-select #workplace="ngModel" name="workplaceId" [ngModel]="userWorkplace?.workplaceId" required>
+                    <mat-option *ngFor="let workplace of workplaceOptions" [value]="workplace.id">{{workplace.name}}
                     </mat-option>
                 </mat-select>
-                <mat-error *ngIf="workPlace.errors?.required">Work place is required</mat-error>
+                <mat-error *ngIf="workplace.errors?.required">Work place is required</mat-error>
             </mat-form-field>
         </div>
         <div>
