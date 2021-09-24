@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -66,44 +65,45 @@ export class UserListComponent implements OnInit, AfterViewInit {
     });
   }
 
-  createUser(user: IUserAddEdit) {
-    this.userService.createUser(user).subscribe(
-      () => {
-        this.getUsers();
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.error);
-      }
-    );
-  }
+  // createUser(user: IUserAddEdit) {
+  //   this.userService.createUser(user).subscribe(
+  //     () => {
+  //       this.getUsers();
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       console.log(error.error);
+  //     }
+  //   );
+  // }
 
   openEditUserDialog(userId: number) {
     this.userService.getUser(userId).subscribe(user => {
       let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
         data: {
           title: `Edit User ${user.firstName} ${user.lastName}`,
+          userId: userId,
           user: user
         }
       });
 
       dialogRef.beforeClosed().subscribe(dialogResult => {
         if (dialogResult?.confirmed) {
-          this.editUser(userId, dialogResult.user);
+          this.getUsers();
         }
       });
     });
   }
 
-  editUser(userId: number, user: IUserAddEdit) {
-    this.userService.editUser(userId, user).subscribe(
-      () => {
-        this.getUsers();
-      },
-      error => {
-        alert("Implement backend errors:" + error);
-      }
-    );
-  }
+  // editUser(userId: number, user: IUserAddEdit) {
+  //   this.userService.editUser(userId, user).subscribe(
+  //     () => {
+  //       this.getUsers();
+  //     },
+  //     error => {
+  //       alert("Implement backend errors:" + error);
+  //     }
+  //   );
+  // }
 
   openDeleteUserDialog(user: IUser) {
     const dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {

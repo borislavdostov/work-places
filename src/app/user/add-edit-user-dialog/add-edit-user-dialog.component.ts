@@ -14,29 +14,41 @@ export class AddEditUserDialogComponent {
   title: string;
   submitButtonTitle: string;
   submitButtonColor: string;
+  userId: number;
   user: IUserAddEdit;
 
   errors!: string[]
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) data: any,
+    @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<AddEditUserDialogComponent>,
     private userService: UserService) {
     this.title = data.title || 'Create User';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
+    this.userId = data.userId;
     this.user = data.user;
   }
 
   onSubmit(user: IUserAddEdit) {
-    this.userService.createUser(user).subscribe(
-      () => {
-        this.dialogRef.close({ confirmed: true});
-      },
-      (error: HttpErrorResponse) => {
-        this.errors = error.error;
-      }
-    );
-
+    if (this.data.isCreate) {
+      this.userService.createUser(user).subscribe(
+        () => {
+          this.dialogRef.close({ confirmed: true });
+        },
+        (error: HttpErrorResponse) => {
+          this.errors = error.error;
+        }
+      );
+    } else {
+      this.userService.editUser(this.userId, user).subscribe(
+        () => {
+          this.dialogRef.close({ confirmed: true });
+        },
+        (error: HttpErrorResponse) => {
+          this.errors = error.error;
+        }
+      );
+    }
   }
 }
