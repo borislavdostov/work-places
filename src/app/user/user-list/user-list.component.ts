@@ -19,6 +19,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   users!: IUser[];
   dataSource = new MatTableDataSource();
+  isLoading = false;
 
   usersTitle!: string;
   displayedColumns: string[] = ['name', 'age', 'email', 'options'];
@@ -42,11 +43,16 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   getUsers() {
+    this.isLoading = true;
     this.userService.getUsers().subscribe(
       users => {
         this.users = users;
         this.dataSource.data = this.users;
         this.usersTitle = `${this.users.length} Users`;
+        this.isLoading = false;
+      },
+      () => {
+        this.isLoading = false;
       });
   }
 

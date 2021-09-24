@@ -6,7 +6,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
-import { IUserWorkPlaceAddEdit } from 'src/app/shared/interfaces/user-work-place-add-edit';
 import { AddEditUserWorkPlaceDialogComponent } from '../add-edit-user-work-place-dialog/add-edit-user-work-place-dialog.component';
 import { UserWorkPlaceService } from '../user-work-place.service';
 
@@ -19,6 +18,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
 
   workPlaces!: IUserWorkPlace[];
   dataSource = new MatTableDataSource();
+  isLoading = false;
 
   workPlacesTitle: string = '';
   displayedColumns: string[] = ['user', 'workPlace', 'fromDate', 'toDate', 'options'];
@@ -42,13 +42,17 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   }
 
   getUserWorkPlaces() {
+    this.isLoading = true;
     this.userWorkPlaceService.getUserWorkPlaces().subscribe(
       workPlaces => {
         this.workPlaces = workPlaces;
         this.dataSource.data = this.workPlaces;
         this.workPlacesTitle = `${this.workPlaces.length} Work Places`;
+        this.isLoading = false;
+
       },
-      erorr => {
+      () => {
+        this.isLoading = false;
 
       });
   }
