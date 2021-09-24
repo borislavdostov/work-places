@@ -41,6 +41,7 @@ export class AddEditUserDialogComponent {
         },
         (error: HttpErrorResponse) => {
           this.errors = error.error;
+          this.disabled = false;
         });
     } else {
       this.userService.editUser(this.userId, user).subscribe(
@@ -49,6 +50,7 @@ export class AddEditUserDialogComponent {
         },
         (error: HttpErrorResponse) => {
           this.errors = error.error;
+          this.disabled = false;
         });
     }
   }
