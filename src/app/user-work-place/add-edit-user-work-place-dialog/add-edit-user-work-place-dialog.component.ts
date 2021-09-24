@@ -46,14 +46,14 @@ export class AddEditUserWorkPlaceDialogComponent {
         }
       });
 
-    this.userWorkplaceId = data.userWorkPlaceId;
-    this.userWorkplace = data.userWorkPlace
+    this.userWorkplaceId = data.userWorkplaceId;
+    this.userWorkplace = data.userWorkplace
   }
 
-  onSubmit(userWorkPlace: IUserWorkPlaceAddEdit) {
+  onSubmit(userWorkplace: IUserWorkPlaceAddEdit) {
     this.disabled = true;
     if (this.data.isCreate) {
-      this.userWorkPlaceService.createUserWorkplace(userWorkPlace).subscribe(
+      this.userWorkPlaceService.createUserWorkplace(userWorkplace).subscribe(
         () => {
           this.dialogRef.close({ confirmed: true });
         },
@@ -66,7 +66,7 @@ export class AddEditUserWorkPlaceDialogComponent {
           this.disabled = false;
         });
     } else {
-      this.userWorkPlaceService.editUserWorkplace(this.userWorkplaceId, userWorkPlace).subscribe(
+      this.userWorkPlaceService.editUserWorkplace(this.userWorkplaceId, userWorkplace).subscribe(
         () => {
           this.dialogRef.close({ confirmed: true });
         },

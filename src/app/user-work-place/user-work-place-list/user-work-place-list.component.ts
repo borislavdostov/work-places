@@ -72,15 +72,15 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
       });
   }
 
-  openEditUserWorkPlaceDialog(userWorkPlaceId: number) {
+  openEditUserWorkPlaceDialog(userWorkplaceId: number) {
     this.disabled = true;
-    this.userWorkPlaceService.getUserWorkplace(userWorkPlaceId).subscribe(
-      userWorkPlace => {
+    this.userWorkPlaceService.getUserWorkplace(userWorkplaceId).subscribe(
+      userWorkplace => {
         let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
           data: {
             title: `Edit Workplace`,
-            userWorkPlaceId: userWorkPlaceId,
-            userWorkPlace: userWorkPlace
+            userWorkplaceId: userWorkplaceId,
+            userWorkplace: userWorkplace
           }
         });
 
