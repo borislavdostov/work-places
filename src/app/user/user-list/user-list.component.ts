@@ -94,6 +94,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
           });
       },
       () => {
+        this.disabled = false;
         let snackBarRef = this.snackBar.open('Error editing user!', 'RETRY', { duration: snackBarDuration });
         snackBarRef.onAction().subscribe(() => this.openEditUserDialog(userId));
       });
