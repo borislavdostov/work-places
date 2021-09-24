@@ -1,7 +1,7 @@
 <app-toolbar [title]="usersTitle" (newClicked)="openNewUserDialog()">
   <app-filter [dataSource]="dataSource" title="Search User"></app-filter>
 </app-toolbar>
-<table [hidden]="!users" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z4">
+<table [hidden]="!users || isLoading" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z4">
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
