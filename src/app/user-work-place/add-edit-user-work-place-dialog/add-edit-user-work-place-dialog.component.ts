@@ -35,6 +35,11 @@ export class AddEditUserWorkPlaceDialogComponent {
       options => {
         this.userOptions = options.users;
         this.workPlaceOptions = options.workPlaces;
+      },
+      (error: HttpErrorResponse) => {
+        this.errors = error.error;
+        console.log(error.error);
+
       });
 
     this.userWorkPlaceId = data.userWorkPlaceId;
