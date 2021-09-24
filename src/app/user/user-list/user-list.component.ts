@@ -71,21 +71,26 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   openEditUserDialog(userId: number) {
-    this.userService.getUser(userId).subscribe(user => {
-      let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
-        data: {
-          title: `Edit User ${user.firstName} ${user.lastName}`,
-          userId: userId,
-          user: user
-        }
-      });
+    this.userService.getUser(userId).subscribe(
+      user => {
+        let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
+          data: {
+            title: `Edit User ${user.firstName} ${user.lastName}`,
+            userId: userId,
+            user: user
+          }
+        });
 
-      dialogRef.beforeClosed().subscribe(dialogResult => {
-        if (dialogResult?.confirmed) {
-          this.getUsers();
-        }
+        dialogRef.beforeClosed().subscribe(dialogResult => {
+          if (dialogResult?.confirmed) {
+            this.getUsers();
+          }
+        });
+      },
+      () => {
+        let snackBarRef = this.snackBar.open('Error editing user!', 'RETRY', { duration: snackBarDuration });
+        snackBarRef.onAction().subscribe(() => this.openEditUserDialog(userId));
       });
-    });
   }
 
   openDeleteUserDialog(user: IUser) {
