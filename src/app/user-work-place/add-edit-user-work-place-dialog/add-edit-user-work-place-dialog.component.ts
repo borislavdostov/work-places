@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IUserDropdown } from 'src/app/shared/interfaces/user-dropdown';
@@ -17,12 +18,15 @@ export class AddEditUserWorkPlaceDialogComponent {
   workPlaceOptions: IWorkPlace[] = [];
   submitButtonTitle: string;
   submitButtonColor: string;
+  userWorkPlaceId: number;
   userWorkPlace: IUserWorkPlaceAddEdit;
 
+  errors!: string[]
+
   constructor(
-    @Inject(MAT_DIALOG_DATA) data: any,
+    @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<AddEditUserWorkPlaceDialogComponent>,
-    userWorkPlaceService: UserWorkPlaceService) {
+    private userWorkPlaceService: UserWorkPlaceService) {
     this.title = data.title || 'Create Work Place';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
@@ -32,10 +36,29 @@ export class AddEditUserWorkPlaceDialogComponent {
       this.workPlaceOptions = options.workPlaces;
     });
 
+    this.userWorkPlaceId = data.userWorkPlaceId;
     this.userWorkPlace = data.userWorkPlace
   }
 
   onSubmit(userWorkPlace: IUserWorkPlaceAddEdit) {
-    this.dialogRef.close({ confirmed: true, userWorkPlace: userWorkPlace });
+    if (this.data.isCreate) {
+      this.userWorkPlaceService.createUserWorkPlace(userWorkPlace).subscribe(
+        () => {
+          this.dialogRef.close({ confirmed: true });
+        },
+        (error: HttpErrorResponse) => {
+          this.errors = error.error;
+        }
+      );
+    } else {
+      this.userWorkPlaceService.editUserWorkPlace(this.userWorkPlaceId, userWorkPlace).subscribe(
+        () => {
+          this.dialogRef.close({ confirmed: true });
+        },
+        (error: HttpErrorResponse) => {
+          this.errors = error.error;
+        }
+      );
+    }
   }
 }
