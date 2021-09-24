@@ -22,7 +22,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   isLoading = false;
   disabled = false;
 
-  workPlacesTitle: string = '';
+  workplacesTitle: string = '';
   displayedColumns: string[] = ['user', 'workplace', 'fromDate', 'toDate', 'options'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -49,7 +49,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
       workPlaces => {
         this.userWorkplaces = workPlaces;
         this.dataSource.data = this.userWorkplaces;
-        this.workPlacesTitle = `${this.userWorkplaces.length} Work Places`;
+        this.workplacesTitle = `${this.userWorkplaces.length} Work Places`;
         this.isLoading = false;
       },
       () => {

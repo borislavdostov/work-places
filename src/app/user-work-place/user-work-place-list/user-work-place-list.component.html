@@ -1,7 +1,7 @@
-<app-toolbar [title]="workPlacesTitle" (newClicked)="openNewUserWorkPlaceDialog()">
+<app-toolbar [title]="workplacesTitle" (newClicked)="openNewUserWorkPlaceDialog()">
   <app-filter [dataSource]="dataSource" title="Search Workplace"></app-filter>
 </app-toolbar>
-<table [hidden]="!userWorkPlaces || isLoading" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z4">
+<table [hidden]="!userWorkplaces || isLoading" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z4">
 
   <ng-container matColumnDef="user">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>User</th>
@@ -36,7 +36,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row"></tr>
 </table>
 
-<div [hidden]="!userWorkPlaces" class="footer">
+<div [hidden]="!userWorkplaces" class="footer">
   <mat-divider></mat-divider>
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" pageSize="25" showFirstLastButtons
     aria-label="Select page of user workplaces">
@@ -44,6 +44,6 @@
 </div>
 
 <app-loader [isLoading]="isLoading"></app-loader>
-<app-something-went-wrong (tryAgainEmitter)="getUserWorkPlaces()" [show]="!isLoading && !userWorkPlaces"
+<app-something-went-wrong (tryAgainEmitter)="getUserWorkPlaces()" [show]="!isLoading && !userWorkplaces"
   message="getting work places">
 </app-something-went-wrong>
