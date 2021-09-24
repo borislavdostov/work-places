@@ -120,7 +120,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
         this.getUserWorkPlaces();
       },
       () => {
-        let snackBarRef = this.snackBar.open("Error editing work place!", "RETRY", { duration: snackBarDuration });
+        let snackBarRef = this.snackBar.open("Error deleting work place!", "RETRY", { duration: snackBarDuration });
         snackBarRef.onAction().subscribe(() => this.deleteUserWorkPlace(id));
       });
   }
