@@ -15,7 +15,7 @@ export class AddEditUserWorkPlaceDialogComponent {
 
   title: string;
   userOptions: IUserDropdown[] = [];
-  workPlaceOptions: IWorkPlace[] = [];
+  workplaceOptions: IWorkPlace[] = [];
   submitButtonTitle: string;
   submitButtonColor: string;
   userWorkPlaceId: number;
@@ -36,7 +36,7 @@ export class AddEditUserWorkPlaceDialogComponent {
     userWorkPlaceService.getUserWorkPlaceOptions().subscribe(
       options => {
         this.userOptions = options.users;
-        this.workPlaceOptions = options.workplaces;
+        this.workplaceOptions = options.workplaces;
       },
       (error: HttpErrorResponse) => {
         if (error.status == 0) {

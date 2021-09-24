@@ -15,7 +15,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Select Work Place</mat-label>
                 <mat-select #workPlace="ngModel" name="workPlaceId" [ngModel]="userWorkPlace?.workplaceId" required>
-                    <mat-option *ngFor="let workPlace of workPlaceOptions" [value]="workPlace.id">{{workPlace.name}}
+                    <mat-option *ngFor="let workPlace of workplaceOptions" [value]="workPlace.id">{{workPlace.name}}
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="workPlace.errors?.required">Work place is required</mat-error>
