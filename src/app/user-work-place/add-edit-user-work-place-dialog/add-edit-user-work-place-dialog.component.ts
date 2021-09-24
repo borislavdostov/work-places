@@ -23,6 +23,8 @@ export class AddEditUserWorkPlaceDialogComponent {
 
   errors!: string[]
 
+  disabled=false;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<AddEditUserWorkPlaceDialogComponent>,
