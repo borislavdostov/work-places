@@ -7,7 +7,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { snackBarDuration } from 'src/app/shared/constants';
 import { IUser } from 'src/app/shared/interfaces/user';
-import { IUserAddEdit } from 'src/app/shared/interfaces/user-add-edit';
 import { AddEditUserDialogComponent } from '../add-edit-user-dialog/add-edit-user-dialog.component';
 import { UserService } from '../user.service';
 
