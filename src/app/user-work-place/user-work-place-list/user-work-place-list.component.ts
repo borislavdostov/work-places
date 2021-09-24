@@ -70,21 +70,26 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   }
 
   openEditUserWorkPlaceDialog(userWorkPlaceId: number) {
-    this.userWorkPlaceService.getUserWorkPlace(userWorkPlaceId).subscribe(userWorkPlace => {
-      let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
-        data: {
-          title: `Edit Work Place`,
-          userWorkPlaceId: userWorkPlaceId,
-          userWorkPlace: userWorkPlace
-        }
-      });
+    this.userWorkPlaceService.getUserWorkPlace(userWorkPlaceId).subscribe(
+      userWorkPlace => {
+        let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
+          data: {
+            title: `Edit Work Place`,
+            userWorkPlaceId: userWorkPlaceId,
+            userWorkPlace: userWorkPlace
+          }
+        });
 
-      dialogRef.afterClosed().subscribe(dialogResult => {
-        if (dialogResult?.confirmed) {
-          this.getUserWorkPlaces();
-        }
+        dialogRef.afterClosed().subscribe(dialogResult => {
+          if (dialogResult?.confirmed) {
+            this.getUserWorkPlaces();
+          }
+        });
+      },
+      () => {
+        let snackBarRef = this.snackBar.open("Error deleting work place!", "RETRY");
+        snackBarRef.onAction().subscribe(() => this.openEditUserWorkPlaceDialog(userWorkPlaceId));
       });
-    });
   }
 
   openDeleteUserWorkPlaceDialog(workPlace: IUserWorkPlace) {
