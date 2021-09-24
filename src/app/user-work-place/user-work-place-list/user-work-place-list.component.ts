@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
+import { snackBarDuration } from 'src/app/shared/constants';
 import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
 import { AddEditUserWorkPlaceDialogComponent } from '../add-edit-user-work-place-dialog/add-edit-user-work-place-dialog.component';
 import { UserWorkPlaceService } from '../user-work-place.service';
@@ -119,7 +120,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
         this.getUserWorkPlaces();
       },
       () => {
-        let snackBarRef = this.snackBar.open("Error editing work place!", "RETRY");
+        let snackBarRef = this.snackBar.open("Error editing work place!", "RETRY", { duration: snackBarDuration });
         snackBarRef.onAction().subscribe(() => this.deleteUserWorkPlace(id));
       });
   }
