@@ -55,7 +55,7 @@ export class AddEditUserWorkPlaceDialogComponent {
         },
         (error: HttpErrorResponse) => {
           if (error.status == 0) {
-            this.errors = ["Unable to add work place."];
+            this.errors = ["Unable to create work place."];
           } else {
             this.errors = error.error;
           }
