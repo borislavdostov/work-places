@@ -7,5 +7,5 @@ export function nameValidator(control: AbstractControl): ValidationErrors | null
     }
     const firstLetter = value.charAt(0);
     const isValidName = firstLetter == firstLetter.toUpperCase();
-    return isValidName ? null : { emailValidator: true };
+    return isValidName ? null : { nameValidator: true };
 }

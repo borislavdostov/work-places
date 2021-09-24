@@ -3,7 +3,7 @@ import { AbstractControl, NG_VALIDATORS, ValidationErrors } from '@angular/forms
 import { nameValidator } from './validators';
 
 @Directive({
-  selector: '[ngModel][appNameValidator]',
+  selector: '[ngModel][nameValidator]',
   providers: [{ provide: NG_VALIDATORS, useExisting: NameValidatorDirective, multi: true }]
 })
 export class NameValidatorDirective {
