@@ -1,7 +1,7 @@
-<app-toolbar [title]="workPlacesTitle" (newClicked)="openNewUserWorkPlaceDialog()">
+<app-toolbar [hidden]="!userWorkPlaces" [title]="workPlacesTitle" (newClicked)="openNewUserWorkPlaceDialog()">
   <app-filter [dataSource]="dataSource" title="Search Work Place"></app-filter>
 </app-toolbar>
-<table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z4">
+<table [hidden]="!userWorkPlaces" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z4">
 
   <ng-container matColumnDef="user">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>User</th>
@@ -44,3 +44,6 @@
 </div>
 
 <app-loader [isLoading]="isLoading"></app-loader>
+<app-something-went-wrong (tryAgainEmitter)="getUserWorkPlaces()" [show]="!isLoading && !userWorkPlaces"
+  message="getting work places">
+</app-something-went-wrong>

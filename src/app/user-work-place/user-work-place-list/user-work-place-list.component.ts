@@ -16,7 +16,7 @@ import { UserWorkPlaceService } from '../user-work-place.service';
 })
 export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
 
-  workPlaces!: IUserWorkPlace[];
+  userWorkPlaces!: IUserWorkPlace[];
   dataSource = new MatTableDataSource();
   isLoading = false;
 
@@ -45,9 +45,9 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
     this.isLoading = true;
     this.userWorkPlaceService.getUserWorkPlaces().subscribe(
       workPlaces => {
-        this.workPlaces = workPlaces;
-        this.dataSource.data = this.workPlaces;
-        this.workPlacesTitle = `${this.workPlaces.length} Work Places`;
+        this.userWorkPlaces = workPlaces;
+        this.dataSource.data = this.userWorkPlaces;
+        this.workPlacesTitle = `${this.userWorkPlaces.length} Work Places`;
         this.isLoading = false;
       },
       () => {

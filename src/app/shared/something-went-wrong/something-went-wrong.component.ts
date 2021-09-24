@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-something-went-wrong',
@@ -8,10 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SomethingWentWrongComponent implements OnInit {
 
   @Input() show = false;
+  @Input() message = '';
+  @Output() tryAgainEmitter = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onTryAgainClick() {
+    this.tryAgainEmitter.emit();
+  }
 }
