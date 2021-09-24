@@ -19,6 +19,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   userWorkPlaces!: IUserWorkPlace[];
   dataSource = new MatTableDataSource();
   isLoading = false;
+  disabled = false;
 
   workPlacesTitle: string = '';
   displayedColumns: string[] = ['user', 'workPlace', 'fromDate', 'toDate', 'options'];
@@ -71,6 +72,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   }
 
   openEditUserWorkPlaceDialog(userWorkPlaceId: number) {
+    this.disabled = true;
     this.userWorkPlaceService.getUserWorkPlace(userWorkPlaceId).subscribe(
       userWorkPlace => {
         let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
@@ -83,6 +85,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
 
         dialogRef.afterClosed().subscribe(
           dialogResult => {
+            this.disabled = false;
             if (dialogResult?.confirmed) {
               this.getUserWorkPlaces();
             }
@@ -119,5 +122,5 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
         snackBarRef.onAction().subscribe(() => this.deleteUserWorkPlace(id));
       });
   }
-  
+
 }
