@@ -1,4 +1,4 @@
-<app-toolbar [hidden]="!userWorkPlaces" [title]="workPlacesTitle" (newClicked)="openNewUserWorkPlaceDialog()">
+<app-toolbar [title]="workPlacesTitle" (newClicked)="openNewUserWorkPlaceDialog()">
   <app-filter [dataSource]="dataSource" title="Search Work Place"></app-filter>
 </app-toolbar>
 <table [hidden]="!userWorkPlaces" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z4">
