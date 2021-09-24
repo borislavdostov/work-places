@@ -38,8 +38,7 @@ export class AddEditUserDialogComponent {
         },
         (error: HttpErrorResponse) => {
           this.errors = error.error;
-        }
-      );
+        });
     } else {
       this.userService.editUser(this.userId, user).subscribe(
         () => {
@@ -47,8 +46,8 @@ export class AddEditUserDialogComponent {
         },
         (error: HttpErrorResponse) => {
           this.errors = error.error;
-        }
-      );
+        });
     }
   }
+  
 }
