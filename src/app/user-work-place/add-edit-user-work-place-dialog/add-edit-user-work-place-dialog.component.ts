@@ -33,7 +33,7 @@ export class AddEditUserWorkPlaceDialogComponent {
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
 
-    userWorkPlaceService.getUserWorkPlaceOptions().subscribe(
+    userWorkPlaceService.getUserWorkplaceOptions().subscribe(
       options => {
         this.userOptions = options.users;
         this.workplaceOptions = options.workplaces;
@@ -53,7 +53,7 @@ export class AddEditUserWorkPlaceDialogComponent {
   onSubmit(userWorkPlace: IUserWorkPlaceAddEdit) {
     this.disabled = true;
     if (this.data.isCreate) {
-      this.userWorkPlaceService.createUserWorkPlace(userWorkPlace).subscribe(
+      this.userWorkPlaceService.createUserWorkplace(userWorkPlace).subscribe(
         () => {
           this.dialogRef.close({ confirmed: true });
         },
@@ -66,7 +66,7 @@ export class AddEditUserWorkPlaceDialogComponent {
           this.disabled = false;
         });
     } else {
-      this.userWorkPlaceService.editUserWorkPlace(this.userWorkplaceId, userWorkPlace).subscribe(
+      this.userWorkPlaceService.editUserWorkplace(this.userWorkplaceId, userWorkPlace).subscribe(
         () => {
           this.dialogRef.close({ confirmed: true });
         },

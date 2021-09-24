@@ -45,7 +45,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
 
   getUserWorkPlaces() {
     this.isLoading = true;
-    this.userWorkPlaceService.getUserWorkPlaces().subscribe(
+    this.userWorkPlaceService.getUserWorkplaces().subscribe(
       workplaces => {
         this.userWorkplaces = workplaces;
         this.dataSource.data = this.userWorkplaces;
@@ -74,7 +74,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
 
   openEditUserWorkPlaceDialog(userWorkPlaceId: number) {
     this.disabled = true;
-    this.userWorkPlaceService.getUserWorkPlace(userWorkPlaceId).subscribe(
+    this.userWorkPlaceService.getUserWorkplace(userWorkPlaceId).subscribe(
       userWorkPlace => {
         let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
           data: {
@@ -115,7 +115,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   }
 
   deleteUserWorkPlace(id: number) {
-    this.userWorkPlaceService.deleteUserWorkPlace(id).subscribe(
+    this.userWorkPlaceService.deleteUserWorkplace(id).subscribe(
       () => {
         this.getUserWorkPlaces();
       },
