@@ -49,11 +49,9 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
         this.dataSource.data = this.workPlaces;
         this.workPlacesTitle = `${this.workPlaces.length} Work Places`;
         this.isLoading = false;
-
       },
       () => {
         this.isLoading = false;
-
       });
   }
 
