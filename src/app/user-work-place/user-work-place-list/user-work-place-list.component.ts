@@ -119,4 +119,5 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
         snackBarRef.onAction().subscribe(() => this.deleteUserWorkPlace(id));
       });
   }
+  
 }
