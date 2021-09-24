@@ -28,12 +28,12 @@ export class AddEditUserWorkPlaceDialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<AddEditUserWorkPlaceDialogComponent>,
-    private userWorkPlaceService: UserWorkPlaceService) {
+    private userWorkplaceService: UserWorkPlaceService) {
     this.title = data.title || 'Create Workplace';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
 
-    userWorkPlaceService.getUserWorkplaceOptions().subscribe(
+    userWorkplaceService.getUserWorkplaceOptions().subscribe(
       options => {
         this.userOptions = options.users;
         this.workplaceOptions = options.workplaces;
@@ -53,7 +53,7 @@ export class AddEditUserWorkPlaceDialogComponent {
   onSubmit(userWorkplace: IUserWorkPlaceAddEdit) {
     this.disabled = true;
     if (this.data.isCreate) {
-      this.userWorkPlaceService.createUserWorkplace(userWorkplace).subscribe(
+      this.userWorkplaceService.createUserWorkplace(userWorkplace).subscribe(
         () => {
           this.dialogRef.close({ confirmed: true });
         },
@@ -66,7 +66,7 @@ export class AddEditUserWorkPlaceDialogComponent {
           this.disabled = false;
         });
     } else {
-      this.userWorkPlaceService.editUserWorkplace(this.userWorkplaceId, userWorkplace).subscribe(
+      this.userWorkplaceService.editUserWorkplace(this.userWorkplaceId, userWorkplace).subscribe(
         () => {
           this.dialogRef.close({ confirmed: true });
         },
