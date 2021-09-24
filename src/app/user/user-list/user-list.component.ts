@@ -82,11 +82,12 @@ export class UserListComponent implements OnInit, AfterViewInit {
           }
         });
 
-        dialogRef.beforeClosed().subscribe(dialogResult => {
-          if (dialogResult?.confirmed) {
-            this.getUsers();
-          }
-        });
+        dialogRef.beforeClosed().subscribe(
+          dialogResult => {
+            if (dialogResult?.confirmed) {
+              this.getUsers();
+            }
+          });
       },
       () => {
         let snackBarRef = this.snackBar.open('Error editing user!', 'RETRY', { duration: snackBarDuration });
@@ -101,11 +102,12 @@ export class UserListComponent implements OnInit, AfterViewInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(confirmed => {
-      if (confirmed) {
-        this.deleteUser(user.id);
-      }
-    });
+    dialogRef.afterClosed().subscribe(
+      confirmed => {
+        if (confirmed) {
+          this.deleteUser(user.id);
+        }
+      });
   }
 
   deleteUser(id: number) {
@@ -116,7 +118,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
       () => {
         let snackBarRef = this.snackBar.open('Error deleting user!', 'RETRY', { duration: snackBarDuration });
         snackBarRef.onAction().subscribe(() => this.deleteUser(id));
-      }
-    );
+      });
   }
 }
