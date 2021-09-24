@@ -17,13 +17,13 @@ import { UserWorkPlaceService } from '../user-work-place.service';
 })
 export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
 
-  userWorkPlaces!: IUserWorkPlace[];
+  userWorkplaces!: IUserWorkPlace[];
   dataSource = new MatTableDataSource();
   isLoading = false;
   disabled = false;
 
   workPlacesTitle: string = '';
-  displayedColumns: string[] = ['user', 'workPlace', 'fromDate', 'toDate', 'options'];
+  displayedColumns: string[] = ['user', 'workplace', 'fromDate', 'toDate', 'options'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -47,9 +47,9 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
     this.isLoading = true;
     this.userWorkPlaceService.getUserWorkPlaces().subscribe(
       workPlaces => {
-        this.userWorkPlaces = workPlaces;
-        this.dataSource.data = this.userWorkPlaces;
-        this.workPlacesTitle = `${this.userWorkPlaces.length} Work Places`;
+        this.userWorkplaces = workPlaces;
+        this.dataSource.data = this.userWorkplaces;
+        this.workPlacesTitle = `${this.userWorkplaces.length} Work Places`;
         this.isLoading = false;
       },
       () => {
