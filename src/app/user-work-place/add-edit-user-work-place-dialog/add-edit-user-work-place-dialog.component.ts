@@ -18,8 +18,8 @@ export class AddEditUserWorkPlaceDialogComponent {
   workplaceOptions: IWorkPlace[] = [];
   submitButtonTitle: string;
   submitButtonColor: string;
-  userWorkPlaceId: number;
-  userWorkPlace: IUserWorkPlaceAddEdit;
+  userWorkplaceId: number;
+  userWorkplace: IUserWorkPlaceAddEdit;
 
   errors!: string[]
 
@@ -46,8 +46,8 @@ export class AddEditUserWorkPlaceDialogComponent {
         }
       });
 
-    this.userWorkPlaceId = data.userWorkPlaceId;
-    this.userWorkPlace = data.userWorkPlace
+    this.userWorkplaceId = data.userWorkPlaceId;
+    this.userWorkplace = data.userWorkPlace
   }
 
   onSubmit(userWorkPlace: IUserWorkPlaceAddEdit) {
@@ -66,7 +66,7 @@ export class AddEditUserWorkPlaceDialogComponent {
           this.disabled = false;
         });
     } else {
-      this.userWorkPlaceService.editUserWorkPlace(this.userWorkPlaceId, userWorkPlace).subscribe(
+      this.userWorkPlaceService.editUserWorkPlace(this.userWorkplaceId, userWorkPlace).subscribe(
         () => {
           this.dialogRef.close({ confirmed: true });
         },
