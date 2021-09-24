@@ -78,7 +78,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
       userWorkPlace => {
         let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
           data: {
-            title: `Edit Work Place`,
+            title: `Edit Workplace`,
             userWorkPlaceId: userWorkPlaceId,
             userWorkPlace: userWorkPlace
           }
@@ -94,22 +94,22 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
       },
       () => {
         this.disabled = false;
-        let snackBarRef = this.snackBar.open("Error editing work place!", "RETRY", { duration: snackBarDuration });
+        let snackBarRef = this.snackBar.open("Error editing workplace!", "RETRY", { duration: snackBarDuration });
         snackBarRef.onAction().subscribe(() => this.openEditUserWorkPlaceDialog(userWorkPlaceId));
       });
   }
 
-  openDeleteUserWorkPlaceDialog(workPlace: IUserWorkPlace) {
+  openDeleteUserWorkPlaceDialog(workplace: IUserWorkPlace) {
     let dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {
       data: {
-        message: `Are you sure you want to delete work place ${workPlace.workplace} for user ${workPlace.user}?`
+        message: `Are you sure you want to delete workplace ${workplace.workplace} for user ${workplace.user}?`
       }
     });
 
     dialogRef.afterClosed().subscribe(
       confirmed => {
         if (confirmed) {
-          this.deleteUserWorkPlace(workPlace.id);
+          this.deleteUserWorkPlace(workplace.id);
         }
       });
   }
