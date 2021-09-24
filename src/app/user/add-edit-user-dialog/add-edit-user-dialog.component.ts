@@ -29,15 +29,12 @@ export class AddEditUserDialogComponent {
   }
 
   onSubmit(user: IUserAddEdit) {
-
     this.userService.createUser(user).subscribe(
       () => {
         this.dialogRef.close({ confirmed: true});
       },
       (error: HttpErrorResponse) => {
         this.errors = error.error;
-        console.log(error.error);
-        
       }
     );
 
