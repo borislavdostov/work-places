@@ -65,17 +65,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // createUser(user: IUserAddEdit) {
-  //   this.userService.createUser(user).subscribe(
-  //     () => {
-  //       this.getUsers();
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       console.log(error.error);
-  //     }
-  //   );
-  // }
-
   openEditUserDialog(userId: number) {
     this.userService.getUser(userId).subscribe(user => {
       let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
@@ -93,17 +82,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
       });
     });
   }
-
-  // editUser(userId: number, user: IUserAddEdit) {
-  //   this.userService.editUser(userId, user).subscribe(
-  //     () => {
-  //       this.getUsers();
-  //     },
-  //     error => {
-  //       alert("Implement backend errors:" + error);
-  //     }
-  //   );
-  // }
 
   openDeleteUserDialog(user: IUser) {
     const dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {
