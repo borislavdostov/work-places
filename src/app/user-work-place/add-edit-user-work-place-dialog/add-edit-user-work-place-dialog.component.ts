@@ -38,8 +38,6 @@ export class AddEditUserWorkPlaceDialogComponent {
       },
       (error: HttpErrorResponse) => {
         this.errors = error.error;
-        console.log(error.error);
-
       });
 
     this.userWorkPlaceId = data.userWorkPlaceId;
