@@ -40,7 +40,7 @@ export class AddEditUserWorkPlaceDialogComponent {
       },
       (error: HttpErrorResponse) => {
         if (error.status == 0) {
-          this.errors = ["Unable to get work place options."];
+          this.errors = ["Unable to get users and work places."];
         } else {
           this.errors = error.error;
         }
