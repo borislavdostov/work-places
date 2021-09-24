@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,6 +21,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
   users!: IUser[];
   dataSource = new MatTableDataSource();
   isLoading = false;
+  disabled = false;
 
   usersTitle!: string;
   displayedColumns: string[] = ['name', 'age', 'email', 'options'];
@@ -72,6 +74,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   openEditUserDialog(userId: number) {
+    this.disabled = true;
     this.userService.getUser(userId).subscribe(
       user => {
         let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
@@ -84,6 +87,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
         dialogRef.beforeClosed().subscribe(
           dialogResult => {
+            this.disabled = false;
             if (dialogResult?.confirmed) {
               this.getUsers();
             }
