@@ -63,11 +63,12 @@ export class UserListComponent implements OnInit, AfterViewInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(dialogResult => {
-      if (dialogResult?.confirmed) {
-        this.getUsers();
-      }
-    });
+    dialogRef.afterClosed().subscribe(
+      dialogResult => {
+        if (dialogResult?.confirmed) {
+          this.getUsers();
+        }
+      });
   }
 
   openEditUserDialog(userId: number) {
