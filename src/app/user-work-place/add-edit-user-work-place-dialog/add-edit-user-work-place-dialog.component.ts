@@ -39,7 +39,11 @@ export class AddEditUserWorkPlaceDialogComponent {
         this.workPlaceOptions = options.workPlaces;
       },
       (error: HttpErrorResponse) => {
-        this.errors = error.error;
+        if (error.status == 0) {
+          this.errors = ["Unable to get work place options."];
+        } else {
+          this.errors = error.error;
+        }
       });
 
     this.userWorkPlaceId = data.userWorkPlaceId;
