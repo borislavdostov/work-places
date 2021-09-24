@@ -50,8 +50,8 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="center">
-        <button [disabled]="f.invalid" mat-raised-button [color]="submitButtonColor"
+        <button [disabled]="f.invalid || disabled" mat-raised-button [color]="submitButtonColor"
             tabindex="1">{{submitButtonTitle}}</button>
-        <button mat-raised-button mat-dialog-close tabindex="-1">Cancel</button>
+        <button [disabled]="disabled" mat-raised-button mat-dialog-close tabindex="-1">Cancel</button>
     </mat-dialog-actions>
 </form>

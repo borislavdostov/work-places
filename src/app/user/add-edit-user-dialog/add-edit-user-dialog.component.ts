@@ -19,6 +19,8 @@ export class AddEditUserDialogComponent {
 
   errors!: string[]
 
+  disabled = false;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<AddEditUserDialogComponent>,
@@ -31,6 +33,7 @@ export class AddEditUserDialogComponent {
   }
 
   onSubmit(user: IUserAddEdit) {
+    this.disabled = true;
     if (this.data.isCreate) {
       this.userService.createUser(user).subscribe(
         () => {
@@ -49,5 +52,5 @@ export class AddEditUserDialogComponent {
         });
     }
   }
-  
+
 }
