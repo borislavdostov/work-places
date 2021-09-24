@@ -29,10 +29,10 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
-    private userWorkPlaceService: UserWorkPlaceService,
+    private userWorkplaceService: UserWorkPlaceService,
     private snackBar: MatSnackBar,
     private confirmationDialog: MatDialog,
-    private addEditWorkPlaceDialog: MatDialog) { }
+    private addEditWorkplaceDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getUserWorkplaces();
@@ -45,7 +45,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
 
   getUserWorkplaces() {
     this.isLoading = true;
-    this.userWorkPlaceService.getUserWorkplaces().subscribe(
+    this.userWorkplaceService.getUserWorkplaces().subscribe(
       workplaces => {
         this.userWorkplaces = workplaces;
         this.dataSource.data = this.userWorkplaces;
@@ -58,7 +58,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   }
 
   openNewUserWorkplaceDialog() {
-    let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
+    let dialogRef = this.addEditWorkplaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
       data: {
         isCreate: true
       }
@@ -74,9 +74,9 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
 
   openEditUserWorkplaceDialog(userWorkplaceId: number) {
     this.disabled = true;
-    this.userWorkPlaceService.getUserWorkplace(userWorkplaceId).subscribe(
+    this.userWorkplaceService.getUserWorkplace(userWorkplaceId).subscribe(
       userWorkplace => {
-        let dialogRef = this.addEditWorkPlaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
+        let dialogRef = this.addEditWorkplaceDialog.open(AddEditUserWorkPlaceDialogComponent, {
           data: {
             title: `Edit Workplace`,
             userWorkplaceId: userWorkplaceId,
@@ -115,7 +115,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   }
 
   deleteUserWorkplace(id: number) {
-    this.userWorkPlaceService.deleteUserWorkplace(id).subscribe(
+    this.userWorkplaceService.deleteUserWorkplace(id).subscribe(
       () => {
         this.getUserWorkplaces();
       },
