@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IUserAddEdit } from 'src/app/shared/interfaces/user-add-edit';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-add-edit-user-dialog',
@@ -14,9 +16,12 @@ export class AddEditUserDialogComponent {
   submitButtonColor: string;
   user: IUserAddEdit;
 
+  errors!: string[]
+
   constructor(
     @Inject(MAT_DIALOG_DATA) data: any,
-    private dialogRef: MatDialogRef<AddEditUserDialogComponent>) {
+    private dialogRef: MatDialogRef<AddEditUserDialogComponent>,
+    private userService: UserService) {
     this.title = data.title || 'Create User';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
@@ -24,6 +29,17 @@ export class AddEditUserDialogComponent {
   }
 
   onSubmit(user: IUserAddEdit) {
-    this.dialogRef.close({ confirmed: true, user: user });
+
+    this.userService.createUser(user).subscribe(
+      () => {
+        this.dialogRef.close({ confirmed: true});
+      },
+      (error: HttpErrorResponse) => {
+        this.errors = error.error;
+        console.log(error.error);
+        
+      }
+    );
+
   }
 }
