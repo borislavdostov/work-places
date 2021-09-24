@@ -57,8 +57,8 @@ export class AddEditUserWorkPlaceDialogComponent {
         },
         (error: HttpErrorResponse) => {
           this.errors = error.error;
-        }
-      );
+        });
     }
   }
+  
 }
