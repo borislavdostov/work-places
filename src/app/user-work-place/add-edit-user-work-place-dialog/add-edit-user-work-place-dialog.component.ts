@@ -31,10 +31,11 @@ export class AddEditUserWorkPlaceDialogComponent {
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
 
-    userWorkPlaceService.getUserWorkPlaceOptions().subscribe(options => {
-      this.userOptions = options.users;
-      this.workPlaceOptions = options.workPlaces;
-    });
+    userWorkPlaceService.getUserWorkPlaceOptions().subscribe(
+      options => {
+        this.userOptions = options.users;
+        this.workPlaceOptions = options.workPlaces;
+      });
 
     this.userWorkPlaceId = data.userWorkPlaceId;
     this.userWorkPlace = data.userWorkPlace
