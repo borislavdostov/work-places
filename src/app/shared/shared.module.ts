@@ -25,6 +25,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NameValidatorDirective } from './name-validator.directive';
+import { SomethingWentWrongComponent } from './something-went-wrong/something-went-wrong.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NameValidatorDirective } from './name-validator.directive';
     ToolbarComponent,
     ConfirmationDialogComponent,
     NameValidatorDirective,
-    FilterComponent
+    FilterComponent,
+    SomethingWentWrongComponent
   ],
   imports: [
     CommonModule,
@@ -65,6 +67,7 @@ import { NameValidatorDirective } from './name-validator.directive';
     FilterComponent,
     LoaderComponent,
     ToolbarComponent,
+    SomethingWentWrongComponent,
     NameValidatorDirective
   ]
 })

@@ -1,7 +1,6 @@
-<app-toolbar [title]="usersTitle" (newClicked)="openNewUserDialog()">
+<app-toolbar [hidden]="!users" [title]="usersTitle" (newClicked)="openNewUserDialog()">
   <app-filter [dataSource]="dataSource" title="Search User"></app-filter>
 </app-toolbar>
-<div style="text-align: center; background-color: red; margin: auto; margin-top: 20em;">sadsad</div>
 <table [hidden]="!users" mat-table matSort [dataSource]="dataSource" class="mat-elevation-z4">
 
   <ng-container matColumnDef="name">
@@ -38,3 +37,5 @@
 </div>
 
 <app-loader [isLoading]="isLoading"></app-loader>
+
+<app-something-went-wrong [show]="!isLoading && !users"></app-something-went-wrong>
