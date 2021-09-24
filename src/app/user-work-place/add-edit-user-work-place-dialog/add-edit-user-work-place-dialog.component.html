@@ -13,7 +13,7 @@
         </div>
         <div>
             <mat-form-field appearance="outline">
-                <mat-label>Select Work Place</mat-label>
+                <mat-label>Select Workplace</mat-label>
                 <mat-select #workplace="ngModel" name="workplaceId" [ngModel]="userWorkplace?.workplaceId" required>
                     <mat-option *ngFor="let workplace of workplaceOptions" [value]="workplace.id">{{workplace.name}}
                     </mat-option>
