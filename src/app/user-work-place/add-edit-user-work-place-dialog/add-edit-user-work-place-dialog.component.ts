@@ -36,7 +36,7 @@ export class AddEditUserWorkPlaceDialogComponent {
     userWorkPlaceService.getUserWorkPlaceOptions().subscribe(
       options => {
         this.userOptions = options.users;
-        this.workPlaceOptions = options.workPlaces;
+        this.workPlaceOptions = options.workplaces;
       },
       (error: HttpErrorResponse) => {
         if (error.status == 0) {

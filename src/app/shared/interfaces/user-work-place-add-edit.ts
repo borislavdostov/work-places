@@ -1,6 +1,6 @@
 export interface IUserWorkPlaceAddEdit {
     userId: number,
-    workPlaceId: number,
+    workplaceId: number,
     fromDate: string,
     toDate: string
 }

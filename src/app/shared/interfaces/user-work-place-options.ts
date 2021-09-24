@@ -3,5 +3,5 @@ import { IWorkPlace } from "./work-place";
 
 export interface IUserWorkPlaceOptions {
     users: IUserDropdown[],
-    workPlaces: IWorkPlace[]
+    workplaces: IWorkPlace[]
 }

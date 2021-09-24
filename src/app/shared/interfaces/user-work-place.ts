@@ -1,7 +1,7 @@
 export interface IUserWorkPlace {
     id: number,
     user: string,
-    workPlace: string,
+    workplace: string,
     fromDate: string,
     todate: string
 }
