@@ -100,11 +100,12 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(confirmed => {
-      if (confirmed) {
-        this.deleteUserWorkPlace(workPlace.id);
-      }
-    });
+    dialogRef.afterClosed().subscribe(
+      confirmed => {
+        if (confirmed) {
+          this.deleteUserWorkPlace(workPlace.id);
+        }
+      });
   }
 
   deleteUserWorkPlace(id: number) {
