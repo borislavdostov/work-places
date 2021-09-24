@@ -61,7 +61,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult?.confirmed) {
-        this.createUser(dialogResult.user);
+        this.getUsers();
       }
     });
   }
