@@ -48,8 +48,7 @@ export class AddEditUserWorkPlaceDialogComponent {
         },
         (error: HttpErrorResponse) => {
           this.errors = error.error;
-        }
-      );
+        });
     } else {
       this.userWorkPlaceService.editUserWorkPlace(this.userWorkPlaceId, userWorkPlace).subscribe(
         () => {
@@ -60,5 +59,5 @@ export class AddEditUserWorkPlaceDialogComponent {
         });
     }
   }
-  
+
 }
