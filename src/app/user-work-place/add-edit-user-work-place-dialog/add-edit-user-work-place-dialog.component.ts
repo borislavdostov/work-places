@@ -23,7 +23,7 @@ export class AddEditUserWorkPlaceDialogComponent {
 
   errors!: string[]
 
-  disabled=false;
+  disabled = false;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -47,6 +47,7 @@ export class AddEditUserWorkPlaceDialogComponent {
   }
 
   onSubmit(userWorkPlace: IUserWorkPlaceAddEdit) {
+    this.disabled = true;
     if (this.data.isCreate) {
       this.userWorkPlaceService.createUserWorkPlace(userWorkPlace).subscribe(
         () => {
