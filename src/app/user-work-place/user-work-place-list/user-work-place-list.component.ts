@@ -46,8 +46,8 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   getUserWorkPlaces() {
     this.isLoading = true;
     this.userWorkPlaceService.getUserWorkPlaces().subscribe(
-      workPlaces => {
-        this.userWorkplaces = workPlaces;
+      workplaces => {
+        this.userWorkplaces = workplaces;
         this.dataSource.data = this.userWorkplaces;
         this.workplacesTitle = `${this.userWorkplaces.length} Workplaces`;
         this.isLoading = false;
