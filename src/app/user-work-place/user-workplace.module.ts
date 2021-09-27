@@ -15,4 +15,4 @@ import { AddEditUserWorkPlaceDialogComponent } from './add-edit-user-work-place-
     SharedModule
   ]
 })
-export class UserWorkPlaceModule { }
+export class UserWorkplaceModule { }

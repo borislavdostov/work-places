@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
-import { UserWorkPlaceModule } from './user-work-place/user-work-place.module';
+import { UserWorkplaceModule } from './user-work-place/user-workplace.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    UserWorkPlaceModule
+    UserWorkplaceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
