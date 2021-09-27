@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { snackBarDuration } from 'src/app/shared/constants';
-import { IUserWorkPlace } from 'src/app/shared/interfaces/user-work-place';
+import { IUserWorkplace } from 'src/app/shared/interfaces/user-workplace';
 import { AddEditUserWorkPlaceDialogComponent } from '../add-edit-user-work-place-dialog/add-edit-user-work-place-dialog.component';
 import { UserWorkPlaceService } from '../user-work-place.service';
 
@@ -17,7 +17,7 @@ import { UserWorkPlaceService } from '../user-work-place.service';
 })
 export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
 
-  userWorkplaces!: IUserWorkPlace[];
+  userWorkplaces!: IUserWorkplace[];
   dataSource = new MatTableDataSource();
   isLoading = false;
   disabled = false;
@@ -99,7 +99,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
       });
   }
 
-  openDeleteUserWorkplaceDialog(workplace: IUserWorkPlace) {
+  openDeleteUserWorkplaceDialog(workplace: IUserWorkplace) {
     let dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {
       data: {
         message: `Are you sure you want to delete workplace ${workplace.workplace} for user ${workplace.user}?`

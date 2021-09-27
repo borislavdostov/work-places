@@ -3,7 +3,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IUserDropdown } from 'src/app/shared/interfaces/user-dropdown';
 import { IUserWorkplaceAddEdit } from 'src/app/shared/interfaces/user-workplace-add-edit';
-import { IWorkPlace } from 'src/app/shared/interfaces/work-place';
+import { IWorkplace } from 'src/app/shared/interfaces/workplace';
 import { UserWorkPlaceService } from '../user-work-place.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class AddEditUserWorkPlaceDialogComponent {
 
   title: string;
   userOptions: IUserDropdown[] = [];
-  workplaceOptions: IWorkPlace[] = [];
+  workplaceOptions: IWorkplace[] = [];
   submitButtonTitle: string;
   submitButtonColor: string;
   userWorkplaceId: number;

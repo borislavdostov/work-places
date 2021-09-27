@@ -1,4 +1,4 @@
-export interface IUserWorkPlace {
+export interface IUserWorkplace {
     id: number,
     user: string,
     workplace: string,

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUserWorkPlace } from '../shared/interfaces/user-work-place';
+import { IUserWorkplace } from '../shared/interfaces/user-workplace';
 import { environment } from 'src/environments/environment';
 import { IUserWorkplaceOptions } from '../shared/interfaces/user-workplace-options';
 import { IUserWorkplaceAddEdit } from '../shared/interfaces/user-workplace-add-edit';
@@ -16,8 +16,8 @@ export class UserWorkPlaceService {
 
   constructor(private http: HttpClient) { }
 
-  getUserWorkplaces(): Observable<IUserWorkPlace[]> {
-    return this.http.get<IUserWorkPlace[]>(`${apiUrl}/userworkplaces`);
+  getUserWorkplaces(): Observable<IUserWorkplace[]> {
+    return this.http.get<IUserWorkplace[]>(`${apiUrl}/userworkplaces`);
   }
 
   getUserWorkplaceOptions(): Observable<IUserWorkplaceOptions> {
