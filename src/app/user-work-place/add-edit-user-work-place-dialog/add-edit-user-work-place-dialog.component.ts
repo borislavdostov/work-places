@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IUserDropdown } from 'src/app/shared/interfaces/user-dropdown';
-import { IUserWorkPlaceAddEdit } from 'src/app/shared/interfaces/user-work-place-add-edit';
+import { IUserWorkplaceAddEdit } from 'src/app/shared/interfaces/user-workplace-add-edit';
 import { IWorkPlace } from 'src/app/shared/interfaces/work-place';
 import { UserWorkPlaceService } from '../user-work-place.service';
 
@@ -19,7 +19,7 @@ export class AddEditUserWorkPlaceDialogComponent {
   submitButtonTitle: string;
   submitButtonColor: string;
   userWorkplaceId: number;
-  userWorkplace: IUserWorkPlaceAddEdit;
+  userWorkplace: IUserWorkplaceAddEdit;
 
   errors!: string[]
 
@@ -50,7 +50,7 @@ export class AddEditUserWorkPlaceDialogComponent {
     this.userWorkplace = data.userWorkplace
   }
 
-  onSubmit(userWorkplace: IUserWorkPlaceAddEdit) {
+  onSubmit(userWorkplace: IUserWorkplaceAddEdit) {
     this.disabled = true;
     if (this.data.isCreate) {
       this.userWorkplaceService.createUserWorkplace(userWorkplace).subscribe(

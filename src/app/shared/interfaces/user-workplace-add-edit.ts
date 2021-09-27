@@ -1,4 +1,4 @@
-export interface IUserWorkPlaceAddEdit {
+export interface IUserWorkplaceAddEdit {
     userId: number,
     workplaceId: number,
     fromDate: string,

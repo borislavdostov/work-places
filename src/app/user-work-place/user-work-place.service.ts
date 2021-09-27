@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { IUserWorkPlace } from '../shared/interfaces/user-work-place';
 import { environment } from 'src/environments/environment';
 import { IUserWorkPlaceOptions } from '../shared/interfaces/user-work-place-options';
-import { IUserWorkPlaceAddEdit } from '../shared/interfaces/user-work-place-add-edit';
+import { IUserWorkplaceAddEdit } from '../shared/interfaces/user-workplace-add-edit';
 import { requestHeaders } from '../shared/constants';
 
 const apiUrl = environment.apiUrl;
@@ -24,15 +24,15 @@ export class UserWorkPlaceService {
     return this.http.get<IUserWorkPlaceOptions>(`${apiUrl}/userworkplaces/options`);
   }
 
-  getUserWorkplace(id: number): Observable<IUserWorkPlaceAddEdit> {
-    return this.http.get<IUserWorkPlaceAddEdit>(`${apiUrl}/userworkplaces/${id}`);
+  getUserWorkplace(id: number): Observable<IUserWorkplaceAddEdit> {
+    return this.http.get<IUserWorkplaceAddEdit>(`${apiUrl}/userworkplaces/${id}`);
   }
 
-  createUserWorkplace(userWorkPlace: IUserWorkPlaceAddEdit) {
+  createUserWorkplace(userWorkPlace: IUserWorkplaceAddEdit) {
     return this.http.post(`${apiUrl}/userworkplaces`, JSON.stringify(userWorkPlace), { headers: requestHeaders });
   }
 
-  editUserWorkplace(id: number, userWorkPlace: IUserWorkPlaceAddEdit) {
+  editUserWorkplace(id: number, userWorkPlace: IUserWorkplaceAddEdit) {
     return this.http.put(`${apiUrl}/userworkplaces/${id}`, JSON.stringify(userWorkPlace), { headers: requestHeaders });
   }
 
