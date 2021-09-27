@@ -11,7 +11,7 @@ import { UserWorkplaceService } from '../user-workplace.service';
   templateUrl: './add-edit-user-workplace-dialog.component.html',
   styleUrls: ['./add-edit-user-workplace-dialog.component.css']
 })
-export class AddEditUserWorkPlaceDialogComponent {
+export class AddEditUserWorkplaceDialogComponent {
 
   title: string;
   userOptions: IUserDropdown[] = [];
@@ -27,7 +27,7 @@ export class AddEditUserWorkPlaceDialogComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<AddEditUserWorkPlaceDialogComponent>,
+    private dialogRef: MatDialogRef<AddEditUserWorkplaceDialogComponent>,
     private userWorkplaceService: UserWorkplaceService) {
     this.title = data.title || 'Create Workplace';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';

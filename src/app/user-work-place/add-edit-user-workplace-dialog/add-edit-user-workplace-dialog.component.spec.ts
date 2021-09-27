@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddEditUserWorkPlaceDialogComponent } from './add-edit-user-workplace-dialog.component';
+import { AddEditUserWorkplaceDialogComponent } from './add-edit-user-workplace-dialog.component';
 
-describe('AddEditUserWorkPlaceDialogComponent', () => {
-  let component: AddEditUserWorkPlaceDialogComponent;
-  let fixture: ComponentFixture<AddEditUserWorkPlaceDialogComponent>;
+describe('AddEditUserWorkplaceDialogComponent', () => {
+  let component: AddEditUserWorkplaceDialogComponent;
+  let fixture: ComponentFixture<AddEditUserWorkplaceDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddEditUserWorkPlaceDialogComponent ]
+      declarations: [ AddEditUserWorkplaceDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddEditUserWorkPlaceDialogComponent);
+    fixture = TestBed.createComponent(AddEditUserWorkplaceDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
