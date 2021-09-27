@@ -12,10 +12,10 @@ import { UserWorkplaceService } from '../user-workplace.service';
 
 @Component({
   selector: 'app-work-place-list',
-  templateUrl: './user-work-place-list.component.html',
-  styleUrls: ['./user-work-place-list.component.css']
+  templateUrl: './user-workplace-list.component.html',
+  styleUrls: ['./user-workplace-list.component.css']
 })
-export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
+export class UserWorkplaceListComponent implements OnInit, AfterViewInit {
 
   userWorkplaces!: IUserWorkplace[];
   dataSource = new MatTableDataSource();
