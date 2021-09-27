@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { snackBarDuration } from 'src/app/shared/constants';
 import { IUserWorkplace } from 'src/app/shared/interfaces/user-workplace';
-import { AddEditUserWorkPlaceDialogComponent } from '../add-edit-user-work-place-dialog/add-edit-user-work-place-dialog.component';
+import { AddEditUserWorkPlaceDialogComponent } from '../add-edit-user-workplace-dialog/add-edit-user-workplace-dialog.component';
 import { UserWorkplaceService } from '../user-workplace.service';
 
 @Component({

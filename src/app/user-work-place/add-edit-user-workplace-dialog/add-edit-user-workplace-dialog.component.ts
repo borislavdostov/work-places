@@ -8,8 +8,8 @@ import { UserWorkplaceService } from '../user-workplace.service';
 
 @Component({
   selector: 'app-add-edit-work-place-dialog',
-  templateUrl: './add-edit-user-work-place-dialog.component.html',
-  styleUrls: ['./add-edit-user-work-place-dialog.component.css']
+  templateUrl: './add-edit-user-workplace-dialog.component.html',
+  styleUrls: ['./add-edit-user-workplace-dialog.component.css']
 })
 export class AddEditUserWorkPlaceDialogComponent {
 

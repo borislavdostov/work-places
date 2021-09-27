@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddEditUserWorkPlaceDialogComponent } from './add-edit-user-work-place-dialog.component';
+import { AddEditUserWorkPlaceDialogComponent } from './add-edit-user-workplace-dialog.component';
 
 describe('AddEditUserWorkPlaceDialogComponent', () => {
   let component: AddEditUserWorkPlaceDialogComponent;
