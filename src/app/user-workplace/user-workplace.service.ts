@@ -28,12 +28,12 @@ export class UserWorkplaceService {
     return this.http.get<IUserWorkplaceAddEdit>(`${apiUrl}/userworkplaces/${id}`);
   }
 
-  createUserWorkplace(userWorkPlace: IUserWorkplaceAddEdit) {
-    return this.http.post(`${apiUrl}/userworkplaces`, JSON.stringify(userWorkPlace), { headers: requestHeaders });
+  createUserWorkplace(userWorkplace: IUserWorkplaceAddEdit) {
+    return this.http.post(`${apiUrl}/userworkplaces`, JSON.stringify(userWorkplace), { headers: requestHeaders });
   }
 
-  editUserWorkplace(id: number, userWorkPlace: IUserWorkplaceAddEdit) {
-    return this.http.put(`${apiUrl}/userworkplaces/${id}`, JSON.stringify(userWorkPlace), { headers: requestHeaders });
+  editUserWorkplace(id: number, userWorkplace: IUserWorkplaceAddEdit) {
+    return this.http.put(`${apiUrl}/userworkplaces/${id}`, JSON.stringify(userWorkplace), { headers: requestHeaders });
   }
 
   deleteUserWorkplace(id: number) {
