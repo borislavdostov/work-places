@@ -11,7 +11,7 @@ import { AddEditUserWorkplaceDialogComponent } from '../add-edit-user-workplace-
 import { UserWorkplaceService } from '../user-workplace.service';
 
 @Component({
-  selector: 'app-work-place-list',
+  selector: 'app-workplace-list',
   templateUrl: './user-workplace-list.component.html',
   styleUrls: ['./user-workplace-list.component.css']
 })
