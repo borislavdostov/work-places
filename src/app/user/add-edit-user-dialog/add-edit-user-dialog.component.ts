@@ -25,7 +25,7 @@ export class AddEditUserDialogComponent {
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<AddEditUserDialogComponent>,
     private userService: UserService) {
-    this.title = data.title || 'Create User';
+    this.title = data.title ?? 'Create User';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
     this.userId = data.userId;
