@@ -1,7 +1,7 @@
 import { IUserDropdown } from "./user-dropdown";
 import { IWorkPlace } from "./work-place";
 
-export interface IUserWorkPlaceOptions {
+export interface IUserWorkplaceOptions {
     users: IUserDropdown[],
     workplaces: IWorkPlace[]
 }

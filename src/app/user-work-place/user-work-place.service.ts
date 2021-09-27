@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IUserWorkPlace } from '../shared/interfaces/user-work-place';
 import { environment } from 'src/environments/environment';
-import { IUserWorkPlaceOptions } from '../shared/interfaces/user-work-place-options';
+import { IUserWorkplaceOptions } from '../shared/interfaces/user-workplace-options';
 import { IUserWorkplaceAddEdit } from '../shared/interfaces/user-workplace-add-edit';
 import { requestHeaders } from '../shared/constants';
 
@@ -20,8 +20,8 @@ export class UserWorkPlaceService {
     return this.http.get<IUserWorkPlace[]>(`${apiUrl}/userworkplaces`);
   }
 
-  getUserWorkplaceOptions(): Observable<IUserWorkPlaceOptions> {
-    return this.http.get<IUserWorkPlaceOptions>(`${apiUrl}/userworkplaces/options`);
+  getUserWorkplaceOptions(): Observable<IUserWorkplaceOptions> {
+    return this.http.get<IUserWorkplaceOptions>(`${apiUrl}/userworkplaces/options`);
   }
 
   getUserWorkplace(id: number): Observable<IUserWorkplaceAddEdit> {
