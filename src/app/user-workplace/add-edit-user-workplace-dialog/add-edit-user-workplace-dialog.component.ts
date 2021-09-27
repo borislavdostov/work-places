@@ -29,7 +29,7 @@ export class AddEditUserWorkplaceDialogComponent {
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<AddEditUserWorkplaceDialogComponent>,
     private userWorkplaceService: UserWorkplaceService) {
-    this.title = data.title || 'Create Workplace';
+    this.title = data.title ?? 'Create Workplace';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';
 
