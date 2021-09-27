@@ -4,8 +4,6 @@ import { UserWorkplaceListComponent } from './user-workplace-list/user-workplace
 import { AddEditUserWorkplaceDialogComponent } from './add-edit-user-workplace-dialog/add-edit-user-workplace-dialog.component';
 import { SharedModule } from '../shared/shared.module';
 
-
-
 @NgModule({
   declarations: [
     UserWorkplaceListComponent,
