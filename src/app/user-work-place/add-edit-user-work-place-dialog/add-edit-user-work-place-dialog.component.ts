@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IUserDropdown } from 'src/app/shared/interfaces/user-dropdown';
 import { IUserWorkplaceAddEdit } from 'src/app/shared/interfaces/user-workplace-add-edit';
 import { IWorkplace } from 'src/app/shared/interfaces/workplace';
-import { UserWorkPlaceService } from '../user-work-place.service';
+import { UserWorkplaceService } from '../user-workplace.service';
 
 @Component({
   selector: 'app-add-edit-work-place-dialog',
@@ -28,7 +28,7 @@ export class AddEditUserWorkPlaceDialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<AddEditUserWorkPlaceDialogComponent>,
-    private userWorkplaceService: UserWorkPlaceService) {
+    private userWorkplaceService: UserWorkplaceService) {
     this.title = data.title || 'Create Workplace';
     this.submitButtonTitle = data.isCreate ? 'Create' : 'Save';
     this.submitButtonColor = data.isCreate ? 'accent' : 'primary';

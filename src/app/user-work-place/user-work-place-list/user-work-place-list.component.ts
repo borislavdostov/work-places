@@ -8,7 +8,7 @@ import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/
 import { snackBarDuration } from 'src/app/shared/constants';
 import { IUserWorkplace } from 'src/app/shared/interfaces/user-workplace';
 import { AddEditUserWorkPlaceDialogComponent } from '../add-edit-user-work-place-dialog/add-edit-user-work-place-dialog.component';
-import { UserWorkPlaceService } from '../user-work-place.service';
+import { UserWorkplaceService } from '../user-workplace.service';
 
 @Component({
   selector: 'app-work-place-list',
@@ -29,7 +29,7 @@ export class UserWorkPlaceListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
-    private userWorkplaceService: UserWorkPlaceService,
+    private userWorkplaceService: UserWorkplaceService,
     private snackBar: MatSnackBar,
     private confirmationDialog: MatDialog,
     private addEditWorkplaceDialog: MatDialog) { }

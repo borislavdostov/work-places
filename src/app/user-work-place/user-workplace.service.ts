@@ -12,7 +12,7 @@ const apiUrl = environment.apiUrl;
 @Injectable({
   providedIn: 'root'
 })
-export class UserWorkPlaceService {
+export class UserWorkplaceService {
 
   constructor(private http: HttpClient) { }
 
