@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { UserListComponent } from './user/user-list/user-list.component';
-import { UserWorkplaceListComponent } from './user-work-place/user-workplace-list/user-workplace-list.component';
+import { UserWorkplaceListComponent } from './user-workplace/user-workplace-list/user-workplace-list.component';
 
 const routes: Routes = [
   {

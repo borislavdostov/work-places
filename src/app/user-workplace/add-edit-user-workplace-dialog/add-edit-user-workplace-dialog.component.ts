@@ -7,7 +7,7 @@ import { IWorkplace } from 'src/app/shared/interfaces/workplace';
 import { UserWorkplaceService } from '../user-workplace.service';
 
 @Component({
-  selector: 'app-add-edit-work-place-dialog',
+  selector: 'app-add-edit-workplace-dialog',
   templateUrl: './add-edit-user-workplace-dialog.component.html',
   styleUrls: ['./add-edit-user-workplace-dialog.component.css']
 })
