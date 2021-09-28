@@ -44,13 +44,15 @@ describe('UserListComponent', () => {
     mockUserService.getUsers.and.returnValue(of(users));
     fixture.detectChanges();
 
-    expect(fixture.componentInstance.users.length).toBe(3);
+    expect(component.users.length).toBe(3);
   });
 
   it('should set users title correctly', () => {
     mockUserService.getUsers.and.returnValue(of(users));
     fixture.detectChanges();
 
-    expect(fixture.componentInstance.usersTitle).toEqual(`${users.length} Users`);
+    expect(component.usersTitle).toEqual(`${users.length} Users`);
   });
+
+
 });
