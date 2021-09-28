@@ -1,18 +1,30 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { of } from 'rxjs';
+import { UserService } from '../user.service';
 import { UserListComponent } from './user-list.component';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;
   let fixture: ComponentFixture<UserListComponent>;
+  let mockUserService: any;
+  let users:any;
 
   beforeEach(async () => {
+    users = [
+      { id: 1, name: 'Rick Grimes', age: 41, email: 'r.grimes@gmail.com' },
+      { id: 2, name: 'Paul Walker', age: 23, email: 'p.walker@gmail.com' },
+      { id: 3, name: 'Steven Gerrard', age: 47, email: 'steve.g@gmail.com' },
+    ]
+    mockUserService = jasmine.createSpyObj(['getUsers', 'getUser', 'createUser', 'editUser', 'deleteUser']);
     await TestBed.configureTestingModule({
       declarations: [UserListComponent],
-      imports: [HttpClientTestingModule, MatSnackBarModule, MatDialogModule],
+      imports: [MatSnackBarModule, MatDialogModule],
+      providers: [
+        { provide: UserService, useValue: mockUserService }
+      ],
       schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
@@ -21,10 +33,16 @@ describe('UserListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserListComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should set users correctly from the service', () => {
+    mockUserService.getUsers.and.returnValue(of(users));
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.users.length).toBe(3);
   });
 });
