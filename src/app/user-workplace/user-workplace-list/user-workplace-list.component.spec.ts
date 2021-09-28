@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { of } from 'rxjs';
+import { IUserWorkplace } from 'src/app/shared/interfaces/user-workplace';
 import { UserWorkplaceService } from '../user-workplace.service';
 import { UserWorkplaceListComponent } from './user-workplace-list.component';
 
@@ -10,7 +11,7 @@ describe('UserWorkplaceListComponent', () => {
   let component: UserWorkplaceListComponent;
   let fixture: ComponentFixture<UserWorkplaceListComponent>;
   let mockUserWorkplaceService: any;
-  let userWorkplaces: any;
+  let userWorkplaces: IUserWorkplace[];
 
   beforeEach(async () => {
     userWorkplaces = [
@@ -45,5 +46,12 @@ describe('UserWorkplaceListComponent', () => {
     fixture.detectChanges();
 
     expect(fixture.componentInstance.userWorkplaces.length).toBe(3);
+  });
+
+  it('should set user workplaces title correctly', () => {
+    mockUserWorkplaceService.getUserWorkplaces.and.returnValue(of(userWorkplaces));
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.workplacesTitle).toEqual(`${userWorkplaces.length} Workplaces`);
   });
 });
