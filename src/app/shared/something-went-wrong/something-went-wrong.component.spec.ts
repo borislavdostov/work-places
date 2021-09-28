@@ -22,4 +22,12 @@ describe('SomethingWentWrongComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set something went wrong component title correctly', () => {
+    component.show = true;
+    component.message = 'getting users';
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('p').textContent).toContain('getting users');
+  });
 });
