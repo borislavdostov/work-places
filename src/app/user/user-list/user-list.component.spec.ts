@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { of } from 'rxjs';
+import { IUser } from 'src/app/shared/interfaces/user';
 import { UserService } from '../user.service';
 import { UserListComponent } from './user-list.component';
 
@@ -10,7 +11,7 @@ describe('UserListComponent', () => {
   let component: UserListComponent;
   let fixture: ComponentFixture<UserListComponent>;
   let mockUserService: any;
-  let users:any;
+  let users: IUser[];
 
   beforeEach(async () => {
     users = [
@@ -44,5 +45,12 @@ describe('UserListComponent', () => {
     fixture.detectChanges();
 
     expect(fixture.componentInstance.users.length).toBe(3);
+  });
+
+  it('should set users title correctly', () => {
+    mockUserService.getUsers.and.returnValue(of(users));
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.usersTitle).toEqual(`${users.length} Users`);
   });
 });
