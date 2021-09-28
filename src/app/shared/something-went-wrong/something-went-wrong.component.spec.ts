@@ -23,6 +23,13 @@ describe('SomethingWentWrongComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should not show component if show property is false', () => {
+    component.show = false;
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('div')).toBe(null);
+  });
+
   it('should set something went wrong component title correctly', () => {
     component.show = true;
     component.message = 'getting users';
