@@ -1,6 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { By } from '@angular/platform-browser';
 
 import { ConfirmationDialogComponent } from './confirmation-dialog.component';
 
@@ -28,5 +29,12 @@ describe('ConfirmationDialogComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should set confirmation dialog title correctly', () => {
+    component.message = 'Confirmation Dialog Title';
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('p').textContent).toEqual('Confirmation Dialog Title');
   });
 });
