@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UserWorkplaceListComponent } from './user-workplace-list.component';
 
 describe('UserWorkplaceListComponent', () => {
