@@ -27,7 +27,7 @@ describe('SomethingWentWrongComponent', () => {
     component.show = false;
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('div')).toBe(null);
+    expect(fixture.nativeElement.querySelector('div')).toBeNull();
   });
 
   it('should set something went wrong component title correctly', () => {
