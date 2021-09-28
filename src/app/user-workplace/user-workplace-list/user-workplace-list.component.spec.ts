@@ -45,13 +45,13 @@ describe('UserWorkplaceListComponent', () => {
     mockUserWorkplaceService.getUserWorkplaces.and.returnValue(of(userWorkplaces));
     fixture.detectChanges();
 
-    expect(fixture.componentInstance.userWorkplaces.length).toBe(3);
+    expect(component.userWorkplaces.length).toBe(3);
   });
 
   it('should set user workplaces title correctly', () => {
     mockUserWorkplaceService.getUserWorkplaces.and.returnValue(of(userWorkplaces));
     fixture.detectChanges();
 
-    expect(fixture.componentInstance.workplacesTitle).toEqual(`${userWorkplaces.length} Workplaces`);
+    expect(component.workplacesTitle).toEqual(`${userWorkplaces.length} Workplaces`);
   });
 });
