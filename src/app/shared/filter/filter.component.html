@@ -1,7 +1,7 @@
-    <mat-form-field appearance="standard">
-        <mat-label>{{title}}</mat-label>
-        <input matInput (keyup)="applyFilter(input)" #input>
-        <button *ngIf="input.value" matSuffix mat-icon-button aria-label="Clear" (click)="onClearClick(input)">
-            <mat-icon>close</mat-icon>
-        </button>
-    </mat-form-field>
+<mat-form-field appearance="standard">
+    <mat-label>{{title}}</mat-label>
+    <input matInput (keyup)="applyFilter(input)" #input>
+    <button *ngIf="input.value" matSuffix mat-icon-button aria-label="Clear" (click)="onClearClick(input)">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
