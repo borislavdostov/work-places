@@ -8,9 +8,9 @@ describe('SomethingWentWrongComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SomethingWentWrongComponent ]
+      declarations: [SomethingWentWrongComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
