@@ -124,5 +124,5 @@ export class UserListComponent implements OnInit, AfterViewInit {
         snackBarRef.onAction().subscribe(() => this.deleteUser(id));
       });
   }
-  
+
 }
