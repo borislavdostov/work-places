@@ -9,10 +9,10 @@ describe('FilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilterComponent ],
+      declarations: [FilterComponent],
       schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -23,5 +23,16 @@ describe('FilterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call onClearClick method when clear button is clicked', () => {
+    fixture.debugElement.nativeElement.querySelector('input').value = 'text'
+    fixture.detectChanges();
+    let button = fixture.debugElement.nativeElement.querySelector('button');
+    spyOn(component, 'onClearClick');
+
+    button.click();
+
+    expect(component.onClearClick).toHaveBeenCalled();
   });
 });
