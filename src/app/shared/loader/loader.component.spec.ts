@@ -8,9 +8,9 @@ describe('LoaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoaderComponent ]
+      declarations: [LoaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +21,13 @@ describe('LoaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should not show loader when isLoading is false', () => {
+    component.isLoading = false;
+
+    let loader = fixture.debugElement.nativeElement.querySelector('mat-spinner');
+
+    expect(loader).toBeNull();
   });
 });
