@@ -1,5 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { FilterComponent } from './filter.component';
 
@@ -34,5 +35,15 @@ describe('FilterComponent', () => {
     button.click();
 
     expect(component.onClearClick).toHaveBeenCalled();
+  });
+
+  it('should call onClearClick method when clear button is clicked', () => {
+    fixture.debugElement.nativeElement.querySelector('input').value = 'text'
+    fixture.detectChanges();
+
+    let input = fixture.debugElement.nativeElement.querySelector('input');
+    fixture.debugElement.query(By.css('button')).triggerEventHandler('click', input);
+
+    expect(input.value).toEqual('');
   });
 });
