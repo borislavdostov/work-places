@@ -23,11 +23,19 @@ describe('LoaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should not show loader when isLoading is false', () => {
-    component.isLoading = false;
+  // it('should not show loader when isLoading is false', () => {
+  //   component.isLoading = false;
 
-    let loader = fixture.debugElement.nativeElement.querySelector('mat-spinner');
+  //   let loader = fixture.debugElement.nativeElement.querySelector('mat-spinner');
 
-    expect(loader).toBeNull();
-  });
+  //   expect(loader).toBeNull();
+  // });
+
+  // it('should show loader when isLoading is true', () => {
+  //   component.isLoading = true;
+
+  //   let loader = fixture.debugElement.nativeElement.querySelector('mat-spinner');
+
+  //   expect(loader).not.toEqual(null);
+  // });
 });
