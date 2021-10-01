@@ -37,4 +37,13 @@ describe('ConfirmationDialogComponent', () => {
 
     expect(fixture.nativeElement.querySelector('p').textContent).toEqual('Confirmation Dialog Title');
   });
+
+  it('should call onYesClick method when confirmation button clicked', () => {
+    spyOn(component, 'onYesClick');
+    let button = fixture.debugElement.nativeElement.querySelector('button');
+
+    button.click();
+
+    expect(component.onYesClick).toHaveBeenCalled();
+  });
 });
