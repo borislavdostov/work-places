@@ -39,8 +39,8 @@ describe('ConfirmationDialogComponent', () => {
   });
 
   it('should call onYesClick method when confirmation button clicked', () => {
-    spyOn(component, 'onYesClick');
     let button = fixture.debugElement.nativeElement.querySelector('button');
+    spyOn(component, 'onYesClick');
 
     button.click();
 
