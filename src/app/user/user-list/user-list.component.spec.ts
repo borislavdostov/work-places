@@ -53,5 +53,5 @@ describe('UserListComponent', () => {
 
     expect(component.usersTitle).toEqual(`${users.length} Users`);
   });
-  
+
 });
