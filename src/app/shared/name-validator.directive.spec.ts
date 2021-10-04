@@ -21,7 +21,13 @@ describe('NameValidatorDirective', () => {
 
   it('should return object with nameValidator', () => {
     let formControl = new FormControl('john');
-    
+
     expect(directive.validate(formControl)).toEqual({ nameValidator: true });
+  });
+
+  it('should return null when name is not set', () => {
+    let formControl = new FormControl('');
+
+    expect(directive.validate(formControl)).toEqual(null);
   });
 });
