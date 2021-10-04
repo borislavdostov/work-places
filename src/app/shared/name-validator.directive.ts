@@ -1,6 +1,5 @@
 import { Directive } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS, ValidationErrors } from '@angular/forms';
-import { nameValidator } from './validators';
 
 @Directive({
   selector: '[ngModel][nameValidator]',
@@ -11,6 +10,12 @@ export class NameValidatorDirective {
   constructor() { }
 
   validate(control: AbstractControl): ValidationErrors | null {
-    return nameValidator(control);
+    const value = (control.value as string);
+    if (!value) {
+        return null;
+    }
+    const firstLetter = value.charAt(0);
+    const isValidName = firstLetter == firstLetter.toUpperCase();
+    return isValidName ? null : { nameValidator: true };
   }
 }
