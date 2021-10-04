@@ -37,6 +37,7 @@ describe('FilterComponent', () => {
     expect(component.onClearClick).toHaveBeenCalled();
   });
 
+  //TODO: Clear errors from console when this test is executed
   it('should clear filter input field when clear button is clicked', () => {
     fixture.debugElement.nativeElement.querySelector('input').value = 'text'
     fixture.detectChanges();
