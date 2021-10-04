@@ -50,7 +50,7 @@ describe('FilterComponent', () => {
   it('should call applyFilter method on keyup event', () => {
     fixture.debugElement.nativeElement.querySelector('input').value = 'text'
     fixture.detectChanges();
-    
+
     let input = fixture.debugElement.nativeElement.querySelector('input');
     spyOn(component, 'applyFilter');
     fixture.debugElement.query(By.css('input')).triggerEventHandler('keyup', input);

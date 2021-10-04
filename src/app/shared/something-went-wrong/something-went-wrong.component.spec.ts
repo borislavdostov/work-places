@@ -30,11 +30,29 @@ describe('SomethingWentWrongComponent', () => {
     expect(fixture.nativeElement.querySelector('div')).toBeNull();
   });
 
+  it('should show component if show property is true', () => {
+    component.show = true;
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('div')).not.toEqual(null);
+  });
+
   it('should set something went wrong component title correctly', () => {
     component.show = true;
     component.message = 'getting users';
     fixture.detectChanges();
 
     expect(fixture.nativeElement.querySelector('p').textContent).toContain('getting users');
+  });
+
+  it('should call onTryAgainClick method when try again button is clicked', () => {
+    component.show = true;
+    fixture.detectChanges();
+    let button = fixture.debugElement.nativeElement.querySelector('button');
+    spyOn(component, 'onTryAgainClick');
+
+    button.click();
+
+    expect(component.onTryAgainClick).toHaveBeenCalled();
   });
 });
