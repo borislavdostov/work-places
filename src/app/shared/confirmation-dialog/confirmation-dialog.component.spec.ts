@@ -30,11 +30,11 @@ describe('ConfirmationDialogComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set confirmation dialog title correctly', () => {
-    component.message = 'Confirmation Dialog Title';
+  it('should set confirmation dialog message correctly', () => {
+    component.message = 'Confirmation Dialog Message';
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('p').textContent).toEqual('Confirmation Dialog Title');
+    expect(fixture.nativeElement.querySelector('p').textContent).toEqual('Confirmation Dialog Message');
   });
 
   it('should call onYesClick method when confirmation button clicked', () => {
