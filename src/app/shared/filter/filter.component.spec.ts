@@ -46,4 +46,14 @@ describe('FilterComponent', () => {
 
     expect(input.value).toEqual('');
   });
+
+  it('should call applyFilter method on keyup event', () => {
+    fixture.debugElement.nativeElement.querySelector('input').value = 'text'
+    fixture.detectChanges();
+
+    let input = fixture.debugElement.nativeElement.querySelector('input');
+    fixture.debugElement.query(By.css('button')).triggerEventHandler('click', input);
+
+    expect(input.value).toEqual('');
+  });
 });
