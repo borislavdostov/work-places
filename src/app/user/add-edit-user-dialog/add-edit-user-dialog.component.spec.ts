@@ -32,4 +32,26 @@ describe('AddEditUserDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set title correctly when data is not set', () => {
+    let title = fixture.debugElement.nativeElement.querySelector('h1').textContent;
+
+    expect(title).toEqual('Create User');
+  });
+
+  it('should set title correctly when title is set', () => {
+    component.title = 'Mat Dialog Title';
+    fixture.detectChanges();
+
+    let title = fixture.debugElement.nativeElement.querySelector('h1').textContent;
+
+    expect(title).toEqual('Mat Dialog Title');
+  });
+
+  it('should set submit button title correctly when data is not set', () => {
+
+    let title = fixture.debugElement.nativeElement.querySelector('button').textContent;
+
+    expect(title).toEqual('Save');
+  });
 });
