@@ -32,6 +32,7 @@ describe('ConfirmationDialogComponent', () => {
 
   it('should set confirmation dialog message correctly', () => {
     component.message = 'Confirmation Dialog Message';
+    
     fixture.detectChanges();
 
     expect(fixture.nativeElement.querySelector('p').textContent).toEqual('Confirmation Dialog Message');
