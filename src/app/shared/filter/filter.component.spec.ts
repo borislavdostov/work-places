@@ -40,8 +40,8 @@ describe('FilterComponent', () => {
   it('should clear filter input field when clear button is clicked', () => {
     fixture.debugElement.nativeElement.querySelector('input').value = 'text'
     fixture.detectChanges();
-
     let input = fixture.debugElement.nativeElement.querySelector('input');
+
     fixture.debugElement.query(By.css('button')).triggerEventHandler('click', input);
 
     expect(input.value).toEqual('');
@@ -50,10 +50,11 @@ describe('FilterComponent', () => {
   it('should call applyFilter method on keyup event', () => {
     fixture.debugElement.nativeElement.querySelector('input').value = 'text'
     fixture.detectChanges();
-
+    
     let input = fixture.debugElement.nativeElement.querySelector('input');
-    fixture.debugElement.query(By.css('button')).triggerEventHandler('click', input);
+    spyOn(component, 'applyFilter');
+    fixture.debugElement.query(By.css('input')).triggerEventHandler('keyup', input);
 
-    expect(input.value).toEqual('');
+    expect(component.applyFilter).toHaveBeenCalled();
   });
 });
