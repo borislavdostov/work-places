@@ -44,7 +44,7 @@ export class AddEditUserDialogComponent {
   createUser(user: IUserAddEdit) {
     this.userService.createUser(user).subscribe(
       () => {
-        this.dialogRef.close({ confirmed: true });
+        this.closeDialog();
       },
       (error: HttpErrorResponse) => {
         if (error.status == 0) {
@@ -59,7 +59,7 @@ export class AddEditUserDialogComponent {
   editUser(userId: number, user: IUserAddEdit) {
     this.userService.editUser(userId, user).subscribe(
       () => {
-        this.dialogRef.close({ confirmed: true });
+        this.closeDialog();
       },
       (error: HttpErrorResponse) => {
         if (error.status == 0) {
@@ -69,6 +69,10 @@ export class AddEditUserDialogComponent {
         }
         this.disabled = false;
       });
+  }
+
+  closeDialog(){
+    this.dialogRef.close({ confirmed: true });
   }
 
 }
