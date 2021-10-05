@@ -29,11 +29,11 @@ export class UserWorkplaceService {
   }
 
   createUserWorkplace(userWorkplace: IUserWorkplaceAddEdit) {
-    return this.http.post(`${apiUrl}/userworkplaces`, JSON.stringify(userWorkplace), { headers: requestHeaders });
+    return this.http.post(`${apiUrl}/userworkplaces`, JSON.stringify(userWorkplace), requestHeaders);
   }
 
   editUserWorkplace(id: number, userWorkplace: IUserWorkplaceAddEdit) {
-    return this.http.put(`${apiUrl}/userworkplaces/${id}`, JSON.stringify(userWorkplace), { headers: requestHeaders });
+    return this.http.put(`${apiUrl}/userworkplaces/${id}`, JSON.stringify(userWorkplace), requestHeaders);
   }
 
   deleteUserWorkplace(id: number) {
