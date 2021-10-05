@@ -53,32 +53,40 @@ export class AddEditUserWorkplaceDialogComponent {
   onSubmit(userWorkplace: IUserWorkplaceAddEdit) {
     this.disabled = true;
     if (this.data.isCreate) {
-      this.userWorkplaceService.createUserWorkplace(userWorkplace).subscribe(
-        () => {
-          this.dialogRef.close({ confirmed: true });
-        },
-        (error: HttpErrorResponse) => {
-          if (error.status == 0) {
-            this.errors = ["Unable to create workplace."];
-          } else {
-            this.errors = error.error;
-          }
-          this.disabled = false;
-        });
+      this.createUserWorkplace(userWorkplace);
     } else {
-      this.userWorkplaceService.editUserWorkplace(this.userWorkplaceId, userWorkplace).subscribe(
-        () => {
-          this.dialogRef.close({ confirmed: true });
-        },
-        (error: HttpErrorResponse) => {
-          if (error.status == 0) {
-            this.errors = ["Unable to edit workplace."];
-          } else {
-            this.errors = error.error;
-          }
-          this.disabled = false;
-        });
+      this.editUserWorkplace(this.userWorkplaceId, userWorkplace);
     }
+  }
+
+  createUserWorkplace(userWorkplace: IUserWorkplaceAddEdit) {
+    this.userWorkplaceService.createUserWorkplace(userWorkplace).subscribe(
+      () => {
+        this.dialogRef.close({ confirmed: true });
+      },
+      (error: HttpErrorResponse) => {
+        if (error.status == 0) {
+          this.errors = ["Unable to create workplace."];
+        } else {
+          this.errors = error.error;
+        }
+        this.disabled = false;
+      });
+  }
+
+  editUserWorkplace(userWorkplaceId: number, userWorkplace: IUserWorkplaceAddEdit) {
+    this.userWorkplaceService.editUserWorkplace(userWorkplaceId, userWorkplace).subscribe(
+      () => {
+        this.dialogRef.close({ confirmed: true });
+      },
+      (error: HttpErrorResponse) => {
+        if (error.status == 0) {
+          this.errors = ["Unable to edit workplace."];
+        } else {
+          this.errors = error.error;
+        }
+        this.disabled = false;
+      });
   }
 
 }
