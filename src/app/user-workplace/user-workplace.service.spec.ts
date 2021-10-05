@@ -11,6 +11,7 @@ describe('UserWorkplaceService', () => {
       imports: [HttpClientTestingModule]
     });
     service = TestBed.inject(UserWorkplaceService);
+    mockHttp = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {
