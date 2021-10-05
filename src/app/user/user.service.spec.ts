@@ -75,10 +75,9 @@ describe('UserService', () => {
   });
 
   it('should make post request when createUser is called', () => {
-    service.createUser({ firstName: '', lastName: '', email: '', dateOfBirth: '' }).subscribe();
+    service.createUser(dummyUser).subscribe();
 
     const req = mockHttp.expectOne(`${apiUrl}/users`);
-    req.flush(dummyUsers);
 
     expect(req.request.method).toBe("POST");
   });
