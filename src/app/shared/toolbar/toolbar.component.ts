@@ -5,14 +5,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.css']
 })
-export class ToolbarComponent{
+export class ToolbarComponent {
 
-  @Input() title = '';
+  @Input() title!: string;
   @Output() newClicked = new EventEmitter();
 
   constructor() { }
 
-  buttonHandler(){
+  buttonHandler() {
     this.newClicked.emit();
   }
 }
