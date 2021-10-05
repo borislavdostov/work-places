@@ -10,10 +10,17 @@ describe('UserService', () => {
   let mockHttp: HttpTestingController;
 
   let dummyUsers = [
-    { id: 1, name: "John", email: "example@email.com", age: 25 },
-    { id: 2, name: "Peter", email: "example@email.com", age: 34 },
-    { id: 3, name: "Simon", email: "example@email.com", age: 19 },
+    { id: 1, name: "John", email: "john@mail.com", age: 20 },
+    { id: 2, name: "Peter", email: "peter@mail.com", age: 25 },
+    { id: 3, name: "Simon", email: "simon@mail.com", age: 30 },
   ];
+
+  let dummyUser = {
+    firstName: "John",
+    lastName: 'Doe',
+    email: "john@email.com",
+    dateOfBirth: '22-11-2000'
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -62,13 +69,12 @@ describe('UserService', () => {
   });
 
   it('should return user correctly when getUser is called', () => {
-    let user = { firstName: "John", lastName: 'Smith', email: "example@email.com", dateOfBirth: '22-11-2000' };
 
     service.getUser(1).subscribe(user => {
       expect(user).toEqual(user);
     });
 
-    mockHttp.expectOne(`${apiUrl}/users/1`).flush(user);
+    mockHttp.expectOne(`${apiUrl}/users/1`).flush(dummyUser);
   });
 
   it('should make post request when createUser is called', () => {
