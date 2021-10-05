@@ -38,7 +38,7 @@ describe('UserService', () => {
   it('should make get request when getUsers is called', () => {
     service.getUsers().subscribe();
 
-    const req = mockHttp.expectOne(`${apiUrl}/users`);
+    const req = mockHttp.expectOne(usersApiUrl);
 
     expect(req.request.method).toBe("GET");
   });
@@ -48,7 +48,7 @@ describe('UserService', () => {
       expect(users.length).toBe(3);
     });
 
-    mockHttp.expectOne(`${apiUrl}/users`).flush(dummyUsers);
+    mockHttp.expectOne(usersApiUrl).flush(dummyUsers);
   });
 
   it('should return users correctly when getUsers is called', () => {
@@ -56,13 +56,13 @@ describe('UserService', () => {
       expect(users).toEqual(dummyUsers);
     });
 
-    mockHttp.expectOne(`${apiUrl}/users`).flush(dummyUsers);
+    mockHttp.expectOne(usersApiUrl).flush(dummyUsers);
   });
 
   it('should make get request when getUser is called', () => {
     service.getUser(1).subscribe();
 
-    const req = mockHttp.expectOne(`${apiUrl}/users/1`);
+    const req = mockHttp.expectOne(`${usersApiUrl}/1`);
 
     expect(req.request.method).toBe("GET");
   });
@@ -72,13 +72,13 @@ describe('UserService', () => {
       expect(user).toEqual(user);
     });
 
-    mockHttp.expectOne(`${apiUrl}/users/1`).flush(dummyUser);
+    mockHttp.expectOne(`${usersApiUrl}/1`).flush(dummyUser);
   });
 
   it('should make post request when createUser is called', () => {
     service.createUser(dummyUser).subscribe();
 
-    const req = mockHttp.expectOne(`${apiUrl}/users`);
+    const req = mockHttp.expectOne(usersApiUrl);
 
     expect(req.request.method).toBe("POST");
   });
@@ -86,7 +86,7 @@ describe('UserService', () => {
   it('should make put request when editUser is called', () => {
     service.editUser(1, dummyUser).subscribe();
 
-    const req = mockHttp.expectOne(`${apiUrl}/users/1`);
+    const req = mockHttp.expectOne(`${usersApiUrl}/1`);
 
     expect(req.request.method).toBe("PUT");
   });
@@ -94,7 +94,7 @@ describe('UserService', () => {
   it('should make delete request when deleteUser is called', () => {
     service.deleteUser(1).subscribe();
 
-    const req = mockHttp.expectOne(`${apiUrl}/users/1`);
+    const req = mockHttp.expectOne(`${usersApiUrl}/1`);
 
     expect(req.request.method).toBe("DELETE");
   });
