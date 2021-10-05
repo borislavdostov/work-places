@@ -69,7 +69,7 @@ describe('UserService', () => {
 
   it('should return user correctly when getUser is called', () => {
     service.getUser(1).subscribe(user => {
-      expect(user).toEqual(user);
+      expect(user).toEqual(dummyUser);
     });
 
     mockHttp.expectOne(`${usersApiUrl}/1`).flush(dummyUser);
