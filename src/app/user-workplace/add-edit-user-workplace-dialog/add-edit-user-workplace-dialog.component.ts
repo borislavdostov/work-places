@@ -90,7 +90,7 @@ export class AddEditUserWorkplaceDialogComponent {
   }
 
   closeDialog() {
-    this.dialogRef.close({ confirmed: true });
+    this.dialogRef.close(true);
   }
 
 }
