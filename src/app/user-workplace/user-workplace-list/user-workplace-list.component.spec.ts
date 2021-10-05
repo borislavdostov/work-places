@@ -15,9 +15,9 @@ describe('UserWorkplaceListComponent', () => {
 
   beforeEach(async () => {
     userWorkplaces = [
-      { id: 1, user: 'John Atanasov', workplace: 'QA Specialist', fromDate: '22-12-1785', todate: '22-12-1842' },
-      { id: 2, user: 'Morgan Freeman', workplace: 'Mobile Developer', fromDate: '02-05-1992', todate: '13-01-2006' },
-      { id: 3, user: 'Tom Cruise', workplace: 'Software Developer', fromDate: '24-12-2002', todate: '01-04-2021' }
+      { id: 1, user: 'John Atanasov', workplace: 'QA Specialist', fromDate: '22-12-1785', toDate: '22-12-1842' },
+      { id: 2, user: 'Morgan Freeman', workplace: 'Mobile Developer', fromDate: '02-05-1992', toDate: '13-01-2006' },
+      { id: 3, user: 'Tom Cruise', workplace: 'Software Developer', fromDate: '24-12-2002', toDate: '01-04-2021' }
     ];
     mockUserWorkplaceService = jasmine.createSpyObj(
       ['getUserWorkplaces', 'getUserWorkplaceOptions', 'getUserWorkplace', 'createUserWorkplace', 'editUserWorkplace', 'deleteUserWorkplace']);
