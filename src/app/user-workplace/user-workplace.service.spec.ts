@@ -34,5 +34,11 @@ describe('UserWorkplaceService', () => {
     expect(service).toBeTruthy();
   });
 
+  it('should make get request when getUserWorkplaces is called', () => {
+    service.getUserWorkplaces().subscribe();
 
+    const req = mockHttp.expectOne(`${apiUrl}/userworkplaces`);
+
+    expect(req.request.method).toBe("GET");
+  });
 });
