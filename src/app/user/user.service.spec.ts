@@ -36,7 +36,7 @@ describe('UserService', () => {
     expect(req.request.method).toBe("GET");
   });
 
-  it('should return users count correctly', () => {
+  it('should return users count correctly when getUsers is called', () => {
     service.getUsers().subscribe(users => {
       expect(users.length).toBe(3);
     });
