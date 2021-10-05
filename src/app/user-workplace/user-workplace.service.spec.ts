@@ -40,7 +40,7 @@ describe('UserWorkplaceService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should make get request when getUserWorkplaces is called', () => {
+  it('should make get request when getUserWorkplaces method is called', () => {
     service.getUserWorkplaces().subscribe();
 
     const req = mockHttp.expectOne(userWorkplacesApiUrl);
@@ -48,7 +48,7 @@ describe('UserWorkplaceService', () => {
     expect(req.request.method).toBe("GET");
   });
 
-  it('should return user workplaces count correctly when getUserWorkplaces is called', () => {
+  it('should return user workplaces count correctly when getUserWorkplaces method is called', () => {
     service.getUserWorkplaces().subscribe(userWorkplaces => {
       expect(userWorkplaces.length).toBe(3);
     });
@@ -56,7 +56,7 @@ describe('UserWorkplaceService', () => {
     mockHttp.expectOne(userWorkplacesApiUrl).flush(dummyUserWorkplaces);
   });
 
-  it('should return user workplaces correctly when getUserWorkplaces is called', () => {
+  it('should return user workplaces correctly when getUserWorkplaces method is called', () => {
     service.getUserWorkplaces().subscribe(userWorkplaces => {
       expect(userWorkplaces).toEqual(dummyUserWorkplaces);
     });
@@ -64,7 +64,7 @@ describe('UserWorkplaceService', () => {
     mockHttp.expectOne(userWorkplacesApiUrl).flush(dummyUserWorkplaces);
   });
 
-  it('should make get request when getUserWorkplaceOptions is called', () => {
+  it('should make get request when getUserWorkplaceOptions method is called', () => {
     service.getUserWorkplaceOptions().subscribe();
 
     const req = mockHttp.expectOne(`${userWorkplacesApiUrl}/options`);
@@ -72,7 +72,7 @@ describe('UserWorkplaceService', () => {
     expect(req.request.method).toBe("GET");
   });
 
-  it('should return user workplace options correctly when getUserWorkplaceOptionss is called', () => {
+  it('should return user workplace options correctly when getUserWorkplaceOptions method is called', () => {
     service.getUserWorkplaceOptions().subscribe(userWorkplaceOptions => {
       expect(userWorkplaceOptions).toEqual(dummyUserWorkplaceOptions);
     });
@@ -80,7 +80,7 @@ describe('UserWorkplaceService', () => {
     mockHttp.expectOne(`${userWorkplacesApiUrl}/options`).flush(dummyUserWorkplaceOptions);
   });
 
-  it('should make get request when getUserWorkplace is called', () => {
+  it('should make get request when getUserWorkplace method is called', () => {
     service.getUserWorkplace(1).subscribe();
 
     const req = mockHttp.expectOne(`${userWorkplacesApiUrl}/1`);
@@ -88,7 +88,7 @@ describe('UserWorkplaceService', () => {
     expect(req.request.method).toBe("GET");
   });
 
-  it('should return user workplace correctly when getUserWorkplace is called', () => {
+  it('should return user workplace correctly when getUserWorkplace method is called', () => {
     service.getUserWorkplace(1).subscribe(userWorkplace => {
       expect(userWorkplace).toEqual(dummyUserWorkplace);
     });
@@ -96,7 +96,7 @@ describe('UserWorkplaceService', () => {
     mockHttp.expectOne(`${userWorkplacesApiUrl}/1`).flush(dummyUserWorkplace);
   });
 
-  it('should make post request when createUserWorkplace is called', () => {
+  it('should make post request when createUserWorkplace method is called', () => {
     service.createUserWorkplace(dummyUserWorkplace).subscribe();
 
     const req = mockHttp.expectOne(userWorkplacesApiUrl);
@@ -104,7 +104,7 @@ describe('UserWorkplaceService', () => {
     expect(req.request.method).toBe("POST");
   });
 
-  it('should make put request when editUserWorkplace is called', () => {
+  it('should make put request when editUserWorkplace method is called', () => {
     service.editUserWorkplace(1, dummyUserWorkplace).subscribe();
 
     const req = mockHttp.expectOne(`${userWorkplacesApiUrl}/1`);
@@ -112,7 +112,7 @@ describe('UserWorkplaceService', () => {
     expect(req.request.method).toBe("PUT");
   });
 
-  it('should make delete request when deleteUserWorkplace is called', () => {
+  it('should make delete request when deleteUserWorkplace method is called', () => {
     service.deleteUserWorkplace(1).subscribe();
 
     const req = mockHttp.expectOne(`${userWorkplacesApiUrl}/1`);
