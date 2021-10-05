@@ -17,8 +17,8 @@ describe('UserWorkplaceService', () => {
   ];
 
   let dummyUserWorkplaceOptions = {
-    users: [],
-    workplaces: []
+    users: [{ id: 1, name: 'Jack' }],
+    workplaces: [{ id: 2, name: 'Web Developer' }]
   }
 
   let dummyUserWorkplace = {
@@ -70,6 +70,14 @@ describe('UserWorkplaceService', () => {
     const req = mockHttp.expectOne(`${userWorkplacesApiUrl}/options`);
 
     expect(req.request.method).toBe("GET");
+  });
+
+  it('should return user workplace options correctly when getUserWorkplaceOptionss is called', () => {
+    service.getUserWorkplaceOptions().subscribe(userWorkplaceOptions => {
+      expect(userWorkplaceOptions).toEqual(dummyUserWorkplaceOptions);
+    });
+
+    mockHttp.expectOne(`${userWorkplacesApiUrl}/options`).flush(dummyUserWorkplaceOptions);
   });
 
 });
