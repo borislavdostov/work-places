@@ -4,6 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { environment } from 'src/environments/environment';
 
 const apiUrl = environment.apiUrl;
+const usersApiUrl = `${apiUrl}/users`;
 
 describe('UserService', () => {
   let service: UserService;
