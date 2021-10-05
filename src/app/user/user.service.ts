@@ -14,7 +14,7 @@ const usersApiUrl = `${environment.apiUrl}/users`;
 export class UserService {
 
   constructor(private http: HttpClient) { }
-
+  
   getUsers(): Observable<IUser[]> {
     return this.http.get<IUser[]>(usersApiUrl);
   }
@@ -24,11 +24,11 @@ export class UserService {
   }
 
   createUser(user: IUserAddEdit) {
-    return this.http.post(usersApiUrl, JSON.stringify(user), { headers: requestHeaders });
+    return this.http.post(usersApiUrl, JSON.stringify(user), requestHeaders);
   }
 
   editUser(id: number, user: IUserAddEdit) {
-    return this.http.put(`${usersApiUrl}/${id}`, JSON.stringify(user), { headers: requestHeaders });
+    return this.http.put(`${usersApiUrl}/${id}`, JSON.stringify(user), requestHeaders);
   }
 
   deleteUser(id: number) {
