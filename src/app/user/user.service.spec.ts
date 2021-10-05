@@ -52,12 +52,13 @@ describe('UserService', () => {
     mockHttp.expectOne(`${apiUrl}/users`).flush(dummyUsers);
   });
 
-  it('should return users correctly', () => {
-    service.getUsers().subscribe(users => {
-      expect(users).toEqual(dummyUsers);
-    });
+  it('should make get request when getUser is called', () => {
+    service.getUser(1).subscribe();
 
-    mockHttp.expectOne(`${apiUrl}/users`).flush(dummyUsers);
+    const req = mockHttp.expectOne(`${apiUrl}/users/1`);
+    req.flush(dummyUsers);
+
+    expect(req.request.method).toBe("GET");
   });
 
 });
