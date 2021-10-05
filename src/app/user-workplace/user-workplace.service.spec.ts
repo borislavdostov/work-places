@@ -16,6 +16,11 @@ describe('UserWorkplaceService', () => {
     { id: 3, user: 'Simon', workplace: 'Mobile Developer', fromDate: '3-7-2019', toDate: '3-3-2024' },
   ];
 
+  let dummyUserWorkplaceOptions = {
+    users: [],
+    workplaces: []
+  }
+
   let dummyUserWorkplace = {
     userId: 1,
     workplaceId: 2,
