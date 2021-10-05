@@ -62,7 +62,7 @@ export class AddEditUserWorkplaceDialogComponent {
   createUserWorkplace(userWorkplace: IUserWorkplaceAddEdit) {
     this.userWorkplaceService.createUserWorkplace(userWorkplace).subscribe(
       () => {
-        this.dialogRef.close({ confirmed: true });
+        this.closeDialog();
       },
       (error: HttpErrorResponse) => {
         if (error.status == 0) {
@@ -77,7 +77,7 @@ export class AddEditUserWorkplaceDialogComponent {
   editUserWorkplace(userWorkplaceId: number, userWorkplace: IUserWorkplaceAddEdit) {
     this.userWorkplaceService.editUserWorkplace(userWorkplaceId, userWorkplace).subscribe(
       () => {
-        this.dialogRef.close({ confirmed: true });
+        this.closeDialog();
       },
       (error: HttpErrorResponse) => {
         if (error.status == 0) {
@@ -87,6 +87,10 @@ export class AddEditUserWorkplaceDialogComponent {
         }
         this.disabled = false;
       });
+  }
+
+  closeDialog() {
+    this.dialogRef.close({ confirmed: true });
   }
 
 }
