@@ -57,7 +57,7 @@ export class AddEditUserDialogComponent {
   }
 
   editUser(userId: number, user: IUserAddEdit) {
-    this.userService.editUser(this.userId, user).subscribe(
+    this.userService.editUser(userId, user).subscribe(
       () => {
         this.dialogRef.close({ confirmed: true });
       },
