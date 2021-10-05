@@ -71,7 +71,7 @@ export class AddEditUserDialogComponent {
       });
   }
 
-  closeDialog(){
+  closeDialog() {
     this.dialogRef.close({ confirmed: true });
   }
 
