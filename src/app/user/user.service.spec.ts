@@ -35,7 +35,7 @@ describe('UserService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should make get request when getUsers is called', () => {
+  it('should make get request when getUsers method is called', () => {
     service.getUsers().subscribe();
 
     const req = mockHttp.expectOne(usersApiUrl);
@@ -43,7 +43,7 @@ describe('UserService', () => {
     expect(req.request.method).toBe("GET");
   });
 
-  it('should return users count correctly when getUsers is called', () => {
+  it('should return users count correctly when getUsers method is called', () => {
     service.getUsers().subscribe(users => {
       expect(users.length).toBe(3);
     });
@@ -51,7 +51,7 @@ describe('UserService', () => {
     mockHttp.expectOne(usersApiUrl).flush(dummyUsers);
   });
 
-  it('should return users correctly when getUsers is called', () => {
+  it('should return users correctly when getUsers method is called', () => {
     service.getUsers().subscribe(users => {
       expect(users).toEqual(dummyUsers);
     });
@@ -59,7 +59,7 @@ describe('UserService', () => {
     mockHttp.expectOne(usersApiUrl).flush(dummyUsers);
   });
 
-  it('should make get request when getUser is called', () => {
+  it('should make get request when getUser method is called', () => {
     service.getUser(1).subscribe();
 
     const req = mockHttp.expectOne(`${usersApiUrl}/1`);
@@ -67,7 +67,7 @@ describe('UserService', () => {
     expect(req.request.method).toBe("GET");
   });
 
-  it('should return user correctly when getUser is called', () => {
+  it('should return user correctly when getUser method is called', () => {
     service.getUser(1).subscribe(user => {
       expect(user).toEqual(dummyUser);
     });
@@ -75,7 +75,7 @@ describe('UserService', () => {
     mockHttp.expectOne(`${usersApiUrl}/1`).flush(dummyUser);
   });
 
-  it('should make post request when createUser is called', () => {
+  it('should make post request when createUser method is called', () => {
     service.createUser(dummyUser).subscribe();
 
     const req = mockHttp.expectOne(usersApiUrl);
@@ -83,7 +83,7 @@ describe('UserService', () => {
     expect(req.request.method).toBe("POST");
   });
 
-  it('should make put request when editUser is called', () => {
+  it('should make put request when editUser method is called', () => {
     service.editUser(1, dummyUser).subscribe();
 
     const req = mockHttp.expectOne(`${usersApiUrl}/1`);
@@ -91,7 +91,7 @@ describe('UserService', () => {
     expect(req.request.method).toBe("PUT");
   });
 
-  it('should make delete request when deleteUser is called', () => {
+  it('should make delete request when deleteUser method is called', () => {
     service.deleteUser(1).subscribe();
 
     const req = mockHttp.expectOne(`${usersApiUrl}/1`);
