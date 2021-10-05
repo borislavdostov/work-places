@@ -99,17 +99,17 @@ export class UserWorkplaceListComponent implements OnInit, AfterViewInit {
       });
   }
 
-  openDeleteUserWorkplaceDialog(workplace: IUserWorkplace) {
+  openDeleteUserWorkplaceDialog(userWorkplace: IUserWorkplace) {
     let dialogRef = this.confirmationDialog.open(ConfirmationDialogComponent, {
       data: {
-        message: `Are you sure you want to delete workplace ${workplace.workplace} for user ${workplace.user}?`
+        message: `Are you sure you want to delete workplace ${userWorkplace.workplace} for user ${userWorkplace.user}?`
       }
     });
 
     dialogRef.afterClosed().subscribe(
       confirmed => {
         if (confirmed) {
-          this.deleteUserWorkplace(workplace.id);
+          this.deleteUserWorkplace(userWorkplace.id);
         }
       });
   }
