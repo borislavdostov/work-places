@@ -37,18 +37,7 @@ export class AddEditUserDialogComponent {
     if (this.data.isCreate) {
       this.createUser(user);
     } else {
-      this.userService.editUser(this.userId, user).subscribe(
-        () => {
-          this.dialogRef.close({ confirmed: true });
-        },
-        (error: HttpErrorResponse) => {
-          if (error.status == 0) {
-            this.errors = ["Unable to edit user."];
-          } else {
-            this.errors = error.error;
-          }
-          this.disabled = false;
-        });
+      this.editUser(this.userId, user);
     }
   }
 
@@ -60,6 +49,21 @@ export class AddEditUserDialogComponent {
       (error: HttpErrorResponse) => {
         if (error.status == 0) {
           this.errors = ["Unable to create user."];
+        } else {
+          this.errors = error.error;
+        }
+        this.disabled = false;
+      });
+  }
+
+  editUser(userId: number, user: IUserAddEdit) {
+    this.userService.editUser(this.userId, user).subscribe(
+      () => {
+        this.dialogRef.close({ confirmed: true });
+      },
+      (error: HttpErrorResponse) => {
+        if (error.status == 0) {
+          this.errors = ["Unable to edit user."];
         } else {
           this.errors = error.error;
         }
