@@ -38,7 +38,6 @@ describe('UserService', () => {
     service.getUsers().subscribe();
 
     const req = mockHttp.expectOne(`${apiUrl}/users`);
-    req.flush(dummyUsers);
 
     expect(req.request.method).toBe("GET");
   });
