@@ -51,4 +51,12 @@ describe('UserWorkplaceService', () => {
     mockHttp.expectOne(userWorkplacesApiUrl).flush(dummyUserWorkplaces);
   });
 
+  it('should return user workplaces correctly when getUserWorkplaces is called', () => {
+    service.getUserWorkplaces().subscribe(userWorkplaces => {
+      expect(userWorkplaces).toEqual(dummyUserWorkplaces);
+    });
+
+    mockHttp.expectOne(userWorkplacesApiUrl).flush(dummyUserWorkplaces);
+  });
+
 });
