@@ -1,6 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { UserWorkplaceService } from './user-workplace.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
+import { environment } from 'src/environments/environment';
+
+const apiUrl = environment.apiUrl;
 
 describe('UserWorkplaceService', () => {
   let service: UserWorkplaceService;
@@ -30,4 +33,6 @@ describe('UserWorkplaceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+
 });
