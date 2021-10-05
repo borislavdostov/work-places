@@ -22,7 +22,7 @@ export class UserWorkplaceListComponent implements OnInit, AfterViewInit {
   isLoading = false;
   disabled = false;
 
-  workplacesTitle: string = '';
+  workplacesTitle!: string;
   displayedColumns: string[] = ['user', 'workplace', 'fromDate', 'toDate', 'options'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
