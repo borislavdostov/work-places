@@ -112,4 +112,12 @@ describe('UserWorkplaceService', () => {
     expect(req.request.method).toBe("PUT");
   });
 
+  it('should make delete request when deleteUserWorkplace is called', () => {
+    service.deleteUserWorkplace(1).subscribe();
+
+    const req = mockHttp.expectOne(`${userWorkplacesApiUrl}/1`);
+
+    expect(req.request.method).toBe("DELETE");
+  });
+
 });
