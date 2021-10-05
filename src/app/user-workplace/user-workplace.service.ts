@@ -7,7 +7,7 @@ import { IUserWorkplaceOptions } from '../shared/interfaces/user-workplace-optio
 import { IUserWorkplaceAddEdit } from '../shared/interfaces/user-workplace-add-edit';
 import { requestHeaders } from '../shared/constants';
 
-const apiUrl = environment.apiUrl;
+const userWorkplacesApiUrl = `${environment.apiUrl}/userworkplaces`;
 
 @Injectable({
   providedIn: 'root'
@@ -17,26 +17,26 @@ export class UserWorkplaceService {
   constructor(private http: HttpClient) { }
 
   getUserWorkplaces(): Observable<IUserWorkplace[]> {
-    return this.http.get<IUserWorkplace[]>(`${apiUrl}/userworkplaces`);
+    return this.http.get<IUserWorkplace[]>(`${userWorkplacesApiUrl}/userworkplaces`);
   }
 
   getUserWorkplaceOptions(): Observable<IUserWorkplaceOptions> {
-    return this.http.get<IUserWorkplaceOptions>(`${apiUrl}/userworkplaces/options`);
+    return this.http.get<IUserWorkplaceOptions>(`${userWorkplacesApiUrl}/userworkplaces/options`);
   }
 
   getUserWorkplace(id: number): Observable<IUserWorkplaceAddEdit> {
-    return this.http.get<IUserWorkplaceAddEdit>(`${apiUrl}/userworkplaces/${id}`);
+    return this.http.get<IUserWorkplaceAddEdit>(`${userWorkplacesApiUrl}/userworkplaces/${id}`);
   }
 
   createUserWorkplace(userWorkplace: IUserWorkplaceAddEdit) {
-    return this.http.post(`${apiUrl}/userworkplaces`, JSON.stringify(userWorkplace), requestHeaders);
+    return this.http.post(`${userWorkplacesApiUrl}/userworkplaces`, JSON.stringify(userWorkplace), requestHeaders);
   }
 
   editUserWorkplace(id: number, userWorkplace: IUserWorkplaceAddEdit) {
-    return this.http.put(`${apiUrl}/userworkplaces/${id}`, JSON.stringify(userWorkplace), requestHeaders);
+    return this.http.put(`${userWorkplacesApiUrl}/userworkplaces/${id}`, JSON.stringify(userWorkplace), requestHeaders);
   }
 
   deleteUserWorkplace(id: number) {
-    return this.http.delete(`${apiUrl}/userworkplaces/${id}`);
+    return this.http.delete(`${userWorkplacesApiUrl}/userworkplaces/${id}`);
   }
 }
