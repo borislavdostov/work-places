@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './something-went-wrong.component.html',
   styleUrls: ['./something-went-wrong.component.css']
 })
-export class SomethingWentWrongComponent{
+export class SomethingWentWrongComponent {
 
   @Input() show = false;
   @Input() message = '';
