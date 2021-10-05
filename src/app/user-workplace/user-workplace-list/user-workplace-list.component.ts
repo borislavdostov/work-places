@@ -65,8 +65,8 @@ export class UserWorkplaceListComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(
-      dialogResult => {
-        if (dialogResult?.confirmed) {
+      confirmed => {
+        if (confirmed) {
           this.getUserWorkplaces();
         }
       });
@@ -85,9 +85,9 @@ export class UserWorkplaceListComponent implements OnInit, AfterViewInit {
         });
 
         dialogRef.afterClosed().subscribe(
-          dialogResult => {
+          confirmed => {
             this.disabled = false;
-            if (dialogResult?.confirmed) {
+            if (confirmed) {
               this.getUserWorkplaces();
             }
           });
