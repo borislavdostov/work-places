@@ -96,4 +96,12 @@ describe('UserWorkplaceService', () => {
     mockHttp.expectOne(`${userWorkplacesApiUrl}/1`).flush(dummyUserWorkplace);
   });
 
+  it('should make post request when createUserWorkplace is called', () => {
+    service.createUserWorkplace(dummyUserWorkplace).subscribe();
+
+    const req = mockHttp.expectOne(userWorkplacesApiUrl);
+
+    expect(req.request.method).toBe("POST");
+  });
+
 });
