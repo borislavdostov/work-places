@@ -64,4 +64,12 @@ describe('UserWorkplaceService', () => {
     mockHttp.expectOne(userWorkplacesApiUrl).flush(dummyUserWorkplaces);
   });
 
+  it('should make get request when getUserWorkplaceOptions is called', () => {
+    service.getUserWorkplaceOptions().subscribe();
+
+    const req = mockHttp.expectOne(`${userWorkplacesApiUrl}/options`);
+
+    expect(req.request.method).toBe("GET");
+  });
+
 });
