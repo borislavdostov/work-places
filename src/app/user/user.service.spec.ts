@@ -44,7 +44,7 @@ describe('UserService', () => {
     mockHttp.expectOne(`${apiUrl}/users`).flush(dummyUsers);
   });
 
-  it('should return users correctly', () => {
+  it('should return users correctly when getUsers is called', () => {
     service.getUsers().subscribe(users => {
       expect(users).toEqual(dummyUsers);
     });
