@@ -88,4 +88,12 @@ describe('UserWorkplaceService', () => {
     expect(req.request.method).toBe("GET");
   });
 
+  it('should return user workplace correctly when getUserWorkplace is called', () => {
+    service.getUserWorkplace(1).subscribe(userWorkplace => {
+      expect(userWorkplace).toEqual(dummyUserWorkplace);
+    });
+
+    mockHttp.expectOne(`${userWorkplacesApiUrl}/1`).flush(dummyUserWorkplace);
+  });
+
 });
