@@ -72,14 +72,14 @@ export class UserWorkplaceListComponent implements OnInit, AfterViewInit {
       });
   }
 
-  openEditUserWorkplaceDialog(userWorkplaceId: number) {
+  openEditUserWorkplaceDialog(userWorkplaceToEdit: IUserWorkplace) {
     this.disabled = true;
-    this.userWorkplaceService.getUserWorkplace(userWorkplaceId).subscribe(
+    this.userWorkplaceService.getUserWorkplace(userWorkplaceToEdit.id).subscribe(
       userWorkplace => {
         let dialogRef = this.addEditWorkplaceDialog.open(AddEditUserWorkplaceDialogComponent, {
           data: {
-            title: `Edit Workplace`,
-            userWorkplaceId: userWorkplaceId,
+            title: `Edit Workplace ${userWorkplaceToEdit.workplace} for user ${userWorkplaceToEdit.user}`,
+            userWorkplaceId: userWorkplaceToEdit.id,
             userWorkplace: userWorkplace
           }
         });
@@ -95,7 +95,7 @@ export class UserWorkplaceListComponent implements OnInit, AfterViewInit {
       () => {
         this.disabled = false;
         let snackBarRef = this.snackBar.open("Error editing workplace!", "RETRY", { duration: snackBarDuration });
-        snackBarRef.onAction().subscribe(() => this.openEditUserWorkplaceDialog(userWorkplaceId));
+        snackBarRef.onAction().subscribe(() => this.openEditUserWorkplaceDialog(userWorkplaceToEdit));
       });
   }
 
