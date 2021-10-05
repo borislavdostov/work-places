@@ -29,7 +29,7 @@ describe('UserService', () => {
 
   it('should make get request', () => {
     service.getUsers().subscribe();
-    
+
     const req = mockHttp.expectOne(`${apiUrl}/users`);
     req.flush(dummyUsers);
 
@@ -41,8 +41,15 @@ describe('UserService', () => {
       expect(users.length).toBe(3);
     });
 
-    const req = mockHttp.expectOne(`${apiUrl}/users`);
-    req.flush(dummyUsers);
+    mockHttp.expectOne(`${apiUrl}/users`).flush(dummyUsers);
   });
-  
+
+  it('should return users correctly', () => {
+    service.getUsers().subscribe(users => {
+      expect(users).toEqual(dummyUsers);
+    });
+
+    mockHttp.expectOne(`${apiUrl}/users`).flush(dummyUsers);
+  });
+
 });
