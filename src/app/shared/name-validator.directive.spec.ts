@@ -25,7 +25,7 @@ describe('NameValidatorDirective', () => {
     expect(directive.validate(formControl)).toEqual({ nameValidator: true });
   });
 
-  it('should return null when name is not set', () => {
+  it('should return null when name is empty string', () => {
     let formControl = new FormControl('');
 
     expect(directive.validate(formControl)).toEqual(null);
