@@ -82,4 +82,12 @@ describe('UserService', () => {
     expect(req.request.method).toBe("POST");
   });
 
+  it('should make put request when editUser is called', () => {
+    service.editUser(1, dummyUser).subscribe();
+
+    const req = mockHttp.expectOne(`${apiUrl}/users/1`);
+
+    expect(req.request.method).toBe("PUT");
+  });
+
 });
