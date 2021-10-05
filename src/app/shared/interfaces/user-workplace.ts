@@ -3,5 +3,5 @@ export interface IUserWorkplace {
     user: string,
     workplace: string,
     fromDate: string,
-    todate: string
+    toDate: string
 }
