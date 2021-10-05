@@ -17,26 +17,26 @@ export class UserWorkplaceService {
   constructor(private http: HttpClient) { }
 
   getUserWorkplaces(): Observable<IUserWorkplace[]> {
-    return this.http.get<IUserWorkplace[]>(`${userWorkplacesApiUrl}/userworkplaces`);
+    return this.http.get<IUserWorkplace[]>(userWorkplacesApiUrl);
   }
 
   getUserWorkplaceOptions(): Observable<IUserWorkplaceOptions> {
-    return this.http.get<IUserWorkplaceOptions>(`${userWorkplacesApiUrl}/userworkplaces/options`);
+    return this.http.get<IUserWorkplaceOptions>(`${userWorkplacesApiUrl}/options`);
   }
 
   getUserWorkplace(id: number): Observable<IUserWorkplaceAddEdit> {
-    return this.http.get<IUserWorkplaceAddEdit>(`${userWorkplacesApiUrl}/userworkplaces/${id}`);
+    return this.http.get<IUserWorkplaceAddEdit>(`${userWorkplacesApiUrl}/${id}`);
   }
 
   createUserWorkplace(userWorkplace: IUserWorkplaceAddEdit) {
-    return this.http.post(`${userWorkplacesApiUrl}/userworkplaces`, JSON.stringify(userWorkplace), requestHeaders);
+    return this.http.post(userWorkplacesApiUrl, JSON.stringify(userWorkplace), requestHeaders);
   }
 
   editUserWorkplace(id: number, userWorkplace: IUserWorkplaceAddEdit) {
-    return this.http.put(`${userWorkplacesApiUrl}/userworkplaces/${id}`, JSON.stringify(userWorkplace), requestHeaders);
+    return this.http.put(`${userWorkplacesApiUrl}/${id}`, JSON.stringify(userWorkplace), requestHeaders);
   }
 
   deleteUserWorkplace(id: number) {
-    return this.http.delete(`${userWorkplacesApiUrl}/userworkplaces/${id}`);
+    return this.http.delete(`${userWorkplacesApiUrl}/${id}`);
   }
 }
