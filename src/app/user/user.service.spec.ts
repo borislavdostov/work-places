@@ -15,6 +15,12 @@ describe('UserService', () => {
     { id: 3, name: "Simon", email: "example@email.com", age: 19 },
   ];
 
+  let dummyAddEditUsers = [
+    { firstName: "John", lastName: 'Smith', email: "example@email.com", dateOfBirth: '22-11-2000' },
+    { firstName: "Peter", lastName: 'Parker', email: "example@email.com", dateOfBirth: '3-5-1997' },
+    { firstName: "Simon", lastName: 'Hill', email: "example@email.com", dateOfBirth: '17-12-1866' },
+  ];
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule]
@@ -59,6 +65,14 @@ describe('UserService', () => {
     req.flush(dummyUsers);
 
     expect(req.request.method).toBe("GET");
+  });
+
+  it('should return user correctly when getUser is called', () => {
+    service.getUser(1).subscribe(user => {
+      expect(user).toEqual(dummyAddEditUsers[0]);
+    });
+
+    mockHttp.expectOne(`${apiUrl}/users/1`).flush(dummyAddEditUsers[0]);
   });
 
 });
