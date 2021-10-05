@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { UserWorkplaceService } from './user-workplace.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 
 describe('UserWorkplaceService', () => {
   let service: UserWorkplaceService;
+  let mockHttp: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
