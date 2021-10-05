@@ -4,6 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { environment } from 'src/environments/environment';
 
 const apiUrl = environment.apiUrl;
+const userWorkplacesApiUrl = `${apiUrl}/userworkplaces`;
 
 describe('UserWorkplaceService', () => {
   let service: UserWorkplaceService;
@@ -37,8 +38,17 @@ describe('UserWorkplaceService', () => {
   it('should make get request when getUserWorkplaces is called', () => {
     service.getUserWorkplaces().subscribe();
 
-    const req = mockHttp.expectOne(`${apiUrl}/userworkplaces`);
+    const req = mockHttp.expectOne(userWorkplacesApiUrl);
 
     expect(req.request.method).toBe("GET");
   });
+
+  it('should return user workplaces count correctly when getUserWorkplaces is called', () => {
+    service.getUserWorkplaces().subscribe(userWorkplaces => {
+      expect(userWorkplaces.length).toBe(3);
+    });
+
+    mockHttp.expectOne(userWorkplacesApiUrl).flush(dummyUserWorkplaces);
+  });
+
 });
