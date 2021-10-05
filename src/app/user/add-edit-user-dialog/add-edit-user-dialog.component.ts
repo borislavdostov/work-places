@@ -72,7 +72,7 @@ export class AddEditUserDialogComponent {
   }
 
   closeDialog() {
-    this.dialogRef.close({ confirmed: true });
+    this.dialogRef.close(true);
   }
 
 }
