@@ -65,8 +65,8 @@ export class UserListComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(
-      dialogResult => {
-        if (dialogResult?.confirmed) {
+      confirmed => {
+        if (confirmed) {
           this.getUsers();
         }
       });
@@ -85,9 +85,9 @@ export class UserListComponent implements OnInit, AfterViewInit {
         });
 
         dialogRef.beforeClosed().subscribe(
-          dialogResult => {
+          confirmed => {
             this.disabled = false;
-            if (dialogResult?.confirmed) {
+            if (confirmed) {
               this.getUsers();
             }
           });
