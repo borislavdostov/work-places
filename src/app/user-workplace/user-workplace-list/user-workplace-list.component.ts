@@ -78,7 +78,7 @@ export class UserWorkplaceListComponent implements OnInit, AfterViewInit {
       userWorkplace => {
         let dialogRef = this.addEditWorkplaceDialog.open(AddEditUserWorkplaceDialogComponent, {
           data: {
-            title: `Edit Workplace`,
+            title: `Edit Workplace` + userWorkplace,
             userWorkplaceId: userWorkplaceId,
             userWorkplace: userWorkplace
           }
