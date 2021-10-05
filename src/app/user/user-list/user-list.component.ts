@@ -58,7 +58,8 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   openNewUserDialog() {
-    let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, { data: { isCreate: true } });
+    let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent,
+      { data: { isCreate: true } });
 
     dialogRef.afterClosed().subscribe(
       confirmed => {
@@ -74,9 +75,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
       user => {
         let dialogRef = this.addEditUserDialog.open(AddEditUserDialogComponent, {
           data: {
-            title: `Edit User ${user.firstName} ${user.lastName}`,
-            userId: userId,
-            user: user
+            title: `Edit User ${user.firstName} ${user.lastName}`, userId: userId, user: user
           }
         });
 
