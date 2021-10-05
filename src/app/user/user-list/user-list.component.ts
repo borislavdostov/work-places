@@ -114,14 +114,14 @@ export class UserListComponent implements OnInit, AfterViewInit {
       });
   }
 
-  deleteUser(id: number) {
-    this.userService.deleteUser(id).subscribe(
+  deleteUser(userId: number) {
+    this.userService.deleteUser(userId).subscribe(
       () => {
         this.getUsers();
       },
       () => {
         let snackBarRef = this.snackBar.open('Error deleting user!', 'RETRY', { duration: snackBarDuration });
-        snackBarRef.onAction().subscribe(() => this.deleteUser(id));
+        snackBarRef.onAction().subscribe(() => this.deleteUser(userId));
       });
   }
 
