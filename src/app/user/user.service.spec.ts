@@ -29,13 +29,20 @@ describe('UserService', () => {
 
   it('should make get request', () => {
     service.getUsers().subscribe();
+    
     const req = mockHttp.expectOne(`${apiUrl}/users`);
-
     req.flush(dummyUsers);
 
     expect(req.request.method).toBe("GET");
   });
 
+  it('should return users count correctly', () => {
+    service.getUsers().subscribe(users => {
+      expect(users.length).toBe(3);
+    });
 
+    const req = mockHttp.expectOne(`${apiUrl}/users`);
+    req.flush(dummyUsers);
+  });
   
 });
