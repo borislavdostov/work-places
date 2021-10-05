@@ -6,6 +6,14 @@ describe('UserWorkplaceService', () => {
   let service: UserWorkplaceService;
   let mockHttp: HttpTestingController;
 
+  let dummyUserWorkplaces = [
+    { id: 1, user: 'John', workplace: 'Web Developer', fromDate: '12-10-2014', toDate: '16-10-2023' },
+    { id: 2, user: 'Peter', workplace: 'QA Specialist', fromDate: '22-8-2018', toDate: '31-10-2021' },
+    { id: 3, user: 'Simon', workplace: 'Mobile Developer', fromDate: '3-7-2019', toDate: '3-3-2024' },
+  ];
+
+
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule]
