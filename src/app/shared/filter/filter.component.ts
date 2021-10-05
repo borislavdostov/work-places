@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class FilterComponent {
 
   @Input() dataSource!: MatTableDataSource<any>;
-  @Input() title = '';
+  @Input() title!: string;
 
   constructor() { }
 
