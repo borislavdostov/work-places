@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class SomethingWentWrongComponent {
 
   @Input() show = false;
-  @Input() message = '';
+  @Input() message!: string;
   @Output() tryAgainEmitter = new EventEmitter();
 
   constructor() { }
