@@ -90,4 +90,12 @@ describe('UserService', () => {
     expect(req.request.method).toBe("PUT");
   });
 
+  it('should make delete request when deleteUser is called', () => {
+    service.deleteUser(1).subscribe();
+
+    const req = mockHttp.expectOne(`${apiUrl}/users/1`);
+
+    expect(req.request.method).toBe("DELETE");
+  });
+
 });
