@@ -104,4 +104,12 @@ describe('UserWorkplaceService', () => {
     expect(req.request.method).toBe("POST");
   });
 
+  it('should make put request when editUserWorkplace is called', () => {
+    service.editUserWorkplace(1, dummyUserWorkplace).subscribe();
+
+    const req = mockHttp.expectOne(`${userWorkplacesApiUrl}/1`);
+
+    expect(req.request.method).toBe("PUT");
+  });
+
 });
