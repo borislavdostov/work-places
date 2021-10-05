@@ -12,7 +12,12 @@ describe('UserWorkplaceService', () => {
     { id: 3, user: 'Simon', workplace: 'Mobile Developer', fromDate: '3-7-2019', toDate: '3-3-2024' },
   ];
 
-
+  let dummyUserWorkplace = {
+    userId: 1,
+    workplaceId: 2,
+    fromDate: '1-8-2014',
+    toDate: '14-12-2024'
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
